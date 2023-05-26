@@ -28,10 +28,10 @@ public class PaintBucketMode : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, 10);
                 if (hit.collider != null)
                 {
-                    if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Interactable"))
+                    if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Collectible"))
                     {
                         Debug.Log("Hit 2D collider: " + hit.collider.name);
                         hit.collider.GetComponent<Interaction>().colorIn(currentColor);
