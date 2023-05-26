@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class PaintBucketMode : MonoBehaviour
     public string currentColor;
     private bool playerMovementEnabled;
     public Animator buttonAnimator;
+
+    public event PaintBucketDelegate ColoringModeOnEvent;
+    public delegate void PaintBucketDelegate(string color, bool on);
 
     void Start()
     {
@@ -22,7 +26,8 @@ public class PaintBucketMode : MonoBehaviour
         {
             if (playerMovementEnabled)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PointAndClickController>().enabled = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>().enabled = false;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InteractionController>().enabled = false;
                 playerMovementEnabled = false;
             }
             if (Input.GetMouseButtonDown(0))
@@ -34,7 +39,7 @@ public class PaintBucketMode : MonoBehaviour
                     if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Collectible"))
                     {
                         Debug.Log("Hit 2D collider: " + hit.collider.name);
-                        hit.collider.GetComponent<Interaction>().colorIn(currentColor);
+                        hit.collider.GetComponent<Coloring>().colorIn(currentColor);
                     }
                 }
             }
@@ -43,7 +48,8 @@ public class PaintBucketMode : MonoBehaviour
         {
             if (!playerMovementEnabled)
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PointAndClickController>().enabled = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<MovementController>().enabled = true;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<InteractionController>().enabled = true;
                 playerMovementEnabled = true;
             }
         }
@@ -62,10 +68,12 @@ public class PaintBucketMode : MonoBehaviour
             paintBucketModeOn = true;
             buttonAnimator.SetBool("ColorModeOn", true);
         }
+        ColoringModeOnEvent?.Invoke(currentColor, paintBucketModeOn);
     }
 
     public void changeColor(string color)
     {
         currentColor = color;
+        ColoringModeOnEvent?.Invoke(currentColor, paintBucketModeOn);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PointAndClickController : MonoBehaviour
+public class MovementController : MonoBehaviour
 {
     public float speed;
     private Vector2 followSpot;
