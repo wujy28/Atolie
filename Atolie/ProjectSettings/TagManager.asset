@@ -7,7 +7,7 @@ TagManager:
   - Boundary
   - Interactable
   - Collectible
-  - Colorable
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -51,11 +51,20 @@ TagManager:
   - name: Interactables
     uniqueID: 214092951
     locked: 0
-  - name: Foreground
-    uniqueID: 2381692011
+  - name: Midground
+    uniqueID: 3115370827
+    locked: 0
+  - name: NPC
+    uniqueID: 3420857839
     locked: 0
   - name: Player
     uniqueID: 2285242859
+    locked: 0
+  - name: Interactables (Top)
+    uniqueID: 3504132473
+    locked: 0
+  - name: Foreground
+    uniqueID: 2381692011
     locked: 0
   - name: UI
     uniqueID: 935460165
