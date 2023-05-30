@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Controller system that might be implemented for interactions.
+/// Idk yet though.
+/// </summary>
 public class EventClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public void OnPointerDown(PointerEventData eventData)

@@ -2,9 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Point and click controller for interactions in the game.
+/// Uses Raycast to determine object underneath cursor.
+/// System might be changed in the future.
+/// </summary>
 public class InteractionController : MonoBehaviour
 {
-
+    /// <summary>
+    /// The current target object to interact with.
+    /// </summary>
     private GameObject currentTarget;
 
     // Start is called before the first frame update
@@ -16,18 +23,25 @@ public class InteractionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If Left Click
         if (Input.GetMouseButtonDown(0))
         {
+            // Create a ray at the position of the mouse cursor
+            // Get the topmost object (I think) that the ray hit (maximum depth of 10)
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, 10);
             if (hit.collider != null)
             {
                 if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Collectible"))
                 {
+                    // Set current target to this interactable
                     currentTarget = hit.collider.gameObject;
                     Debug.Log("Hit 2D collider: " + hit.collider.name);
+                    // Only if the interaction script of the interactable is enabled.
+                    // In most cases it is only enabled if it is colored in.
                     if (currentTarget.GetComponent<Interaction>().enabled)
                     {
+                        // Tell the interactable to tag itself to the player
                         currentTarget.GetComponent<Interaction>().tagObjectToPlayer();
                     }
                 }
@@ -35,6 +49,9 @@ public class InteractionController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Tell interactable to enter interaction when player has reached the interactable.
+    /// </summary>
     public void reachedCurrentTarget()
     {
         if (currentTarget.GetComponent<Interaction>().enabled)
@@ -43,13 +60,22 @@ public class InteractionController : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Changes the current target to the new specified one.
+    /// </summary>
+    /// <param name="target"></param> The new target
     public void setCurrentTarget(GameObject target)
     {
+        // Tells the previous interactable to exit interaction?
+        // Not sure whether this actually works properly
         currentTarget.GetComponent<Interaction>().exitInteraction();
         currentTarget = target;
     }
 
+    /// <summary>
+    /// Returns the current target of the player.
+    /// </summary>
+    /// <returns></returns> The current target interactable
     public GameObject getCurrentTarget()
     {
         return currentTarget;

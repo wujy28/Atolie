@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Future Game Manager???
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     private bool coloringMode;

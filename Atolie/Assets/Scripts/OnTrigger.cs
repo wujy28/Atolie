@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Detects when player has entered trigger zone of world boundary for 2D world (city).
+/// Does not actually stop player from phasing through the wall lol.
+/// </summary>
 public class OnTrigger : MonoBehaviour
 {
     public GameObject player;
@@ -15,6 +19,7 @@ public class OnTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            // Tells player to stop moving.
             player.GetComponent<MovementController2D>().stopMoving();
         }
     }
