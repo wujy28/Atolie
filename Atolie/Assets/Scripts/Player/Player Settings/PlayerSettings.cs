@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,6 +23,36 @@ public class PlayerSettings : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+    }
+
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.MainMenu:
+                break;
+            case GameState.Exploration:
+                resumePlayer();
+                break;
+            case GameState.Interaction:
+                pausePlayer();
+                break;
+            case GameState.PaintBucketMode:
+                pausePlayer();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,12 +61,14 @@ public class PlayerSettings : MonoBehaviour
 
     public void pausePlayer()
     {
+        Debug.Log("Player Paused");
         disablePlayerInteraction();
         disablePlayerMovement();
     }
 
     public void resumePlayer()
     {
+        Debug.Log("Player Resumed");
         enablePlayerInteraction();
         enablePlayerMovement();
     }

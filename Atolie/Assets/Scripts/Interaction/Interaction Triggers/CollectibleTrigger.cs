@@ -79,7 +79,7 @@ public class CollectibleTrigger : InteractionTrigger
     }
     */
 
-    override public void OnPointerEnter(PointerEventData eventData)
+    public override void changeCursor()
     {
         getCursorController().setCollectibleCursor();
     }

@@ -7,34 +7,55 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
 {
     [SerializeField] private Interaction currentInteraction;
 
-    CursorController cursorController;
+    private CursorController cursorController;
+
+    [SerializeField] public static bool interactionsAllowed;
 
     public void interact()
     {
-        if (currentInteraction != null)
-        {
-            InteractionManager.Instance.playInteraction(currentInteraction);
-        } else
-        {
-            Debug.Log("No Interaction Assigned");
-        }
+            if (currentInteraction != null)
+            {
+                InteractionManager.Instance.playInteraction(currentInteraction);
+            }
+            else
+            {
+                Debug.Log("No Interaction Assigned");
+            }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        setTarget();
+        if (interactionsAllowed)
+        {
+            setTarget();
+        }
     }
 
-    public abstract void OnPointerEnter(PointerEventData eventData);
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (interactionsAllowed)
+        {
+            changeCursor();
+        }
+    }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        cursorController.setDefaultCursor();
+            cursorController.setDefaultCursor();
     }
+
+
+    // Alternatively, make this class not abstract, remove all subclasses and
+    // use a switch statement in OnPointerEnter instead (if no
+    // new methods are added to differentiate)
+    public abstract void changeCursor();
 
     public void setTarget()
     {
-        InteractionManager.Instance.setCurrentTarget(transform);
+        if (interactionsAllowed)
+        {
+            InteractionManager.Instance.setCurrentTarget(transform);
+        }
     }
 
     public CursorController getCursorController()
@@ -45,6 +66,11 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
     public void setCurrentInteraction(Interaction newInteraction)
     {
         currentInteraction = newInteraction;
+    }
+
+    private void Start()
+    {
+        interactionsAllowed = true;
     }
 
     // Start is called before the first frame update

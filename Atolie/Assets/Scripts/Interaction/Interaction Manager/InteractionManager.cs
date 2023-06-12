@@ -15,15 +15,13 @@ public class InteractionManager : MonoBehaviour
 
     private Transform player;
     private PlayerInteraction playerInteraction;
-    private PlayerSettings playerSettings;
+    // private PlayerSettings playerSettings;
 
     [SerializeField] private bool inInteraction;
     [SerializeField] private Transform currentTarget;
     [SerializeField] private Queue<InteractionExecutable> currentInteraction;
 
     public static InteractionManager Instance { get; private set; }
-
-    public static Action InteractWith;
 
     private void Awake()
     {
@@ -36,14 +34,41 @@ public class InteractionManager : MonoBehaviour
         }
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerInteraction = player.GetComponent<PlayerInteraction>();
-        playerSettings = player.GetComponent<PlayerSettings>();
+        // playerSettings = player.GetComponent<PlayerSettings>();
         currentTarget = null;
         inInteraction = false;
         currentInteraction = new Queue<InteractionExecutable>();
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+
     }
 
     private void Update()
     {
+    }
+
+    public void GameManager_OnGameStateChanged(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.MainMenu:
+                break;
+            case GameState.Exploration:
+                InteractionTrigger.interactionsAllowed = true;
+                break;
+            case GameState.Interaction:
+                InteractionTrigger.interactionsAllowed = false;
+                break;
+            case GameState.PaintBucketMode:
+                InteractionTrigger.interactionsAllowed = false;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
     }
 
     public void setCurrentTarget(Transform newTarget)
@@ -62,7 +87,8 @@ public class InteractionManager : MonoBehaviour
     {
         if (!inInteraction)
         {
-            playerSettings.pausePlayer();
+            GameManager.Instance.UpdateGameState(GameState.Interaction);
+            // playerSettings.pausePlayer();
             InteractionTrigger interactionTrigger = currentTarget.GetComponent<InteractionTrigger>();
             interactionTrigger.interact();
             inInteraction = true;
@@ -71,9 +97,11 @@ public class InteractionManager : MonoBehaviour
 
     public void exitInteraction()
     {
+        Debug.Log("Interaction Exited");
         if(inInteraction)
         {
-            playerSettings.resumePlayer();
+            // playerSettings.resumePlayer();
+            GameManager.Instance.UpdateGameState(GameState.Exploration);
             removeTarget();
             inInteraction = false;
         }

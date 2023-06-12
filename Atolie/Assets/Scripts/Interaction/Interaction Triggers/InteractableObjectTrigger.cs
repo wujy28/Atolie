@@ -79,7 +79,7 @@ public class InteractableObjectTrigger : InteractionTrigger
     }
     */
 
-    override public void OnPointerEnter(PointerEventData eventData)
+    public override void changeCursor()
     {
         getCursorController().setInteractableCursor();
     }

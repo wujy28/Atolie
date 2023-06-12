@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,19 +8,73 @@ using UnityEngine;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    private bool coloringMode;
+    public static GameManager Instance;
 
-    void Start()
+    public GameState State;
+
+    public static event Action<GameState> OnGameStateChanged;
+
+    void Awake()
     {
-        coloringMode = false;
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        if (coloringMode)
+        // Will be MainMenu when that has been implemented
+        UpdateGameState(GameState.Exploration);
+    }
+
+    public void UpdateGameState(GameState newState)
+    {
+        State = newState;
+
+        switch (newState)
         {
-
+            case GameState.MainMenu:
+                HandleMainMenu();
+                break;
+            case GameState.Exploration:
+                HandleExploration();
+                break;
+            case GameState.Interaction:
+                HandleInteraction();
+                break;
+            case GameState.PaintBucketMode:
+                HandlePaintBucketMode();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
+
+        OnGameStateChanged?.Invoke(newState);
     }
+
+    private void HandleMainMenu()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void HandleExploration()
+    {
+
+    }
+
+    private void HandleInteraction()
+    {
+
+    }
+
+    private void HandlePaintBucketMode()
+    {
+
+    }
+}
+
+public enum GameState
+{
+    MainMenu,
+    Exploration,
+    Interaction,
+    PaintBucketMode
 }

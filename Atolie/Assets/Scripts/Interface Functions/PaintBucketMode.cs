@@ -73,16 +73,22 @@ public class PaintBucketMode : MonoBehaviour
         playerSettings = player.GetComponent<PlayerSettings>();
     }
 
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+    }
+
     // Tbh I'm pretty sure there's a better way to do this than to check every
     // frame whether paint bucket mode is on lol (maybe the event system thingy)
     void Update()
     {
         if (paintBucketModeOn)
         {
-            if (playerSettings.playerMovementEnabled())
-            {
-                playerSettings.pausePlayer();
-            }
             // If Left Click
             if (Input.GetMouseButtonDown(0))
             {
@@ -101,14 +107,6 @@ public class PaintBucketMode : MonoBehaviour
                 }
             }
         }
-        if (!paintBucketModeOn)
-        {
-            if (!playerSettings.playerMovementEnabled())
-            {
-                playerSettings.resumePlayer();
-            }
-        }
-        
     }
 
     /// <summary>
@@ -118,12 +116,12 @@ public class PaintBucketMode : MonoBehaviour
     {
         if (paintBucketModeOn)
         {
-            paintBucketModeOn = false;
+            GameManager.Instance.UpdateGameState(GameState.Exploration);
             buttonAnimator.SetBool("ColorModeOn", false);
         }
         else
         {
-            paintBucketModeOn = true;
+            GameManager.Instance.UpdateGameState(GameState.PaintBucketMode);
             buttonAnimator.SetBool("ColorModeOn", true);
         }
         // Notifies subscribers of the state of Paint Bucket Mode and current selected color
@@ -140,5 +138,25 @@ public class PaintBucketMode : MonoBehaviour
         currentColor = color;
         // Notifies/updates subscribers of the change in current selected color
         ColoringModeOnEvent?.Invoke(currentColor, paintBucketModeOn);
+    }
+
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.MainMenu:
+                break;
+            case GameState.Exploration:
+                paintBucketModeOn = false;
+                break;
+            case GameState.Interaction:
+                paintBucketModeOn = false;
+                break;
+            case GameState.PaintBucketMode:
+                paintBucketModeOn = true;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
     }
 }

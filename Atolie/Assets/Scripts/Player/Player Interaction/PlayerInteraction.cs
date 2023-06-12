@@ -60,6 +60,7 @@ public class PlayerInteraction : MonoBehaviour
         if (currentTarget != null)
         {
             Collider2D hit = Physics2D.OverlapCircle(transform.position, 1.5f, LayerMask.GetMask("Game World"));
+            Debug.Log("Hit: " + hit.name);
             if (hit.CompareTag("Interactable") && hit.transform == currentTarget)
             {
                 Debug.Log("Reached " + hit.name);
