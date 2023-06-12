@@ -28,7 +28,7 @@ public class Coloring : MonoBehaviour
         if (!coloredIn)
         {
             // If not colored in, disable Interaction script and trigger zone.
-            gameObject.GetComponent<Interaction>().enabled = false;
+            gameObject.GetComponent<InteractionTrigger>().enabled = false;
             gameObject.GetComponent<PolygonCollider2D>().isTrigger = false;
         }
     }
@@ -51,7 +51,7 @@ public class Coloring : MonoBehaviour
             // Changes to colored in sprite animation
             GetComponent<Animator>().SetBool("IsColoredIn", true);
             // Enables interaction and trigger zone
-            gameObject.GetComponent<Interaction>().enabled = true;
+            gameObject.GetComponent<InteractionTrigger>().enabled = true;
             gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
             // Unsubscribes from Paint Bucket's information channel
             PaintBucketMode paintBucketMode = GameObject.Find("PaintBucket").GetComponent<PaintBucketMode>();

@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Encapsulates the interaction of an interactable in the game.
 /// Right now interactions are just dummy ones, and the system
 /// will probably be changed later.
 /// </summary>
-public class Interaction : MonoBehaviour
+public class CollectibleTrigger : InteractionTrigger
 {
+    /*
     GameObject player;
 
     // Start is called before the first frame update
@@ -29,7 +31,7 @@ public class Interaction : MonoBehaviour
     public void tagObjectToPlayer()
     {
         // Sets this interactable as the player's current target interactable
-        player.GetComponent<InteractionController>().setCurrentTarget(gameObject);
+        player.GetComponent<PlayerInteraction>().setCurrentTarget(transform);
     }
 
     /// <summary>
@@ -38,11 +40,11 @@ public class Interaction : MonoBehaviour
     /// <param name="collision"></param> The collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && player.GetComponent<InteractionController>().getCurrentTarget().Equals(gameObject))
+        if (collision.CompareTag("Player") && player.GetComponent<PlayerInteraction>().getCurrentTarget().Equals(gameObject))
         {
             Debug.Log("Interact with " + gameObject.name);
             // Tells player that current target interactable has been reached.
-            player.GetComponent<InteractionController>().reachedCurrentTarget();
+            player.GetComponent<PlayerInteraction>().reachedCurrentTarget();
         }
     }
 
@@ -74,5 +76,11 @@ public class Interaction : MonoBehaviour
     {
         // Hide dummy interaction green box.
         transform.Find("Dummy Interact").GetComponent<SpriteRenderer>().enabled = false;
+    }
+    */
+
+    override public void OnPointerEnter(PointerEventData eventData)
+    {
+        getCursorController().setCollectibleCursor();
     }
 } 

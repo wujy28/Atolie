@@ -7,15 +7,22 @@ using UnityEngine;
 /// Uses Raycast to determine object underneath cursor.
 /// System might be changed in the future.
 /// </summary>
-public class InteractionController : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour
 {
     /// <summary>
     /// The current target object to interact with.
     /// </summary>
-    private GameObject currentTarget;
+    [SerializeField] private Transform currentTarget;
+    private InteractionManager interactionManager;
 
     // Start is called before the first frame update
     void Start()
+    {
+        currentTarget = null;
+        interactionManager = InteractionManager.Instance;
+    }
+
+    void Awake()
     {
         currentTarget = null;
     }
@@ -23,6 +30,7 @@ public class InteractionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         // If Left Click
         if (Input.GetMouseButtonDown(0))
         {
@@ -47,8 +55,27 @@ public class InteractionController : MonoBehaviour
                 }
             }
         }
+        */
+
+        if (currentTarget != null)
+        {
+            Collider2D hit = Physics2D.OverlapCircle(transform.position, 1.5f, LayerMask.GetMask("Game World"));
+            if (hit.CompareTag("Interactable") && hit.transform == currentTarget)
+            {
+                Debug.Log("Reached " + hit.name);
+                interactionManager.enterInteraction();
+                currentTarget = null;
+            }
+        }
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 1.5f);
+    }
+
+    /*
     /// <summary>
     /// Tell interactable to enter interaction when player has reached the interactable.
     /// </summary>
@@ -59,16 +86,16 @@ public class InteractionController : MonoBehaviour
             currentTarget.GetComponent<Interaction>().enterInteraction();
         }
     }
+    */
 
     /// <summary>
     /// Changes the current target to the new specified one.
     /// </summary>
     /// <param name="target"></param> The new target
-    public void setCurrentTarget(GameObject target)
+    public void setCurrentTarget(Transform target)
     {
         // Tells the previous interactable to exit interaction?
         // Not sure whether this actually works properly
-        currentTarget.GetComponent<Interaction>().exitInteraction();
         currentTarget = target;
     }
 
@@ -76,7 +103,7 @@ public class InteractionController : MonoBehaviour
     /// Returns the current target of the player.
     /// </summary>
     /// <returns></returns> The current target interactable
-    public GameObject getCurrentTarget()
+    public Transform getCurrentTarget()
     {
         return currentTarget;
     }

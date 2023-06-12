@@ -21,19 +21,15 @@ public class PaintBucketMode : MonoBehaviour
     public string currentColor;
 
     /// <summary>
-    /// Whether player movement is currently enabled.
-    /// </summary>
-    private bool playerMovementEnabled;
-
-    /// <summary>
     /// The animator associated with the Paint Bucket Button.
     /// </summary>
     public Animator buttonAnimator;
 
+    /*
     /// <summary>
     /// The interaction controller of the player.
     /// </summary>
-    private InteractionController interactionController;
+    private PlayerInteraction interactionController;
 
     /// <summary>
     /// The movement controller 2D of the player.
@@ -44,11 +40,14 @@ public class PaintBucketMode : MonoBehaviour
     /// The movement controller 2.5D of the player.
     /// </summary>
     private MovementController movementController;
+    */
 
     /// <summary>
     /// The player.
     /// </summary>
-    private GameObject player;
+    private Transform player;
+
+    private PlayerSettings playerSettings;
 
     /* This creates an 'information publisher' that tells subscribers
      * when Paint Bucket Mode is on and the current selected color of the
@@ -70,17 +69,8 @@ public class PaintBucketMode : MonoBehaviour
     {
         paintBucketModeOn = false;
         currentColor = "noColor";
-        playerMovementEnabled = true;
-        player = GameObject.FindGameObjectWithTag("Player");
-        interactionController = player.GetComponent<InteractionController>();
-        // Finds movement controller 2D or 2.5D depending on which one is present
-        if (player.TryGetComponent<MovementController2D>(out MovementController2D controller))
-        {
-            movementController2D = controller;
-        } else
-        {
-            movementController = player.GetComponent<MovementController>();
-        }
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerSettings = player.GetComponent<PlayerSettings>();
     }
 
     // Tbh I'm pretty sure there's a better way to do this than to check every
@@ -89,11 +79,9 @@ public class PaintBucketMode : MonoBehaviour
     {
         if (paintBucketModeOn)
         {
-            if (playerMovementEnabled)
+            if (playerSettings.playerMovementEnabled())
             {
-                disablePlayerMovement();
-                interactionController.enabled = false;
-                playerMovementEnabled = false;
+                playerSettings.pausePlayer();
             }
             // If Left Click
             if (Input.GetMouseButtonDown(0))
@@ -101,7 +89,7 @@ public class PaintBucketMode : MonoBehaviour
                 // Create a ray at the position of the mouse cursor
                 // Get the topmost object (I think) that the ray hit (maximum depth of 10)
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, 10);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, 10, LayerMask.GetMask("Game World"));
                 if (hit.collider != null)
                 {
                     if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Collectible"))
@@ -115,44 +103,12 @@ public class PaintBucketMode : MonoBehaviour
         }
         if (!paintBucketModeOn)
         {
-            if (!playerMovementEnabled)
+            if (!playerSettings.playerMovementEnabled())
             {
-                enablePlayerMovement();
-                interactionController.enabled = true;
-                playerMovementEnabled = true;
+                playerSettings.resumePlayer();
             }
         }
         
-    }
-
-    /// <summary>
-    /// Disables the movement controller of the player.
-    /// </summary>
-    private void disablePlayerMovement()
-    {
-        if (movementController != null)
-        {
-            movementController.enabled = false;
-        }
-        if (movementController2D != null)
-        {
-            movementController2D.enabled = false;
-        }
-    }
-
-    /// <summary>
-    /// Enables the movement controller of the player.
-    /// </summary>
-    private void enablePlayerMovement()
-    {
-        if (movementController != null)
-        {
-            movementController.enabled = true;
-        }
-        if (movementController2D != null)
-        {
-            movementController2D.enabled = true;
-        }
     }
 
     /// <summary>
