@@ -9,12 +9,31 @@ public class InventoryManager : MonoBehaviour
 
     int selectedSlot = -1;
 
+    InventorySlot selectedObject;
+
     private void Update()
     {
-        
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Collider2D targetObject = Physics2D.OverlapPoint(mousePosition);
+
+            if (targetObject)
+            {
+                selectedObject = targetObject.transform.gameObject.GetComponent<InventorySlot>();
+            }
+
+            int index = System.Array.IndexOf(inventorySlots, selectedObject);
+            
+            if (index >= 0 && index < inventorySlots.Length)
+            {
+                ChangeSelectedSlot(index);
+            }
+        }
     }
 
-    //This func not used yet since I haven't implemented selecting inventory slot based on mouse click detection :(
+    //changes the inventory slot selected
     void ChangeSelectedSlot(int newValue)
     {
         if (selectedSlot >= 0)
@@ -26,9 +45,10 @@ public class InventoryManager : MonoBehaviour
         selectedSlot = newValue;
     }
 
+    //@return true is inventory is not full and item can be added, false if inventory is full and item cannot be added
     public bool AddItem(Item item)
     {
-        //Find any empty slot
+        //Find any empty inventory slot
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
@@ -36,7 +56,7 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
-                return true; //bool checks if inventory is full -- true if not full, false if full
+                return true;
             }
         }
 
