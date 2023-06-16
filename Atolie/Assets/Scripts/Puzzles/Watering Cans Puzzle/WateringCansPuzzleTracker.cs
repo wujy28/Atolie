@@ -13,6 +13,7 @@ public class WateringCansPuzzleTracker : MonoBehaviour
     [SerializeField] private Text text;
     [SerializeField] private GameObject stageCompletionScreen;
     [SerializeField] private GameObject tutorialInstructions;
+    [SerializeField] private GameObject puzzleCompletionScreen;
 
     public bool inTutorial;
 
@@ -34,6 +35,7 @@ public class WateringCansPuzzleTracker : MonoBehaviour
     {
         UpdateStage(Stage.Tutorial);
         stageCompletionScreen.SetActive(false);
+        puzzleCompletionScreen.SetActive(false);
     }
 
     public void UpdateStage(Stage newStage)
@@ -56,6 +58,9 @@ public class WateringCansPuzzleTracker : MonoBehaviour
                 break;
             case Stage.Stage_4:
                 UpdatePuzzleComponents(2);
+                break;
+            case Stage.PuzzleComplete:
+                PuzzleCompleted();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newStage), newStage, null);
@@ -131,13 +136,20 @@ public class WateringCansPuzzleTracker : MonoBehaviour
         stageCompletionScreen.SetActive(false);
     }
 
+    private void PuzzleCompleted()
+    {
+        stageCompletionScreen.SetActive(false);
+        puzzleCompletionScreen.SetActive(true);
+    }
+
     public enum Stage
     {
         Tutorial,
         Stage_1,
         Stage_2,
         Stage_3,
-        Stage_4
+        Stage_4,
+        PuzzleComplete
     }
 
     public enum TutorialStep
