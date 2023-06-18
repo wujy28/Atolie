@@ -6,9 +6,15 @@ using UnityEngine;
 public class Dialogue
 {
 
-    public string name;
+    public string speaker;
 
     [TextArea(3, 10)]
     public string[] sentences;
+
+    public Dialogue(string speaker, string[] sentences)
+    {
+        this.speaker = speaker;
+        this.sentences = sentences;
+    }
 
 }

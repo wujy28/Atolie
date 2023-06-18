@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("IsOpen", true);
         
-        nameText.text = dialogue.name;
+        nameText.text = dialogue.speaker;
 
         sentences.Clear();
 
@@ -60,6 +60,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        InteractionExecutable.currentExecutableCompleted();
     }
 
 }
