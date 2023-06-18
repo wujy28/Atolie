@@ -9,6 +9,7 @@ TagManager:
   - Collectible
   - NPC
   - InventorySlot
+  - Activator
   layers:
   - Default
   - TransparentFX
@@ -69,4 +70,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 935460165
+    locked: 0
+  - name: Arrows
+    uniqueID: 1313290869
     locked: 0
