@@ -17,6 +17,7 @@ public class InteractionManager : MonoBehaviour
     private PlayerInteraction playerInteraction;
     // private PlayerSettings playerSettings;
 
+    [SerializeField] private Transform interactables;
     [SerializeField] private bool inInteraction;
     [SerializeField] private Transform currentTarget;
     [SerializeField] private Queue<InteractionExecutable> currentInteraction;
@@ -134,5 +135,10 @@ public class InteractionManager : MonoBehaviour
         
         InteractionExecutable executable = currentInteraction.Dequeue();
         executable.execute();
+    }
+
+    public void LoadInteraction(string InteractableName, Interaction interaction)
+    {
+        interactables.Find(InteractableName).GetComponent<InteractionTrigger>().setCurrentInteraction(interaction);
     }
 }
