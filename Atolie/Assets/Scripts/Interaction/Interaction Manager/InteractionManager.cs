@@ -105,7 +105,12 @@ public class InteractionManager : MonoBehaviour
             removeTarget();
             inInteraction = false;
         }
-        
+    }
+
+    public void forceExitInteraction()
+    {
+        currentInteraction.Clear();
+        exitInteraction();
     }
 
     public void playInteraction(Interaction interaction)
