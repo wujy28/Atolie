@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Collectible
   - NPC
+  - Activator
   layers:
   - Default
   - TransparentFX
@@ -68,4 +69,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 935460165
+    locked: 0
+  - name: Arrows
+    uniqueID: 162885969
     locked: 0
