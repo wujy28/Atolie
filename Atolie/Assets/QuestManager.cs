@@ -8,9 +8,12 @@ public class QuestManager : MonoBehaviour
     public static QuestManager Instance { get; private set; }
 
     [SerializeField] private List<Quest> allQuests;
+    private Dictionary<int, Quest> quests;
     private Dictionary<Quest, List<Quest>> childQuests;
     private Dictionary<Quest, bool> isCompleted;
     [SerializeField] private List<Quest> activeQuests;
+
+    private QuestObserver questObserver;
 
     private void Awake()
     {
@@ -22,13 +25,36 @@ public class QuestManager : MonoBehaviour
         {
             Instance = this;
         }
+        questObserver = QuestObserver.Instance;
         allQuests = new List<Quest>();
+        quests = new Dictionary<int, Quest>();
+        SetUpQuestDictionary();
         childQuests = new Dictionary<Quest, List<Quest>>();
         SetUpChildQuests();
         isCompleted = new Dictionary<Quest, bool>();
         SetUpIsCompleted();
         activeQuests = new List<Quest>();
         SetUpAllQuestStepsQueue();
+        CheckActiveQuestsOnAwake();
+    }
+
+    private void CheckActiveQuestsOnAwake()
+    {
+        if (activeQuests.Count > 0)
+        {
+            foreach (Quest quest in activeQuests)
+            {
+                quest.StartQuest();
+            }
+        }
+    }
+
+    private void SetUpQuestDictionary()
+    {
+        foreach (Quest quest in allQuests)
+        {
+            quests.Add(quest.questID, quest);
+        }
     }
 
     private void SetUpAllQuestStepsQueue()
@@ -68,7 +94,14 @@ public class QuestManager : MonoBehaviour
     public void AddToActiveQuests(Quest quest)
     {
         activeQuests.Add(quest);
-        
+        quest.StartQuest();
+    }
+
+    public void AddToActiveQuests(int questID)
+    {
+        Quest quest = quests.GetValueOrDefault(questID);
+        activeQuests.Add(quest);
+        quest.StartQuest();
     }
 
     public void LoadNewQuestStep(Quest.QuestStep questStep)
@@ -79,5 +112,20 @@ public class QuestManager : MonoBehaviour
             Interaction interaction = interactions.GetValueOrDefault(interactable);
             InteractionManager.Instance.LoadInteraction(interactable, interaction);
         }
+    }
+
+    public void CompleteQuestStep(int questId, int stepNumber)
+    {
+        Quest quest = quests.GetValueOrDefault(questId);
+        if (quest.IsCurrentStep(stepNumber))
+        {
+            quest.NextQuestStep();
+        }
+    }
+
+    public void SkipToQuestStep(int questId, int stepNumber)
+    {
+        Quest quest = quests.GetValueOrDefault(questId);
+        quest.SkipToStep(stepNumber);
     }
 }

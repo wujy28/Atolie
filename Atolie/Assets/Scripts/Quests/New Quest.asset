@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: New Quest
   m_EditorClassIdentifier: 
   questID: 0
+  questName: 
+  questDescription: 
   prerequisiteQuests: []
   childQuests: []
   questSteps:
-  - interactions:
-      _serializedList: []
-  - interactions:
+  - stepNumber: 0
+    description: 
+    interactions:
       _serializedList: []

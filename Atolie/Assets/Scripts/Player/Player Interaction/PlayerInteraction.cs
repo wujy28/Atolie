@@ -59,13 +59,18 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentTarget != null)
         {
-            Collider2D hit = Physics2D.OverlapCircle(transform.position, 1.5f, LayerMask.GetMask("Game World"));
-            Debug.Log("Hit: " + hit.name);
-            if (hit.CompareTag("Interactable") && hit.transform == currentTarget)
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Game World"));
+            if (hits != null && hits.Length != 0)
             {
-                Debug.Log("Reached " + hit.name);
-                interactionManager.enterInteraction();
-                currentTarget = null;
+                foreach (Collider2D hit in hits)
+                {
+                    if (hit.CompareTag("Interactable") && hit.transform == currentTarget)
+                    {
+                        Debug.Log("Reached " + hit.name);
+                        interactionManager.enterInteraction();
+                        currentTarget = null;
+                    }
+                }
             }
         }
     }
