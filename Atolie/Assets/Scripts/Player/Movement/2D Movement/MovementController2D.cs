@@ -34,6 +34,16 @@ public class MovementController2D : MonoBehaviour
     /// </summary>
     private float yPos;
 
+    private float minX = -6.7f;
+
+    private float maxX = 6.7f;
+
+    private bool switchingLevels;
+
+    public float upperY;
+
+    public float lowerY;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,26 +53,50 @@ public class MovementController2D : MonoBehaviour
         // (should probably assign the value as a constant for clarity)
         yPos = -3.5f;
         faceRight = true;
+        switchingLevels = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y != upperY && transform.position.y != lowerY)
+        {
+            switchingLevels = true;
+        } else
+        {
+            switchingLevels = false;
+        }
         // Gets the position of the cursor in the world.
         var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Print the mouse position x and y coordinates
-        Debug.Log(mousePosition.x + ", " + mousePosition.y);
+        // Debug.Log(mousePosition.x + ", " + mousePosition.y);
         // If Left Click
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !switchingLevels)
         {
-            // Update target position
-            followSpot = new Vector2(mousePosition.x, yPos);
-            updateAnimation(followSpot.x);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            LayerMask hitLayers = LayerMask.GetMask("Game World") | LayerMask.GetMask("Clickable World Space");
+            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, 10, hitLayers);
+            if (hit.collider != null)
+            {
+                Debug.Log(hit.collider.name);
+                if (mousePosition.x > maxX)
+                {
+                    followSpot = new Vector2(maxX, yPos);
+                }
+                else if (mousePosition.x < minX)
+                {
+                    followSpot = new Vector2(minX, yPos);
+                }
+                else
+                {
+                    followSpot = new Vector2(mousePosition.x, yPos);
+                }
+                //InteractionManager.Instance.removeTarget();
+                updateAnimation(followSpot.x);
+            }
         }
         // Uses Vector2 MoveTowards method to find and follow a path from current position to target position.
         transform.position = Vector2.MoveTowards(transform.position, followSpot, Time.deltaTime * speed);
-        // Print the current position of the player
-        Debug.Log(transform.position);
     }
 
     /// <summary>
@@ -73,9 +107,10 @@ public class MovementController2D : MonoBehaviour
         if (!onUpperLevel)
         {
             // Changes target position to the landing of the staircase
-            followSpot = new Vector2(-6.67f, -0.134f);
-            yPos = -0.134f;
+            followSpot = new Vector2(-6.67f, upperY);
+            yPos = upperY;
             onUpperLevel = true;
+            switchingLevels = true;
         }
     }
 
@@ -87,38 +122,11 @@ public class MovementController2D : MonoBehaviour
         if (onUpperLevel)
         {
             // Changes target position to the base of the staircase
-            followSpot = new Vector2(-3.3f, -3.5f);
-            yPos = -3.5f;
+            followSpot = new Vector2(-3.3f, lowerY);
+            yPos = lowerY;
             onUpperLevel = false;
+            switchingLevels = true;
         }
-    }
-
-    /// <summary>
-    /// Attempts to prevent player from moving when hitting the boundary of the world,
-    /// upon collision with the Boundary collider.
-    /// Unfortunately the boundary does not actually stop the player since the
-    /// player is a kinematic rigidbody and boundary is a trigger :(
-    /// </summary>
-    /// <param name="collision"></param> the collision
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Boundary")
-        {
-            // Maybe this line itself does not work
-            // Rapidly clicking outwide the world when player is against the boundary
-            // will still cause the player to move outside, maybe cuz followSpot
-            // is still updating as mouse position and player moves towards it for a
-            // split moment before stopping again cuz of this method. (idk)
-            followSpot = transform.position;
-        }
-    }
-
-    /// <summary>
-    /// Tells the player to stop moving.
-    /// </summary>
-    public void stopMoving()
-    {
-        followSpot = transform.position;
     }
 
     /// <summary>
