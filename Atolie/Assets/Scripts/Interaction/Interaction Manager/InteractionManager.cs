@@ -138,6 +138,10 @@ public class InteractionManager : MonoBehaviour
 
     public void LoadInteraction(string InteractableName, Interaction interaction)
     {
-        interactables.Find(InteractableName).GetComponent<InteractionTrigger>().setCurrentInteraction(interaction);
+        Transform interactable = interactables.Find(InteractableName);
+        if (interactable != null)
+        {
+            interactable.GetComponent<InteractionTrigger>().setCurrentInteraction(interaction);
+        }
     }
 }

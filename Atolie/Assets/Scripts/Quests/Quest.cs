@@ -92,7 +92,7 @@ public class Quest : ScriptableObject
 
         QuestStep nextStep = questStepsQueue.Dequeue();
         currentStep = nextStep;
-        QuestManager.Instance.LoadNewQuestStep(currentStep);
+        QuestManager.Instance.LoadQuestStep(currentStep);
     }
 
     public void SkipToStep(int step)
@@ -108,11 +108,16 @@ public class Quest : ScriptableObject
             QuestStep nextStep = questStepsQueue.Dequeue();
             currentStep = nextStep;
         }
-        QuestManager.Instance.LoadNewQuestStep(currentStep);
+        QuestManager.Instance.LoadQuestStep(currentStep);
     }
 
     public bool IsCurrentStep(int step)
     {
         return currentStep.stepNumber == step;
+    }
+
+    public void LoadQuest()
+    {
+        QuestManager.Instance.LoadQuestStep(currentStep);
     }
 }

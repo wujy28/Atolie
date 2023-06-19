@@ -57,6 +57,17 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    public void LoadActiveQuests()
+    {
+        if (activeQuests.Count > 0)
+        {
+            foreach (Quest quest in activeQuests)
+            {
+                quest.LoadQuest();
+            }
+        }
+    }
+
     private void SetUpQuestDictionary()
     {
         foreach (Quest quest in allQuests)
@@ -112,7 +123,7 @@ public class QuestManager : MonoBehaviour
         quest.StartQuest();
     }
 
-    public void LoadNewQuestStep(Quest.QuestStep questStep)
+    public void LoadQuestStep(Quest.QuestStep questStep)
     {
         SerializedDictionary<string, Interaction> interactions = questStep.interactions;
         foreach (string interactable in interactions.Keys)
