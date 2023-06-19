@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b96e3eb6aa7741f0b633782d3023d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInteraction: {fileID: 11400000, guid: d3b7ae104a14a4604b619f745b32a3fb, type: 2}
+  currentInteraction: {fileID: 0}
 --- !u!114 &254998080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b96e3eb6aa7741f0b633782d3023d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInteraction: {fileID: 11400000, guid: 282b00ab37dfa4002977649ab0932a25, type: 2}
+  currentInteraction: {fileID: 0}
 --- !u!114 &743119791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,8 +2127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allQuests:
-  - {fileID: 0}
-  activeQuests: []
+  - {fileID: 11400000, guid: fbefe24c021ac45638536e7aa86b1cf8, type: 2}
+  activeQuests:
+  - {fileID: 11400000, guid: fbefe24c021ac45638536e7aa86b1cf8, type: 2}
 --- !u!4 &936213214
 Transform:
   m_ObjectHideFlags: 0
@@ -2502,7 +2503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b96e3eb6aa7741f0b633782d3023d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInteraction: {fileID: 11400000, guid: fef4aa2cc7a104592a03e20ecc8ba621, type: 2}
+  currentInteraction: {fileID: 0}
 --- !u!114 &975355820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3389,7 +3390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b96e3eb6aa7741f0b633782d3023d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInteraction: {fileID: 11400000, guid: a06c7e30dffbf49a9a8693104693bc45, type: 2}
+  currentInteraction: {fileID: 0}
 --- !u!114 &1230759053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4309,7 +4310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b96e3eb6aa7741f0b633782d3023d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInteraction: {fileID: 11400000, guid: 175e47bbf294843af94832636bb6bf92, type: 2}
+  currentInteraction: {fileID: 0}
 --- !u!1 &1554301524
 GameObject:
   m_ObjectHideFlags: 0
@@ -5940,7 +5941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b96e3eb6aa7741f0b633782d3023d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentInteraction: {fileID: 11400000, guid: 964f02effb6a04ed2aa970a220686248, type: 2}
+  currentInteraction: {fileID: 0}
 --- !u!114 &2131318174
 MonoBehaviour:
   m_ObjectHideFlags: 0

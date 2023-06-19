@@ -25,21 +25,29 @@ public class QuestManager : MonoBehaviour
         {
             Instance = this;
         }
+        InitializeQuests();
         questObserver = QuestObserver.Instance;
-        allQuests = new List<Quest>();
         quests = new Dictionary<int, Quest>();
         SetUpQuestDictionary();
         childQuests = new Dictionary<Quest, List<Quest>>();
         SetUpChildQuests();
         isCompleted = new Dictionary<Quest, bool>();
         SetUpIsCompleted();
-        activeQuests = new List<Quest>();
         SetUpAllQuestStepsQueue();
         CheckActiveQuestsOnAwake();
     }
 
+    private void InitializeQuests()
+    {
+        foreach (Quest quest in allQuests)
+        {
+            quest.Init();
+        }
+    }
+
     private void CheckActiveQuestsOnAwake()
     {
+        Debug.Log("Scanning Active Quests...");
         if (activeQuests.Count > 0)
         {
             foreach (Quest quest in activeQuests)

@@ -11,7 +11,6 @@ public class InteractionManager : MonoBehaviour
         NPC,
         Collectible
     }
-    public static InteractionManager instance;
 
     private Transform player;
     private PlayerInteraction playerInteraction;

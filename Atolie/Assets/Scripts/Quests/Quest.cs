@@ -19,9 +19,10 @@ public class Quest : ScriptableObject
     private bool isCompleted;
     private List<Quest> completedPrereq;
 
-    private void Awake()
+    public void Init()
     {
         questStepsQueue = new Queue<QuestStep>();
+        currentStep = null;
         isActive = false;
         isCompleted = false;
         completedPrereq = new List<Quest>();
@@ -73,6 +74,7 @@ public class Quest : ScriptableObject
 
     public void StartQuest()
     {
+        Debug.Log("Quest Started: " + this.name);
         if (!isActive && !isCompleted)
         {
             isActive = true;
