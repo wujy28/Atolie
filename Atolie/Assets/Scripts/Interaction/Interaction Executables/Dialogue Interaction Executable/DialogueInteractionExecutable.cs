@@ -14,6 +14,6 @@ public class DialogueInteractionExecutable : InteractionExecutable
 
     public override void execute()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        DialogueManager.instance.StartDialogue(dialogue);
     }
 }
