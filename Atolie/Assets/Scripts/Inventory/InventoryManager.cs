@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static InventoryManager instance;
+
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
@@ -11,8 +13,24 @@ public class InventoryManager : MonoBehaviour
 
     InventorySlot selectedObject;
 
+    //public static InventoryManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Update()
     {
+        //This is for using a mouse to click & select an inventory slot
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
@@ -25,7 +43,7 @@ public class InventoryManager : MonoBehaviour
             }
 
             int index = System.Array.IndexOf(inventorySlots, selectedObject);
-            
+
             if (index >= 0 && index < inventorySlots.Length)
             {
                 ChangeSelectedSlot(index);
