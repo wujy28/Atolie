@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5de4c75aef6864d619e4bcc79d3c699c, type: 3}
-  m_Name: DDR Test
+  m_Name: DDR Test 1
   m_EditorClassIdentifier: 
   executables:
   - {fileID: 11400000, guid: 7ef20b95d2f13493387a65ea0a62fb13, type: 2}
-  - {fileID: 11400000, guid: 046d8cfb18cd14fb8879d687d8f3a602, type: 2}

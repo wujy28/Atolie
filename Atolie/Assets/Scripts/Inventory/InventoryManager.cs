@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class InventoryManager : MonoBehaviour
     int selectedSlot = -1;
 
     InventorySlot selectedObject;
+
+    // Event to notify QuestManager/other managers when an item has been obtained
+    public static event Action<Item> OnObtainedItemEvent;
+
+    // Event to notify SubmitItemPopup when the selected slot changes
+    public static event Action<Item> OnSelectedItemChangeEvent;
 
     //public static InventoryManager Instance { get; private set; }
 
@@ -61,6 +68,9 @@ public class InventoryManager : MonoBehaviour
 
         inventorySlots[newValue].Select();
         selectedSlot = newValue;
+
+        // Notifies SubmitItemPopup with newly selected item
+        OnSelectedItemChangeEvent?.Invoke(GetSelectedItem(false));
     }
 
     //@return true is inventory is not full and item can be added, false if inventory is full and item cannot be added
@@ -74,6 +84,8 @@ public class InventoryManager : MonoBehaviour
             if (itemInSlot == null)
             {
                 SpawnNewItem(item, slot);
+                // Sends 'notification' to QuestManager with item as the argument
+                OnObtainedItemEvent?.Invoke(item);
                 return true;
             }
         }

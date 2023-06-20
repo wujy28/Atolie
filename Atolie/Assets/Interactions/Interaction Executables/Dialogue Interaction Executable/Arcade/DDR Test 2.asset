@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f0365361a842461698c76e28266cfa4, type: 3}
-  m_Name: DDR Test
+  m_Name: DDR Test 2
   m_EditorClassIdentifier: 
   dialogue:
     speaker: Iro
     sentences:
-    - Brings me back to the good ol' days.
+    - Should I give it a go?

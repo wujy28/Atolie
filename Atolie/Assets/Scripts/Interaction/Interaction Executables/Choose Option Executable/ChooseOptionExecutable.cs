@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-[CreateAssetMenu(fileName = "New Choose Option Executable", menuName = "Choose Option Executable")]
+[CreateAssetMenu(fileName = "New Choose Option Executable", menuName = "Interaction Executable/Choose Option Executable")]
 public class ChooseOptionExecutable : InteractionExecutable
 {
     [TextArea(3, 10)]

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using AYellowpaper.SerializedCollections;
 using UnityEngine;
 
 public class QuestObserver : MonoBehaviour
 {
     public static QuestObserver Instance { get; private set; }
+
+    private QuestManager questManager = QuestManager.Instance;
 
     private void Awake()
     {
@@ -16,19 +19,26 @@ public class QuestObserver : MonoBehaviour
         {
             Instance = this;
         }
-        // Subscribe to inventory and color palette's events
+        InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
     }
 
     private void OnDestroy()
     {
-        // Unsubscribe from inventory and color palette's events
+        InventoryManager.OnObtainedItemEvent -= InventoryManager_OnObtainedItemEvent;
     }
 
-    private void InventoryManager_OnItemObtained(Item item)
+    private void InventoryManager_OnObtainedItemEvent(Item item)
     {
-        switch (item)
+        switch (item.name)
         {
-            // cases for all possible obtainable items, along with corresponding CompleteQuestStep() method calls.
+            // cases for each possible collectible
+            case "Coin":
+                questManager.CompleteQuestStep(1, 0);
+                break;
+            case "Goop":
+                break;
+            case "Ticket":
+                break;
         }
     }
 }
