@@ -11,12 +11,12 @@ public class InteractionManager : MonoBehaviour
         NPC,
         Collectible
     }
-    public static InteractionManager instance;
 
     private Transform player;
     private PlayerInteraction playerInteraction;
     // private PlayerSettings playerSettings;
 
+    [SerializeField] private Transform interactables;
     [SerializeField] private bool inInteraction;
     [SerializeField] private Transform currentTarget;
     [SerializeField] private Queue<InteractionExecutable> currentInteraction;
@@ -134,5 +134,14 @@ public class InteractionManager : MonoBehaviour
         
         InteractionExecutable executable = currentInteraction.Dequeue();
         executable.execute();
+    }
+
+    public void LoadInteraction(string InteractableName, Interaction interaction)
+    {
+        Transform interactable = interactables.Find(InteractableName);
+        if (interactable != null)
+        {
+            interactable.GetComponent<InteractionTrigger>().setCurrentInteraction(interaction);
+        }
     }
 }
