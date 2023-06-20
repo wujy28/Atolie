@@ -74,3 +74,6 @@ TagManager:
   - name: Arrows
     uniqueID: 1313290869
     locked: 0
+  - name: InventoryParent
+    uniqueID: 1704146147
+    locked: 0
