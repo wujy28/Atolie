@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de4c75aef6864d619e4bcc79d3c699c, type: 3}
-  m_Name: Goop Test
+  m_Script: {fileID: 11500000, guid: 94f8f6eda2e174dbfaeff9ad5d7cbc92, type: 3}
+  m_Name: Obtain Goop Test
   m_EditorClassIdentifier: 
-  executables:
-  - {fileID: 11400000, guid: 0c2a3b8894e9f40bda4c83e47006969b, type: 2}
-  - {fileID: 11400000, guid: 937a7ee5bfee84d04bdbe97d1eda5e90, type: 2}
+  item: {fileID: 11400000, guid: b7910fd191630496db77664aaeaa436d, type: 2}

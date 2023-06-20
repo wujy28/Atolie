@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   executables:
   - {fileID: 11400000, guid: 7ef20b95d2f13493387a65ea0a62fb13, type: 2}
+  - {fileID: 11400000, guid: 046d8cfb18cd14fb8879d687d8f3a602, type: 2}
