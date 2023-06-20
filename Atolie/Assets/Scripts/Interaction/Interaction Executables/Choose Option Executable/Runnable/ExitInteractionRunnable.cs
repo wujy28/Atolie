@@ -8,8 +8,8 @@ public class ExitInteractionRunnable : Runnable
     private static void InitializeAndAdd()
     {
         ExitInteractionRunnable temp = new ExitInteractionRunnable();
-        Runnables.Instance.AddToRunnables(temp.GetType().ToString(), temp);
-        Debug.Log(Runnables.Instance.RunnablesSize());
+        Runnables.AddToRunnables(temp.GetType().ToString(), temp);
+        Debug.Log(Runnables.RunnablesSize());
     }
 
     public override void Run()

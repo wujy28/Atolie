@@ -8,8 +8,8 @@ public class NullRunnable : Runnable
     private static void InitializeAndAdd()
     {
         NullRunnable temp = new NullRunnable();
-        Runnables.Instance.AddToRunnables(temp.GetType().ToString(), temp);
-        Debug.Log(Runnables.Instance.RunnablesSize());
+        Runnables.AddToRunnables(temp.GetType().ToString(), temp);
+        Debug.Log(Runnables.RunnablesSize());
     }
 
     public override void Run()

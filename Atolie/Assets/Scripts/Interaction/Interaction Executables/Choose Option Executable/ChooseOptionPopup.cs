@@ -34,9 +34,9 @@ public class ChooseOptionPopup : MonoBehaviour
     {
         description = descr;
         enterText = enT;
-        enter = Runnables.Instance.GetRunnable(en);
+        enter = Runnables.GetRunnable(en);
         exitText = exT;
-        exit = Runnables.Instance.GetRunnable(ex);
+        exit = Runnables.GetRunnable(ex);
         updateText();
     }
 

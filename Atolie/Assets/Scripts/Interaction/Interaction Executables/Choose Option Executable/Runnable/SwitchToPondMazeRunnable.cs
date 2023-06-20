@@ -9,8 +9,8 @@ public class SwitchToPondMazeRunnable : Runnable
     private static void InitializeAndAdd()
     {
         SwitchToPondMazeRunnable temp = new SwitchToPondMazeRunnable();
-        Runnables.Instance.AddToRunnables(temp.GetType().ToString(), temp);
-        Debug.Log(Runnables.Instance.RunnablesSize());
+        Runnables.AddToRunnables(temp.GetType().ToString(), temp);
+        Debug.Log(Runnables.RunnablesSize());
     }
 
     public override void Run()

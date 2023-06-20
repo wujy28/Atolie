@@ -11,8 +11,8 @@ public abstract class Runnable
         private static void InitializeAndAdd()
         {
             [Runnable Type] temp = new [Runnable Type]();
-            Runnables.Instance.AddToRunnables(temp.GetType().ToString(), temp);
-            Debug.Log(Runnables.Instance.RunnablesSize());
+            Runnables.AddToRunnables(temp.GetType().ToString(), temp);
+            Debug.Log(Runnables.RunnablesSize());
         }
     */
 
