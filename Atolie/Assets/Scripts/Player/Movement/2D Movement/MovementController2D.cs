@@ -56,6 +56,11 @@ public class MovementController2D : MonoBehaviour
         switchingLevels = false;
     }
 
+    private void OnDisable()
+    {
+        followSpot = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {

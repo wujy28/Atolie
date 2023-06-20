@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Cyberpunk City Test
+  m_EditorClassIdentifier: 
+  questID: 2
+  questName: Cyberpunk City Test
+  questDescription: Test
+  prerequisiteQuests: []
+  childQuests: []
+  questSteps:
+  - stepNumber: 0
+    description: Step 0
+    interactions:
+      _serializedList:
+      - Key: Pet Shop
+        Value: {fileID: 11400000, guid: b6ccac9e96ce64d78b0b7060f7cec158, type: 2}
+      - Key: Trader Ro's
+        Value: {fileID: 11400000, guid: 9cdc59a5ec3844ffab727e346ba5c8be, type: 2}
+      - Key: Trash Can
+        Value: {fileID: 11400000, guid: 4b13e194e351244849214b1d97618d3d, type: 2}
+      - Key: Broken Cyborg Dog
+        Value: {fileID: 11400000, guid: 940c2b8df45cf48ee83de198b2dbc695, type: 2}
+      - Key: Arcade Token
+        Value: {fileID: 11400000, guid: da0c31b5d57514016a20c59f422a1471, type: 2}
+      - Key: Boy
+        Value: {fileID: 11400000, guid: 2d267d59427a843f1bb6e2c6419e861e, type: 2}
+      - Key: Pet Shop Salesman
+        Value: {fileID: 11400000, guid: bc59dead1fb204df1b26d394546d8b5e, type: 2}

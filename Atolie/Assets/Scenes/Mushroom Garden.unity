@@ -621,6 +621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTarget: {fileID: 0}
+  overlapCircleRadius: 1.5
 --- !u!114 &138667391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2245,8 +2246,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allQuests:
   - {fileID: 11400000, guid: fbefe24c021ac45638536e7aa86b1cf8, type: 2}
+  - {fileID: 11400000, guid: e58bc3c0d39464fe8be7eb7756c4b324, type: 2}
+  - {fileID: 11400000, guid: 4a98ec8a58aa34439abc05491b9a56ae, type: 2}
   activeQuests:
   - {fileID: 11400000, guid: fbefe24c021ac45638536e7aa86b1cf8, type: 2}
+  - {fileID: 11400000, guid: e58bc3c0d39464fe8be7eb7756c4b324, type: 2}
+  - {fileID: 11400000, guid: 4a98ec8a58aa34439abc05491b9a56ae, type: 2}
 --- !u!4 &936213214
 Transform:
   m_ObjectHideFlags: 0

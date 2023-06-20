@@ -48,6 +48,11 @@ public class MovementController : MonoBehaviour
         faceRight = true;
     }
 
+    private void OnDisable()
+    {
+        followSpot = transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {

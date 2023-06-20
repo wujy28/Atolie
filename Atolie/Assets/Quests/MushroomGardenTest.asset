@@ -19,7 +19,7 @@ MonoBehaviour:
   childQuests: []
   questSteps:
   - stepNumber: 0
-    description: Step 1
+    description: Step 0
     interactions:
       _serializedList:
       - Key: Fertilizer Bags

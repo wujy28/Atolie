@@ -15,6 +15,8 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] private Transform currentTarget;
     private InteractionManager interactionManager;
 
+    [SerializeField] private float overlapCircleRadius;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,16 +61,19 @@ public class PlayerInteraction : MonoBehaviour
 
         if (currentTarget != null)
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.5f, LayerMask.GetMask("Game World"));
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, overlapCircleRadius, LayerMask.GetMask("Game World"));
             if (hits != null && hits.Length != 0)
             {
                 foreach (Collider2D hit in hits)
                 {
-                    if (hit.CompareTag("Interactable") && hit.transform == currentTarget)
+                    if (hit.CompareTag("Interactable") || hit.CompareTag("NPC"))
                     {
-                        Debug.Log("Reached " + hit.name);
-                        interactionManager.enterInteraction();
-                        currentTarget = null;
+                        if (hit.transform == currentTarget)
+                        {
+                            Debug.Log("Reached " + hit.name);
+                            interactionManager.enterInteraction();
+                            currentTarget = null;
+                        }
                     }
                 }
             }
@@ -78,7 +83,7 @@ public class PlayerInteraction : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(transform.position, 1.5f);
+        Gizmos.DrawSphere(transform.position, overlapCircleRadius);
     }
 
     /*
