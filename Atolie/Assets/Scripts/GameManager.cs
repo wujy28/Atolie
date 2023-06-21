@@ -75,7 +75,11 @@ public class GameManager : MonoBehaviour
 
     private void HandleInteraction()
     {
-
+        CursorController cursorController = FindObjectOfType<CursorController>();
+        if (cursorController != null)
+        {
+            cursorController.setDefaultCursor();
+        }
     }
 
     private void HandlePaintBucketMode()

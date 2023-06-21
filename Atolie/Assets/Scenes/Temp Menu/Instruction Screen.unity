@@ -1167,7 +1167,8 @@ MonoBehaviour:
 
 
     clicking
-    on this will enable painting mode, where you can choose a color & color in objects!'
+    on this will enable paint bucket mode, where you can choose a color & color in
+    objects!'
 --- !u!222 &1498885836
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -25,6 +25,8 @@ public class PaintBucketMode : MonoBehaviour
     /// </summary>
     public Animator buttonAnimator;
 
+    public CursorController cursorController;
+
     /*
     /// <summary>
     /// The interaction controller of the player.
@@ -118,11 +120,13 @@ public class PaintBucketMode : MonoBehaviour
         {
             GameManager.Instance.UpdateGameState(GameState.Exploration);
             buttonAnimator.SetBool("ColorModeOn", false);
+            cursorController.setDefaultCursor();
         }
         else
         {
             GameManager.Instance.UpdateGameState(GameState.PaintBucketMode);
             buttonAnimator.SetBool("ColorModeOn", true);
+            cursorController.setPaintBucketCursor();
         }
         // Notifies subscribers of the state of Paint Bucket Mode and current selected color
         // when this state changes

@@ -5812,6 +5812,7 @@ MonoBehaviour:
   collectibleCursor: {fileID: 2800000, guid: f8c873f1e53e83f4aabf342d6be1dfc3, type: 3}
   WateringCansPuzzle_waterCursor: {fileID: 0}
   WateringCansPuzzle_fertilizerCursor: {fileID: 0}
+  paintBucketCursor: {fileID: 2800000, guid: 3bc0ee03130d94074aad71208133c687, type: 3}
 --- !u!114 &1335282355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8713,6 +8714,7 @@ MonoBehaviour:
   paintBucketModeOn: 0
   currentColor: 
   buttonAnimator: {fileID: 9034167186809628319}
+  cursorController: {fileID: 1335282354}
 --- !u!1 &1348677546269406302
 GameObject:
   m_ObjectHideFlags: 0
