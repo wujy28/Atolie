@@ -7,7 +7,7 @@ public class QuestObserver : MonoBehaviour
 {
     public static QuestObserver Instance { get; private set; }
 
-    private QuestManager questManager = QuestManager.Instance;
+    // private static QuestManager questManager = QuestManager.Instance;
 
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class QuestObserver : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
     }
@@ -33,7 +34,7 @@ public class QuestObserver : MonoBehaviour
         {
             // cases for each possible collectible
             case "Coin":
-                questManager.CompleteQuestStep(1, 0);
+                GetComponent<QuestManager>().CompleteQuestStep(1, 0);
                 break;
             case "Goop":
                 break;

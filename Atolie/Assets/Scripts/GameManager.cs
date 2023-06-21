@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
 
     public static event Action<GameState> OnGameStateChanged;
 
+    // Data
+    [SerializeField] private InteractableData interactableData;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -23,13 +26,16 @@ public class GameManager : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
     }
 
-    private void Start()
+    private void OnDestroy()
     {
-        // Will be MainMenu when that has been implemented
-        UpdateGameState(GameState.Exploration);
+        if (this == Instance)
+        {
+            interactableData.ResetData();
+        }
     }
 
     public void UpdateGameState(GameState newState)

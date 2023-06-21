@@ -32,7 +32,6 @@ public class Interactables : MonoBehaviour
         {
             string name = interactable.name;
             bool active = interactableData.GetActiveStatus(name);
-            Debug.Log(name + " active: " + active.ToString());
             interactable.gameObject.SetActive(active);
             if (active)
             {

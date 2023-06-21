@@ -3614,6 +3614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  interactableData: {fileID: 11400000, guid: 68ebb014853e94864b3e4951ddd77a1f, type: 2}
 --- !u!4 &641052710
 Transform:
   m_ObjectHideFlags: 0
