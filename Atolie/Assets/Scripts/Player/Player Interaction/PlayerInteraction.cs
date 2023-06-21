@@ -66,7 +66,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 foreach (Collider2D hit in hits)
                 {
-                    if (hit.CompareTag("Interactable") || hit.CompareTag("NPC"))
+                    if (hit.CompareTag("Interactable") || hit.CompareTag("NPC") || hit.CompareTag("Collectible"))
                     {
                         if (hit.transform == currentTarget)
                         {

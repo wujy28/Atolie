@@ -21,9 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Puzzles/Watering Cans Puzzle.unity
     guid: 092c7e9a69b7a4e2a82e4ab36c8a5971
   - enabled: 1
-    path: Assets/Scenes/Start Screen.unity
+    path: Assets/Scenes/Temp Menu/Start Screen.unity
     guid: 9e39d4adf5f9a3141a3833627ec6fbee
   - enabled: 1
-    path: Assets/Scenes/Instruction Screen.unity
+    path: Assets/Scenes/Temp Menu/Instruction Screen.unity
     guid: c528ec02b1bccc34c943f5e6effecefe
   m_configObjects: {}

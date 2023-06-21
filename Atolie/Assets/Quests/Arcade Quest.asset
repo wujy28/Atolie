@@ -32,3 +32,9 @@ MonoBehaviour:
         Value: {fileID: 11400000, guid: 06d379625f8e64c1fac70b1d7fa92830, type: 2}
       - Key: Arcade Manager
         Value: {fileID: 11400000, guid: 7241b9a0958634c13997927a488ae416, type: 2}
+  - stepNumber: 1
+    description: Step 1
+    interactions:
+      _serializedList:
+      - Key: DDR
+        Value: {fileID: 11400000, guid: 758d66b4451fd4c7ab1fcc444c59d570, type: 2}

@@ -144,4 +144,19 @@ public class InteractionManager : MonoBehaviour
             interactable.GetComponent<InteractionTrigger>().setCurrentInteraction(interaction);
         }
     }
+
+    public void RemoveFromScene(Item item)
+    {
+        string name = item.interactableName;
+        Debug.Log(name);
+        if (name != null && name != "")
+        {
+            Transform interactable = interactables.Find(name);
+            Debug.Log(interactable.name);
+            if (interactable != null)
+            {
+                interactable.gameObject.SetActive(false);
+            }
+        }
+    }
 }

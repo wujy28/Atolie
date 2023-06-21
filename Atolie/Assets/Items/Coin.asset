@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Coin
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 185554a524c472346977d45704a9c0d0, type: 3}
+  interactableName: Arcade Token
