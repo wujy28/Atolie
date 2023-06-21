@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WateringCansPuzzleTracker : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class WateringCansPuzzleTracker : MonoBehaviour
     [SerializeField] private GameObject stageCompletionScreen;
     [SerializeField] private GameObject tutorialInstructions;
     [SerializeField] private GameObject puzzleCompletionScreen;
+    [SerializeField] private GameObject exitGameConfirmationScreen;
+
+    [SerializeField] private Interaction postPuzzleInteraction;
 
     public bool inTutorial;
 
@@ -36,6 +40,8 @@ public class WateringCansPuzzleTracker : MonoBehaviour
         UpdateStage(Stage.Tutorial);
         stageCompletionScreen.SetActive(false);
         puzzleCompletionScreen.SetActive(false);
+        exitGameConfirmationScreen.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.Puzzle);
     }
 
     public void UpdateStage(Stage newStage)
@@ -159,5 +165,31 @@ public class WateringCansPuzzleTracker : MonoBehaviour
         WateringCan,
         Fertilizer,
         EndTutorial
+    }
+
+    public void PausePuzzle()
+    {
+        exitGameConfirmationScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ResumePuzzle()
+    {
+        Time.timeScale = 1;
+        exitGameConfirmationScreen.SetActive(false);
+    }
+
+    public void ExitPuzzle()
+    {
+        Time.timeScale = 1;
+        GameManager.Instance.UpdateGameState(GameState.Exploration);
+        SceneManager.LoadScene(2);
+    }
+
+    public void ExitCompletedPuzzle()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Exploration);
+        GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
+        SceneManager.LoadScene(2);
     }
 }

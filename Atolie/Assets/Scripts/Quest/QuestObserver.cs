@@ -21,11 +21,14 @@ public class QuestObserver : MonoBehaviour
             DontDestroyOnLoad(this);
         }
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
+        Coloring.OnColoredInEvent += Coloring_OnColoredInEvent;
     }
+
 
     private void OnDestroy()
     {
         InventoryManager.OnObtainedItemEvent -= InventoryManager_OnObtainedItemEvent;
+        Coloring.OnColoredInEvent -= Coloring_OnColoredInEvent;
     }
 
     private void InventoryManager_OnObtainedItemEvent(Item item)
@@ -39,6 +42,17 @@ public class QuestObserver : MonoBehaviour
             case "Goop":
                 break;
             case "Ticket":
+                break;
+        }
+    }
+
+    private void Coloring_OnColoredInEvent(Transform interactable)
+    {
+        switch (interactable.name)
+        {
+            case "Pet Shop":
+                break;
+            case "Prize Counter":
                 break;
         }
     }

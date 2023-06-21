@@ -153,9 +153,9 @@ public class InteractionManager : MonoBehaviour
         if (name != null && name != "")
         {
             Transform interactable = interactables.transform.Find(name);
-            Debug.Log(interactable.name);
             if (interactable != null)
             {
+                Debug.Log(interactable.name);
                 interactable.gameObject.SetActive(false);
             }
         }
