@@ -36,10 +36,24 @@ public class DDRManager : MonoBehaviour
     public GameObject resultsScreen;
     public Text percentText, normalText, goodText, perfectText, missText, finalScoreText;
 
+    [SerializeField] private GameObject welcomeScreen;
+
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        instance = this;
+        welcomeScreen.SetActive(true);
 
         scoreText.text = "Score: 0";
         currentMultiplier = 1;
@@ -64,6 +78,8 @@ public class DDRManager : MonoBehaviour
             if (!music.isPlaying && !resultsScreen.activeInHierarchy)
             {
                 resultsScreen.SetActive(true);
+                scoreText.enabled = false;
+                comboText.enabled = false;
 
                 normalText.text = normalHits.ToString();
                 goodText.text = goodHits.ToString();
@@ -77,6 +93,11 @@ public class DDRManager : MonoBehaviour
                 finalScoreText.text = currentScore.ToString();
             }
         }
+    }
+
+    public void CloseWelcomeScreen()
+    {
+        welcomeScreen.SetActive(false);
     }
 
     public void NoteHit()

@@ -68,11 +68,11 @@ TagManager:
   - name: Foreground
     uniqueID: 2381692011
     locked: 0
-  - name: UI
-    uniqueID: 935460165
-    locked: 0
   - name: Arrows
     uniqueID: 1313290869
+    locked: 0
+  - name: UI
+    uniqueID: 935460165
     locked: 0
   - name: InventoryParent
     uniqueID: 1704146147
