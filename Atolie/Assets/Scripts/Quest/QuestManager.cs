@@ -24,17 +24,19 @@ public class QuestManager : MonoBehaviour
         else
         {
             Instance = this;
+            DontDestroyOnLoad(this);
+            InitializeQuests();
+            questObserver = QuestObserver.Instance;
+            quests = new Dictionary<int, Quest>();
+            SetUpQuestDictionary();
+            childQuests = new Dictionary<Quest, List<Quest>>();
+            SetUpChildQuests();
+            isCompleted = new Dictionary<Quest, bool>();
+            SetUpIsCompleted();
+            SetUpAllQuestStepsQueue();
+            CheckActiveQuestsOnAwake();
         }
-        InitializeQuests();
-        questObserver = QuestObserver.Instance;
-        quests = new Dictionary<int, Quest>();
-        SetUpQuestDictionary();
-        childQuests = new Dictionary<Quest, List<Quest>>();
-        SetUpChildQuests();
-        isCompleted = new Dictionary<Quest, bool>();
-        SetUpIsCompleted();
-        SetUpAllQuestStepsQueue();
-        CheckActiveQuestsOnAwake();
+        LoadActiveQuests();
     }
 
     private void InitializeQuests()

@@ -10,6 +10,7 @@ public class CursorController : MonoBehaviour
     [SerializeField] private Texture2D collectibleCursor;
     [SerializeField] private Texture2D WateringCansPuzzle_waterCursor;
     [SerializeField] private Texture2D WateringCansPuzzle_fertilizerCursor;
+    [SerializeField] private Texture2D paintBucketCursor;
 
     // Start is called before the first frame update
     void Start()
@@ -51,5 +52,10 @@ public class CursorController : MonoBehaviour
     public void setWateringCansPuzzle_fertilizerCursor()
     {
         Cursor.SetCursor(WateringCansPuzzle_fertilizerCursor, default, default);
+    }
+
+    public void setPaintBucketCursor()
+    {
+        Cursor.SetCursor(paintBucketCursor, default, default);
     }
 }

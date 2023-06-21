@@ -83,7 +83,6 @@ public class MovementController2D : MonoBehaviour
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, 10, hitLayers);
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.name);
                 if (mousePosition.x > maxX)
                 {
                     followSpot = new Vector2(maxX, yPos);

@@ -41,7 +41,10 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (interactionsAllowed)
+        {
             cursorController.setDefaultCursor();
+        }
     }
 
 
@@ -66,6 +69,11 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
     public void setCurrentInteraction(Interaction newInteraction)
     {
         currentInteraction = newInteraction;
+    }
+
+    public Interaction GetCurrentInteraction()
+    {
+        return currentInteraction;
     }
 
     private void Start()
