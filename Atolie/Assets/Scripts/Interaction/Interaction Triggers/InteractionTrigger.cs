@@ -68,6 +68,11 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
         currentInteraction = newInteraction;
     }
 
+    public Interaction GetCurrentInteraction()
+    {
+        return currentInteraction;
+    }
+
     private void Start()
     {
         interactionsAllowed = true;

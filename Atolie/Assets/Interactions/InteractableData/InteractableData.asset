@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d40a18520cd6440abd4f4263a7394bf, type: 3}
+  m_Name: InteractableData
+  m_EditorClassIdentifier: 
+  interactables:
+    _serializedList:
+    - Key: Fertilizer Bags
+      Value:
+        interactableName: Fertilizer Bags
+        scene:
+          m_Handle: -13578
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 282b00ab37dfa4002977649ab0932a25, type: 2}
+    - Key: Watering Cans
+      Value:
+        interactableName: Watering Cans
+        scene:
+          m_Handle: -13578
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: fef4aa2cc7a104592a03e20ecc8ba621, type: 2}
+    - Key: Mysterious Goop
+      Value:
+        interactableName: Mysterious Goop
+        scene:
+          m_Handle: -13578
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: d3b7ae104a14a4604b619f745b32a3fb, type: 2}
+    - Key: Mushroom Beds
+      Value:
+        interactableName: Mushroom Beds
+        scene:
+          m_Handle: -13578
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 175e47bbf294843af94832636bb6bf92, type: 2}
+    - Key: Mushroom House
+      Value:
+        interactableName: Mushroom House
+        scene:
+          m_Handle: -13578
+        isActive: 1
+        coloredIn: 1
+        interaction: {fileID: 11400000, guid: 964f02effb6a04ed2aa970a220686248, type: 2}
+    - Key: Pond
+      Value:
+        interactableName: Pond
+        scene:
+          m_Handle: -13578
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: a06c7e30dffbf49a9a8693104693bc45, type: 2}
+    - Key: Pet Shop
+      Value:
+        interactableName: Pet Shop
+        scene:
+          m_Handle: -13608
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: b6ccac9e96ce64d78b0b7060f7cec158, type: 2}
+    - Key: Trader Ro's
+      Value:
+        interactableName: Trader Ro's
+        scene:
+          m_Handle: -13608
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 9cdc59a5ec3844ffab727e346ba5c8be, type: 2}
+    - Key: Trash Can
+      Value:
+        interactableName: Trash Can
+        scene:
+          m_Handle: -13608
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 4b13e194e351244849214b1d97618d3d, type: 2}
+    - Key: Broken Cyborg Dog
+      Value:
+        interactableName: Broken Cyborg Dog
+        scene:
+          m_Handle: -13608
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 940c2b8df45cf48ee83de198b2dbc695, type: 2}
+    - Key: Arcade Token
+      Value:
+        interactableName: Arcade Token
+        scene:
+          m_Handle: -13608
+        isActive: 0
+        coloredIn: 0
+        interaction: {fileID: 0}
+    - Key: Boy
+      Value:
+        interactableName: Boy
+        scene:
+          m_Handle: -13608
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 2d267d59427a843f1bb6e2c6419e861e, type: 2}
+    - Key: Pet Shop Salesman
+      Value:
+        interactableName: Pet Shop Salesman
+        scene:
+          m_Handle: -13608
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: bc59dead1fb204df1b26d394546d8b5e, type: 2}
+    - Key: DDR
+      Value:
+        interactableName: DDR
+        scene:
+          m_Handle: -13612
+        isActive: 1
+        coloredIn: 1
+        interaction: {fileID: 11400000, guid: 5835607feb5fc40dfaecce21fbde4f4c, type: 2}
+    - Key: Vending Machine
+      Value:
+        interactableName: Vending Machine
+        scene:
+          m_Handle: -13612
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: d8a860581d8fe4e0ea0d34647958009d, type: 2}
+    - Key: Hockey Table
+      Value:
+        interactableName: Hockey Table
+        scene:
+          m_Handle: -13612
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 06d379625f8e64c1fac70b1d7fa92830, type: 2}
+    - Key: Prize Counter
+      Value:
+        interactableName: Prize Counter
+        scene:
+          m_Handle: -13612
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: ee4ced946972d479a886bef73d4776b2, type: 2}
+    - Key: Arcade Manager
+      Value:
+        interactableName: Arcade Manager
+        scene:
+          m_Handle: -13612
+        isActive: 1
+        coloredIn: 0
+        interaction: {fileID: 11400000, guid: 7241b9a0958634c13997927a488ae416, type: 2}

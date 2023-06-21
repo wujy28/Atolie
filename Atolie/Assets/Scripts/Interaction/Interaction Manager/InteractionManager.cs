@@ -5,18 +5,18 @@ using System;
 
 public class InteractionManager : MonoBehaviour
 {
-    enum Type
+    enum Scene
     {
-        InteractableObject,
-        NPC,
-        Collectible
+        Arcade,
+        CyberpunkCity,
+        MushroomGarden
     }
 
     private Transform player;
     private PlayerInteraction playerInteraction;
     // private PlayerSettings playerSettings;
 
-    [SerializeField] private Transform interactables;
+    [SerializeField] private Interactables interactables;
     [SerializeField] private bool inInteraction;
     [SerializeField] private Transform currentTarget;
     [SerializeField] private Queue<InteractionExecutable> currentInteraction;
@@ -28,7 +28,8 @@ public class InteractionManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(this);
-        } else
+        }
+        else
         {
             Instance = this;
         }
@@ -138,7 +139,7 @@ public class InteractionManager : MonoBehaviour
 
     public void LoadInteraction(string InteractableName, Interaction interaction)
     {
-        Transform interactable = interactables.Find(InteractableName);
+        Transform interactable = interactables.transform.Find(InteractableName);
         if (interactable != null)
         {
             interactable.GetComponent<InteractionTrigger>().setCurrentInteraction(interaction);
@@ -151,7 +152,7 @@ public class InteractionManager : MonoBehaviour
         Debug.Log(name);
         if (name != null && name != "")
         {
-            Transform interactable = interactables.Find(name);
+            Transform interactable = interactables.transform.Find(name);
             Debug.Log(interactable.name);
             if (interactable != null)
             {

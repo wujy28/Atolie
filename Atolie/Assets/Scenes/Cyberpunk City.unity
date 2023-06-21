@@ -4653,7 +4653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8323befd5a8847f4827a0bd1c529b3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactables: {fileID: 1680615547}
+  interactables: {fileID: 1680615548}
   inInteraction: 0
   currentTarget: {fileID: 0}
 --- !u!4 &1339686308
@@ -5493,6 +5493,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1680615547}
+  - component: {fileID: 1680615548}
   m_Layer: 0
   m_Name: Interactables
   m_TagString: Untagged
@@ -5522,6 +5523,21 @@ Transform:
   m_Father: {fileID: 1339686308}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1680615548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680615546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2175c0c5b5cf9454e95e4603689a86cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableData: {fileID: 11400000, guid: 68ebb014853e94864b3e4951ddd77a1f, type: 2}
+  interactables: []
+  currentScene: 1
 --- !u!1 &1703078344
 GameObject:
   m_ObjectHideFlags: 0

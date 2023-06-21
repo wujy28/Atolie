@@ -10,7 +10,7 @@ public class InventoryCanvas : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
 
         if (instance == null)
         {
