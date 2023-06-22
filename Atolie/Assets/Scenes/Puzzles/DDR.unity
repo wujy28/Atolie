@@ -10088,7 +10088,7 @@ MonoBehaviour:
   welcomeScreen: {fileID: 426724084}
   puzzleCompletionScreen: {fileID: 1772819609}
   exitGameConfirmationScreen: {fileID: 1497852686}
-  postPuzzleInteraction: {fileID: 0}
+  postPuzzleInteraction: {fileID: 11400000, guid: 7c31e703dd5154660a6f73067635dec7, type: 2}
 --- !u!4 &1427888660
 Transform:
   m_ObjectHideFlags: 0

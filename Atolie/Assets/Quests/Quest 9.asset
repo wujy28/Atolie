@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Quest 9
+  m_EditorClassIdentifier: 
+  questID: 9
+  questName: Water Mushroom Beds
+  questDescription: Water Mushroom Beds
+  prerequisiteQuests:
+  - {fileID: 11400000, guid: 9b963a1c5bc8d4f0fbc7b6b08de52717, type: 2}
+  childQuests:
+  - {fileID: 11400000, guid: 20d6c88789f22412ab17bfe43e2a0cea, type: 2}
+  questSteps:
+  - stepNumber: 0
+    description: MB
+    interactions:
+      _serializedList:
+      - Key: Mushroom Beds
+        Value: {fileID: 11400000, guid: 59efe8fe35b884e84a70f1d897a73d01, type: 2}
+  - stepNumber: 1
+    description: MB
+    interactions:
+      _serializedList:
+      - Key: Mushroom Beds
+        Value: {fileID: 11400000, guid: 838e8e82fc5ad49d3a40c3afaa17adc2, type: 2}

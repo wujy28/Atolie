@@ -1084,12 +1084,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allQuests:
   - {fileID: 11400000, guid: fbefe24c021ac45638536e7aa86b1cf8, type: 2}
-  - {fileID: 11400000, guid: e58bc3c0d39464fe8be7eb7756c4b324, type: 2}
-  - {fileID: 11400000, guid: 4a98ec8a58aa34439abc05491b9a56ae, type: 2}
+  - {fileID: 11400000, guid: e524c07cd317c4531b6d226a869ac759, type: 2}
+  - {fileID: 11400000, guid: ca9857dfb0b1c4050be572d737654ddb, type: 2}
+  - {fileID: 11400000, guid: 5f2d616709e334d3fb5e5c406866e0f8, type: 2}
+  - {fileID: 11400000, guid: 7ccf45ff0cfd7435aa5a11cec86903db, type: 2}
+  - {fileID: 11400000, guid: a82e24d3753b445718cfdac0e6754913, type: 2}
+  - {fileID: 11400000, guid: 9b963a1c5bc8d4f0fbc7b6b08de52717, type: 2}
+  - {fileID: 11400000, guid: 5420e4ef9f3d04fd8b8db2f851281016, type: 2}
+  - {fileID: 11400000, guid: 145e55d13c6b543fd945b2228de778ef, type: 2}
+  - {fileID: 11400000, guid: a4bfc5fb5eea3481a87aaf21240748c3, type: 2}
+  - {fileID: 11400000, guid: addf6323b4b954b5ca5525c1297635b5, type: 2}
+  - {fileID: 11400000, guid: 20d6c88789f22412ab17bfe43e2a0cea, type: 2}
   activeQuests:
   - {fileID: 11400000, guid: fbefe24c021ac45638536e7aa86b1cf8, type: 2}
-  - {fileID: 11400000, guid: e58bc3c0d39464fe8be7eb7756c4b324, type: 2}
-  - {fileID: 11400000, guid: 4a98ec8a58aa34439abc05491b9a56ae, type: 2}
+  - {fileID: 11400000, guid: e524c07cd317c4531b6d226a869ac759, type: 2}
+  - {fileID: 11400000, guid: ca9857dfb0b1c4050be572d737654ddb, type: 2}
+  - {fileID: 11400000, guid: 5f2d616709e334d3fb5e5c406866e0f8, type: 2}
+  - {fileID: 11400000, guid: 7ccf45ff0cfd7435aa5a11cec86903db, type: 2}
+  - {fileID: 11400000, guid: a82e24d3753b445718cfdac0e6754913, type: 2}
 --- !u!4 &180982610
 Transform:
   m_ObjectHideFlags: 0
@@ -1686,7 +1698,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1936919765}
         m_TargetAssemblyTypeName: ChooseOptionPopup, Assembly-CSharp
         m_MethodName: runExit
         m_Mode: 1
@@ -2956,7 +2968,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1936919765}
         m_TargetAssemblyTypeName: ChooseOptionPopup, Assembly-CSharp
         m_MethodName: runEnter
         m_Mode: 1

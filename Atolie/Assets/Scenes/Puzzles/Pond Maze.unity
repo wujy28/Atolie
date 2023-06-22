@@ -3163,7 +3163,7 @@ MonoBehaviour:
   welcomeScreen: {fileID: 220052227}
   puzzleCompletionScreen: {fileID: 1594778980}
   exitGameConfirmationScreen: {fileID: 1787622992}
-  postPuzzleInteraction: {fileID: 0}
+  postPuzzleInteraction: {fileID: 11400000, guid: e4fab88fa5bc7430dbd1448cc295c2a3, type: 2}
   player: {fileID: 904005626}
 --- !u!1 &2036336809
 GameObject:

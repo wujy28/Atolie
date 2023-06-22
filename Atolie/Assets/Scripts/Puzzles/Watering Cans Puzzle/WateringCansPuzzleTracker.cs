@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class WateringCansPuzzleTracker : MonoBehaviour
 {
@@ -183,13 +182,13 @@ public class WateringCansPuzzleTracker : MonoBehaviour
     {
         Time.timeScale = 1;
         GameManager.Instance.UpdateGameState(GameState.Exploration);
-        SceneManager.LoadScene(2);
+        GameManager.Instance.ChangeScene(GameScene.MushroomGarden);
     }
 
     public void ExitCompletedPuzzle()
     {
         GameManager.Instance.UpdateGameState(GameState.Exploration);
         GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
-        SceneManager.LoadScene(2);
+        GameManager.Instance.ChangeScene(GameScene.MushroomGarden);
     }
 }

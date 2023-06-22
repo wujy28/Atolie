@@ -381,7 +381,7 @@ MonoBehaviour:
   tutorialInstructions: {fileID: 1363142947}
   puzzleCompletionScreen: {fileID: 2015846494}
   exitGameConfirmationScreen: {fileID: 502236363}
-  postPuzzleInteraction: {fileID: 11400000, guid: da0c31b5d57514016a20c59f422a1471, type: 2}
+  postPuzzleInteraction: {fileID: 11400000, guid: 74c913363872b404080815a7383ab84f, type: 2}
   inTutorial: 0
 --- !u!4 &28640186
 Transform:

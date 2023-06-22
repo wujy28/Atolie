@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Quest 2
+  m_EditorClassIdentifier: 
+  questID: 2
+  questName: Starter Garden
+  questDescription: Starting Interactions for Garden Interactables (Excluding ones
+    involved in other starter quests)
+  prerequisiteQuests: []
+  childQuests:
+  - {fileID: 11400000, guid: 9b963a1c5bc8d4f0fbc7b6b08de52717, type: 2}
+  - {fileID: 11400000, guid: 145e55d13c6b543fd945b2228de778ef, type: 2}
+  questSteps:
+  - stepNumber: 0
+    description: MB, MH, MG, P, WC, FB
+    interactions:
+      _serializedList:
+      - Key: Fertilizer Bags
+        Value: {fileID: 11400000, guid: aa7c79f58eb4946f09bb5e7c917f9058, type: 2}
+      - Key: Watering Cans
+        Value: {fileID: 11400000, guid: c5b4b0daec5a543e79e359c77b50647a, type: 2}
+      - Key: Mysterious Goop
+        Value: {fileID: 11400000, guid: 71fbf72d5da0f4d24bdeb4730ecec4f6, type: 2}
+      - Key: Mushroom Beds
+        Value: {fileID: 11400000, guid: 9ed59964d1d8348619bba92163af2a00, type: 2}
+      - Key: Mushroom House
+        Value: {fileID: 11400000, guid: 32353f907880d4b43a4e835e29dab389, type: 2}
+      - Key: Pond
+        Value: {fileID: 11400000, guid: a1d09f43469464f7097150cebcc80532, type: 2}

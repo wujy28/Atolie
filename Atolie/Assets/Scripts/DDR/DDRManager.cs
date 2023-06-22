@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class DDRManager : MonoBehaviour
 {
@@ -200,7 +199,7 @@ public class DDRManager : MonoBehaviour
     {
         Time.timeScale = 1;
         GameManager.Instance.UpdateGameState(GameState.Exploration);
-        SceneManager.LoadScene(0);
+        GameManager.Instance.ChangeScene(GameScene.Arcade);
     }
 
     private void OpenPuzzleCompletionScreen()
@@ -212,6 +211,6 @@ public class DDRManager : MonoBehaviour
     {
         GameManager.Instance.UpdateGameState(GameState.Exploration);
         GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
-        SceneManager.LoadScene(0);
+        GameManager.Instance.ChangeScene(GameScene.Arcade);
     }
 }

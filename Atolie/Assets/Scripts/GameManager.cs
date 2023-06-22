@@ -4,9 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Future Game Manager???
-/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -62,6 +59,40 @@ public class GameManager : MonoBehaviour
         postSceneChangeInteraction = null;
     }
 
+    public void ChangeScene(GameScene scene)
+    {
+        switch (scene)
+        {
+            case GameScene.StartScreen:
+                SceneManager.LoadScene(0);
+                break;
+            case GameScene.InstructionsScreen:
+                SceneManager.LoadScene(6);
+                break;
+            case GameScene.Arcade:
+                SceneManager.LoadScene(1);
+                break;
+            case GameScene.CyberpunkCity:
+                SceneManager.LoadScene(2);
+                break;
+            case GameScene.MushroomGarden:
+                SceneManager.LoadScene(3);
+                break;
+            case GameScene.DDR:
+                SceneManager.LoadScene(7);
+                break;
+            case GameScene.WateringCansPuzzle:
+                SceneManager.LoadScene(5);
+                break;
+            case GameScene.PondMaze:
+                SceneManager.LoadScene(4);
+                break;
+            case GameScene.DemoEnd:
+                SceneManager.LoadScene(8);
+                break;
+        }
+    }
+
     public void UpdateGameState(GameState newState)
     {
         State = newState;
@@ -83,11 +114,27 @@ public class GameManager : MonoBehaviour
             case GameState.Puzzle:
                 HandlePuzzle();
                 break;
+            case GameState.Finish:
+                HandleFinish();
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
 
         OnGameStateChanged?.Invoke(newState);
+    }
+
+    private void HandleFinish()
+    {
+        Debug.Log("Finish Demo");
+        if (inventory != null)
+        {
+            Destroy(inventory.gameObject);
+        }
+        if (questSystem != null)
+        {
+            Destroy(questSystem.gameObject);
+        }
     }
 
     private void HandlePuzzle()
@@ -107,7 +154,15 @@ public class GameManager : MonoBehaviour
 
     private void HandleMainMenu()
     {
-        
+        Debug.Log("Go to Main Menu");
+        if (inventory != null)
+        {
+            inventory.gameObject.SetActive(false);
+        }
+        if (questSystem != null)
+        {
+            questSystem.gameObject.SetActive(false);
+        }
     }
 
     private void HandleExploration()
@@ -149,5 +204,19 @@ public enum GameState
     Exploration,
     Interaction,
     PaintBucketMode,
-    Puzzle
+    Puzzle,
+    Finish
+}
+
+public enum GameScene
+{
+    StartScreen,
+    InstructionsScreen,
+    Arcade,
+    CyberpunkCity,
+    MushroomGarden,
+    DDR,
+    WateringCansPuzzle,
+    PondMaze,
+    DemoEnd
 }

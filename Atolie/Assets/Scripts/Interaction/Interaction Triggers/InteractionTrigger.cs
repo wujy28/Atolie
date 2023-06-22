@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -69,6 +70,7 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
     public void setCurrentInteraction(Interaction newInteraction)
     {
         currentInteraction = newInteraction;
+        GetComponentInParent<Interactables>().interactableData.UpdateInteraction(gameObject.name, currentInteraction);
     }
 
     public Interaction GetCurrentInteraction()

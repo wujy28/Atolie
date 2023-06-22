@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SwitchToPondMazeRunnable : Runnable
 {
@@ -15,6 +14,6 @@ public class SwitchToPondMazeRunnable : Runnable
 
     public override void Run()
     {
-        SceneManager.LoadScene(3);
+        GameManager.Instance.ChangeScene(GameScene.PondMaze);
     }
 }

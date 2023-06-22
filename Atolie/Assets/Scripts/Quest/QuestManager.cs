@@ -104,7 +104,11 @@ public class QuestManager : MonoBehaviour
 
     public void CompleteQuest(Quest quest)
     {
-        isCompleted.Add(quest, true);
+        if (!isCompleted.TryAdd(quest, true))
+        {
+            isCompleted.Remove(quest);
+            isCompleted.Add(quest, true);
+        }
         activeQuests.Remove(quest);
         foreach (Quest childQuest in quest.childQuests)
         {
@@ -138,9 +142,17 @@ public class QuestManager : MonoBehaviour
     public void CompleteQuestStep(int questId, int stepNumber)
     {
         Quest quest = quests.GetValueOrDefault(questId);
-        if (quest.IsCurrentStep(stepNumber))
+        bool completed = isCompleted.GetValueOrDefault(quest);
+        if (!completed)
         {
-            quest.NextQuestStep();
+            if (quest.IsCurrentStep(stepNumber))
+            {
+                quest.NextQuestStep();
+            }
+            else
+            {
+                quest.SkipToStep(stepNumber + 1);
+            }
         }
     }
 
