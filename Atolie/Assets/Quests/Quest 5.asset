@@ -20,12 +20,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 145e55d13c6b543fd945b2228de778ef, type: 2}
   questSteps:
   - stepNumber: 0
-    description: PS
-    interactions:
-      _serializedList:
-      - Key: Pet Shop
-        Value: {fileID: 11400000, guid: cd56265fadff548bd9eeda85b19f713c, type: 2}
-  - stepNumber: 1
     description: PS, PSS
     interactions:
       _serializedList:

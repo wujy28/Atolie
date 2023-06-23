@@ -25,8 +25,6 @@ MonoBehaviour:
       _serializedList:
       - Key: Trader Ro's
         Value: {fileID: 11400000, guid: 6ebbc35de7a8d4e7aaa3c7cade3f1382, type: 2}
-      - Key: Pet Shop Salesman
-        Value: {fileID: 11400000, guid: 0fabd126a66bb48cd9de0aa235d3dd6a, type: 2}
       - Key: Boy
         Value: {fileID: 11400000, guid: fdace2a8aff104788901f883c9815888, type: 2}
       - Key: Trash Can

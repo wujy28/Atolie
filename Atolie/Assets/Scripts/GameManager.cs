@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameState State;
+    public GameScene Scene;
 
     public static event Action<GameState> OnGameStateChanged;
 
@@ -57,6 +58,11 @@ public class GameManager : MonoBehaviour
             }
         }
         postSceneChangeInteraction = null;
+
+        if (Scene == GameScene.Arcade || Scene == GameScene.CyberpunkCity || Scene == GameScene.MushroomGarden)
+        {
+            questSystem.LoadActiveQuests();
+        }
     }
 
     public void ChangeScene(GameScene scene)
@@ -91,6 +97,8 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene(8);
                 break;
         }
+
+        this.Scene = scene;
     }
 
     public void UpdateGameState(GameState newState)

@@ -23,8 +23,6 @@ MonoBehaviour:
     description: AM, VM, HT
     interactions:
       _serializedList:
-      - Key: Arcade Manager
-        Value: {fileID: 11400000, guid: e4cf22a640c694297909f8d49d854497, type: 2}
       - Key: Vending Machine
         Value: {fileID: 11400000, guid: 56427ccd34c8d46a696f95118f8cc94d, type: 2}
       - Key: Hockey Table

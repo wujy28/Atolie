@@ -18,7 +18,7 @@ MonoBehaviour:
   prerequisiteQuests:
   - {fileID: 11400000, guid: 145e55d13c6b543fd945b2228de778ef, type: 2}
   childQuests:
-  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 20d6c88789f22412ab17bfe43e2a0cea, type: 2}
   questSteps:
   - stepNumber: 0
     description: P

@@ -20,12 +20,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5420e4ef9f3d04fd8b8db2f851281016, type: 2}
   questSteps:
   - stepNumber: 0
-    description: PC
-    interactions:
-      _serializedList:
-      - Key: Prize Counter
-        Value: {fileID: 11400000, guid: 938361b9e8e47421b88f5623e1febf83, type: 2}
-  - stepNumber: 1
     description: PC, AM
     interactions:
       _serializedList:

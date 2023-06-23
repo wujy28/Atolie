@@ -116,7 +116,7 @@ public class Quest : ScriptableObject
             return;
         }
         QuestStep questStep = questSteps[step];
-        if (questStep.stepNumber <= currentStep.stepNumber || questStep == null)
+        if (questStep.stepNumber < currentStep.stepNumber || questStep == null)
         {
             Debug.LogError("SkipToStep: Currently at Step " + currentStep.stepNumber + ". Cannot skip to step " + step + ".");
             return;

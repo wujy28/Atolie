@@ -15,5 +15,6 @@ MonoBehaviour:
   dialogue:
     speaker: Pet Shop Salesman
     sentences:
-    - Good day, little custard ball!
+    - Good day...
+    - Little custard ball!
     - Can I interest you in some cyborg pets today?

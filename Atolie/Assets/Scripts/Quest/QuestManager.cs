@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
@@ -135,25 +136,38 @@ public class QuestManager : MonoBehaviour
         foreach (string interactable in interactions.Keys)
         {
             Interaction interaction = interactions.GetValueOrDefault(interactable);
-            InteractionManager.Instance.LoadInteraction(interactable, interaction);
+            GameObject.FindObjectOfType<InteractionManager>().GetComponent<InteractionManager>().LoadInteraction(interactable, interaction);
         }
     }
 
     public void CompleteQuestStep(int questId, int stepNumber)
     {
-        Quest quest = quests.GetValueOrDefault(questId);
-        bool completed = isCompleted.GetValueOrDefault(quest);
-        if (!completed)
+        try
         {
-            if (quest.IsCurrentStep(stepNumber))
+            if (quests.TryGetValue(questId, out Quest quest))
             {
-                quest.NextQuestStep();
-            }
-            else
-            {
-                quest.SkipToStep(stepNumber + 1);
+                if (isCompleted.TryGetValue(quest, out bool completed))
+                {
+                    if (!completed)
+                    {
+                        Debug.Log("Complete Quest Step: Quest " + questId.ToString() + " Step " + stepNumber.ToString());
+                        if (quest.IsCurrentStep(stepNumber))
+                        {
+                            quest.NextQuestStep();
+                        }
+                        else
+                        {
+                            quest.SkipToStep(stepNumber + 1);
+                        }
+                    }
+                }
             }
         }
+        catch (NullReferenceException e)
+        {
+            Debug.Log("Null reference exception?");
+        }
+
     }
 
     public void SkipToQuestStep(int questId, int stepNumber)

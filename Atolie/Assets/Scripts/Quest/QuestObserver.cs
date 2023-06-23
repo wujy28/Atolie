@@ -40,10 +40,10 @@ public class QuestObserver : MonoBehaviour
             case "Token":
                 break;
             case "Fish":
-                GetComponent<QuestManager>().CompleteQuestStep(5, 1);
+                GetComponent<QuestManager>().CompleteQuestStep(5, 0);
                 break;
             case "Ticket":
-                GetComponent<QuestManager>().CompleteQuestStep(4, 1);
+                GetComponent<QuestManager>().CompleteQuestStep(4, 0);
                 GetComponent<QuestManager>().CompleteQuestStep(3, 1);
                 break;
             case "Cup":
@@ -60,7 +60,7 @@ public class QuestObserver : MonoBehaviour
     }
 
     private void Coloring_OnColoredInEvent(Transform interactable)
-    {
+    {/*
         switch (interactable.name)
         {
             case "Pet Shop":
@@ -70,6 +70,7 @@ public class QuestObserver : MonoBehaviour
                 GetComponent<QuestManager>().CompleteQuestStep(4, 0);
                 break;
         }
+        */
     }
 
     private void SubmitItemPopup_OnSubmittedItemEvent(Item item)
