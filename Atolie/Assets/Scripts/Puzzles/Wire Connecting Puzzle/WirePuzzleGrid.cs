@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WirePuzzleGrid : MonoBehaviour
 {
+    [SerializeField] private WirePuzzleTracker.Stage level;
+    [SerializeField] private WirePuzzleTracker puzzleManager;
+
     [SerializeField] private int gridSize;
     [SerializeField] private int numOfTerminals;
     private int numOfTiles;
@@ -43,8 +46,8 @@ public class WirePuzzleGrid : MonoBehaviour
         Debug.Log("NumberOfConnectedTerminals: " + numOfConnectedTerminals.ToString());
         if (numOfUsedTiles == numOfTiles && numOfTerminals == numOfConnectedTerminals)
         {
-            // ask tracker to complete stage
             Debug.Log("STAGE COMPLETE!");
+            //puzzleManager.CompleteStage(level);
         }
     }
 
