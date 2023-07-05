@@ -9,9 +9,10 @@ public class WirePuzzleGrid : MonoBehaviour
     private int numOfTiles;
     private int numOfUsedTiles;
     private int numOfConnectedTerminals;
+    private int[] tileCountInConnections;
 
     public int activeTerminal;
-    private WirePuzzleTerminalTile startingTerminal;
+    public WirePuzzleTerminalTile startingTerminal;
     private Stack<WirePuzzleTile> activeConnection;
 
     private void Awake()
@@ -19,6 +20,7 @@ public class WirePuzzleGrid : MonoBehaviour
         numOfTiles = gridSize * gridSize;
         numOfUsedTiles = 0;
         numOfConnectedTerminals = 0;
+        tileCountInConnections = new int[numOfTerminals + 1];
         activeTerminal = 0;
         activeConnection = new Stack<WirePuzzleTile>();
         SetUpTiles();
@@ -35,6 +37,38 @@ public class WirePuzzleGrid : MonoBehaviour
         }
     }
 
+    private void CheckForCompletion()
+    {
+        Debug.Log("NumberOfUsedTiles: " + numOfUsedTiles.ToString());
+        Debug.Log("NumberOfConnectedTerminals: " + numOfConnectedTerminals.ToString());
+        if (numOfUsedTiles == numOfTiles && numOfTerminals == numOfConnectedTerminals)
+        {
+            // ask tracker to complete stage
+            Debug.Log("STAGE COMPLETE!");
+        }
+    }
+
+    private void RegisterNewlyConnectedTerminal(int terminalID, int tileCount)
+    {
+        tileCountInConnections[terminalID] = tileCount;
+        tileCountInConnections[0] += tileCount;
+        numOfConnectedTerminals += 1;
+        numOfUsedTiles += tileCount;
+        CheckForCompletion();
+    }
+
+    private void UnregisterTerminalConnection(int terminalID)
+    {
+        int tileCount = tileCountInConnections[terminalID];
+        if (tileCount != 0)
+        {
+            tileCountInConnections[terminalID] = 0;
+            tileCountInConnections[0] -= tileCount;
+            numOfConnectedTerminals -= 1;
+            numOfUsedTiles -= tileCount;
+        }
+    }
+
     public void StartConnection(WirePuzzleTerminalTile terminal)
     {
         activeConnection.Push(terminal);
@@ -47,25 +81,68 @@ public class WirePuzzleGrid : MonoBehaviour
         activeConnection.Clear();
         activeTerminal = 0;
         startingTerminal = null;
+        Debug.Log("Connection Terminated");
     }
 
-    public bool TryCompleteConnection(WirePuzzleTerminalTile terminal)
+    public void TryCompleteConnection(WirePuzzleTerminalTile terminal)
     {
-        if (terminal != startingTerminal)
+        if (terminal != startingTerminal && terminal.terminalID == activeTerminal)
         {
             WirePuzzleTile previousTile = activeConnection.Peek();
             ConnectTiles(previousTile, terminal);
-            //TODO: implement
-            return true;
-        }
-        else
+            activeConnection.Push(terminal);
+            int numOfTilesInConnection = activeConnection.Count;
+            RegisterNewlyConnectedTerminal(terminal.terminalID, numOfTilesInConnection);
+         } else
         {
-            TerminateConnection();
-            return false;
+            ResetActiveConnection();
         }
+        TerminateConnection();
     }
 
-    public void ConnectTiles(WirePuzzleTile fromTile, WirePuzzleTile toTile)
+    public WirePuzzleTile SecondLastTileInActiveConnection()
+    {
+        WirePuzzleTile lastTile = activeConnection.Pop();
+        WirePuzzleTile secondLastTile = activeConnection.Peek();
+        activeConnection.Push(lastTile);
+        return secondLastTile;
+    }
+
+    public void ResetConnection(WirePuzzleTerminalTile terminal)
+    {
+        WirePuzzleTile nextTile = terminal;
+        while (nextTile != null)
+        {
+            WirePuzzleTile currentTile = nextTile;
+            nextTile = currentTile.outTile;
+            currentTile.Disconnect();
+        }
+        UnregisterTerminalConnection(terminal.terminalID);
+    }
+
+    public void ResetActiveConnection()
+    {
+        if (activeTerminal != 0)
+        {
+            ResetConnection(startingTerminal);
+        }
+        TerminateConnection();
+    }
+
+    public void AddTileToActiveConnection(WirePuzzleTile tile)
+    {
+        WirePuzzleTile fromTile = activeConnection.Peek();
+        ConnectTiles(fromTile, tile);
+        activeConnection.Push(tile);
+    }
+
+    public void RemovePreviousTileFromActiveConnection()
+    {
+        WirePuzzleTile previousTile = activeConnection.Pop();
+        previousTile.Disconnect();
+    }
+
+    private void ConnectTiles(WirePuzzleTile fromTile, WirePuzzleTile toTile)
     {
         int relativePosition = fromTile.CompareTo(toTile);
         switch (relativePosition)
@@ -75,28 +152,34 @@ public class WirePuzzleGrid : MonoBehaviour
                 break;
             case 1:
                 // toTile is above fromTile
-                fromTile.CreateConnection(ConnectDirection.Up);
-                toTile.CreateConnection(ConnectDirection.Down);
+                fromTile.CreateConnection(ConnectDirection.Up, toTile);
+                toTile.CreateConnection(ConnectDirection.Down, fromTile);
                 break;
             case 2:
                 // toTile is to the right of fromTile
-                fromTile.CreateConnection(ConnectDirection.Right);
-                toTile.CreateConnection(ConnectDirection.Left);
+                fromTile.CreateConnection(ConnectDirection.Right, toTile);
+                toTile.CreateConnection(ConnectDirection.Left, fromTile);
                 break;
             case 3:
                 // toTile is below fromTile
-                fromTile.CreateConnection(ConnectDirection.Down);
-                toTile.CreateConnection(ConnectDirection.Up);
+                fromTile.CreateConnection(ConnectDirection.Down, toTile);
+                toTile.CreateConnection(ConnectDirection.Up, fromTile);
                 break;
             case 4:
                 // toTile is to the left of fromTile
-                fromTile.CreateConnection(ConnectDirection.Left);
-                toTile.CreateConnection(ConnectDirection.Right);
+                fromTile.CreateConnection(ConnectDirection.Left, toTile);
+                toTile.CreateConnection(ConnectDirection.Right, fromTile);
                 break;
             case -1:
                 // terminate connection if diagonal
                 TerminateConnection();
                 break;
         }
+    }
+
+    public bool IsAdjacentToPreviousTile(WirePuzzleTile tile)
+    {
+        WirePuzzleTile previousTile = activeConnection.Peek();
+        return tile.IsAdjacent(previousTile);
     }
 }

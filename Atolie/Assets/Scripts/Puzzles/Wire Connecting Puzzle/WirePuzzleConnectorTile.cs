@@ -5,7 +5,8 @@ using UnityEngine.EventSystems;
 
 public class WirePuzzleConnectorTile : WirePuzzleTile, IPointerEnterHandler, IPointerExitHandler
 {
-    private int connectedTerminal;
+    [SerializeField] private int connectedTerminalID;
+    private WirePuzzleTerminalTile connectedTerminal;
     [SerializeField] private Animator animator;
 
     private ConnectDirection inDirection;
@@ -24,15 +25,45 @@ public class WirePuzzleConnectorTile : WirePuzzleTile, IPointerEnterHandler, IPo
         outDirection = ConnectDirection.Unconnected;
         animator.SetInteger("OutDirection", 0);
         animator.SetInteger("InDirection", 0);
-        connectedTerminal = 0;
+        connectedTerminalID = 0;
+        connectedTerminal = null;
+        this.inTile = null;
+        this.outTile = null;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        int terminal = grid.activeTerminal;
-        if (terminal != 0)
+        int terminalID = grid.activeTerminal;
+        if (terminalID != 0)
         {
-            connectedTerminal = terminal;
+            if (connectedTerminalID == 0)
+            {
+                if (grid.IsAdjacentToPreviousTile(this))
+                {
+                    connectedTerminalID = terminalID;
+                    connectedTerminal = grid.startingTerminal;
+                    grid.AddTileToActiveConnection(this);
+                }
+                else
+                {
+                    grid.ResetActiveConnection();
+                }
+            } else if (connectedTerminalID == terminalID)
+            {
+                if (this == grid.SecondLastTileInActiveConnection())
+                {
+                    grid.RemovePreviousTileFromActiveConnection();
+                    grid.RemovePreviousTileFromActiveConnection();
+                    grid.AddTileToActiveConnection(this);
+                }
+                else
+                {
+                    grid.ResetActiveConnection();
+                }
+            } else
+            {
+                grid.ResetActiveConnection();
+            }
 
         }
     }
@@ -42,11 +73,19 @@ public class WirePuzzleConnectorTile : WirePuzzleTile, IPointerEnterHandler, IPo
         
     }
 
-    public override void CreateConnection(ConnectDirection direction)
+    public override void CreateConnection(ConnectDirection direction, WirePuzzleTile tile)
     {
         // TODO: implement
         if (inDirection == ConnectDirection.Unconnected)
         {
+            inDirection = direction;
+            animator.SetInteger("InDirection", (int)direction);
+            this.inTile = tile;
+        } else if (outDirection == ConnectDirection.Unconnected)
+        {
+            outDirection = direction;
+            animator.SetInteger("OutDirection", (int)direction);
+            this.outTile = tile;
         }
     }
 }

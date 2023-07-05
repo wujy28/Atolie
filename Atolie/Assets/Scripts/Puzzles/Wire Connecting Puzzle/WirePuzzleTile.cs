@@ -4,10 +4,12 @@ using UnityEngine;
 
 public abstract class WirePuzzleTile : MonoBehaviour
 {
-    public bool used;
     [SerializeField] private int row;
     [SerializeField] private int col;
     public WirePuzzleGrid grid;
+
+    public WirePuzzleTile inTile;
+    public WirePuzzleTile outTile;
 
     public int CompareTo(WirePuzzleTile tile)
     {
@@ -49,6 +51,19 @@ public abstract class WirePuzzleTile : MonoBehaviour
         return -1;
     }
 
+    public bool IsAdjacent(WirePuzzleTile tile)
+    {
+        if (Mathf.Abs(tile.row - this.row) == 1 && tile.col == this.col)
+        {
+            return true;
+        }
+        else if (Mathf.Abs(tile.col - this.col) == 1 && tile.row == this.row)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public abstract void Disconnect();
 
     public void AssignGrid(WirePuzzleGrid puzzlegrid)
@@ -56,7 +71,7 @@ public abstract class WirePuzzleTile : MonoBehaviour
         grid = puzzlegrid;
     }
 
-    public abstract void CreateConnection(ConnectDirection direction);
+    public abstract void CreateConnection(ConnectDirection direction, WirePuzzleTile tile);
 }
 
 public enum ConnectDirection
