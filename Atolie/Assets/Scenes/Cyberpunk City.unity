@@ -2215,6 +2215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+  Scene: 0
   interactableData: {fileID: 11400000, guid: 68ebb014853e94864b3e4951ddd77a1f, type: 2}
 --- !u!4 &458076601
 Transform:
@@ -2286,6 +2287,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a4bfc5fb5eea3481a87aaf21240748c3, type: 2}
   - {fileID: 11400000, guid: addf6323b4b954b5ca5525c1297635b5, type: 2}
   - {fileID: 11400000, guid: 20d6c88789f22412ab17bfe43e2a0cea, type: 2}
+  - {fileID: 11400000, guid: 1710514e9c483485a87b5f4e9c8ab7cb, type: 2}
   activeQuests:
   - {fileID: 11400000, guid: fbefe24c021ac45638536e7aa86b1cf8, type: 2}
   - {fileID: 11400000, guid: e524c07cd317c4531b6d226a869ac759, type: 2}

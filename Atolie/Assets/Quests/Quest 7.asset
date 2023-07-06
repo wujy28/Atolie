@@ -18,11 +18,14 @@ MonoBehaviour:
   prerequisiteQuests:
   - {fileID: 11400000, guid: 5f2d616709e334d3fb5e5c406866e0f8, type: 2}
   - {fileID: 11400000, guid: 7ccf45ff0cfd7435aa5a11cec86903db, type: 2}
-  childQuests: []
+  childQuests:
+  - {fileID: 11400000, guid: 9b963a1c5bc8d4f0fbc7b6b08de52717, type: 2}
   questSteps:
   - stepNumber: 0
-    description: AM
+    description: AM, DDR
     interactions:
       _serializedList:
       - Key: Arcade Manager
         Value: {fileID: 11400000, guid: 87d434c82b2ea4c8c9ba70ceb0a015c9, type: 2}
+      - Key: DDR
+        Value: {fileID: 11400000, guid: 1e6189c162f704cfd97b556c90668661, type: 2}

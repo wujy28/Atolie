@@ -47,10 +47,10 @@ public class QuestObserver : MonoBehaviour
                 GetComponent<QuestManager>().CompleteQuestStep(3, 1);
                 break;
             case "Cup":
-                GetComponent<QuestManager>().CompleteQuestStep(6, 0);
+                GetComponent<QuestManager>().CompleteQuestStep(7, 0);
                 break;
             case "Elixir":
-                GetComponent<QuestManager>().CompleteQuestStep(6, 2);
+                GetComponent<QuestManager>().CompleteQuestStep(6, 1);
                 break;
             case "Shears":
                 GetComponent<QuestManager>().CompleteQuestStep(8, 1);
@@ -84,7 +84,7 @@ public class QuestObserver : MonoBehaviour
             case "Ticket":
                 break;
             case "Cup":
-                GetComponent<QuestManager>().CompleteQuestStep(6, 1);
+                GetComponent<QuestManager>().CompleteQuestStep(6, 0);
                 break;
             case "Fish":
                 GetComponent<QuestManager>().CompleteQuestStep(8, 0);
