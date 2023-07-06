@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Quest 7
+  m_EditorClassIdentifier: 
+  questID: 7
+  questName: Trade Ticket for Prize Cup
+  questDescription: Unlock Watering Cans Puzzle by submitting Prize Cup
+  prerequisiteQuests:
+  - {fileID: 11400000, guid: 5f2d616709e334d3fb5e5c406866e0f8, type: 2}
+  - {fileID: 11400000, guid: 7ccf45ff0cfd7435aa5a11cec86903db, type: 2}
+  childQuests: []
+  questSteps:
+  - stepNumber: 0
+    description: AM
+    interactions:
+      _serializedList:
+      - Key: Arcade Manager
+        Value: {fileID: 11400000, guid: 87d434c82b2ea4c8c9ba70ceb0a015c9, type: 2}

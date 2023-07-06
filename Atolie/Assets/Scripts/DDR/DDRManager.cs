@@ -38,6 +38,15 @@ public class DDRManager : MonoBehaviour
 
     [SerializeField] private GameObject welcomeScreen;
 
+    // Screens
+    [SerializeField] private GameObject puzzleCompletionScreen;
+    [SerializeField] private GameObject exitGameConfirmationScreen;
+    private bool puzzlePaused;
+
+    // Interaction to play after completing puzzle (in this case, get ticket)
+    [SerializeField] private Interaction postPuzzleInteraction;
+
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -55,10 +64,17 @@ public class DDRManager : MonoBehaviour
     {
         welcomeScreen.SetActive(true);
 
+        // To be consistent with the other puzzles
+        puzzleCompletionScreen.SetActive(false);
+        exitGameConfirmationScreen.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.Puzzle);
+
         scoreText.text = "Score: 0";
         currentMultiplier = 1;
 
         totalNotes = FindObjectsOfType<NoteObject>().Length;
+
+        puzzlePaused = false;
     }
 
     // Update is called once per frame
@@ -75,7 +91,7 @@ public class DDRManager : MonoBehaviour
             }
         } else
         {
-            if (!music.isPlaying && !resultsScreen.activeInHierarchy)
+            if (!music.isPlaying && !resultsScreen.activeInHierarchy && !puzzlePaused)
             {
                 resultsScreen.SetActive(true);
                 scoreText.enabled = false;
@@ -91,6 +107,8 @@ public class DDRManager : MonoBehaviour
                 percentText.text = percentHit.ToString("F1") + "%";
 
                 finalScoreText.text = currentScore.ToString();
+
+                Invoke("OpenPuzzleCompletionScreen", 7);
             }
         }
     }
@@ -158,5 +176,41 @@ public class DDRManager : MonoBehaviour
         comboText.text = "Combo: " + currentCombo;
 
         missedHits++;
+    }
+
+    // Functions for puzzle pause, exit and completion
+    public void PausePuzzle()
+    {
+        puzzlePaused = true;
+        exitGameConfirmationScreen.SetActive(true);
+        Time.timeScale = 0;
+        music.Pause();
+    }
+
+    public void ResumePuzzle()
+    {
+        puzzlePaused = false;
+        Time.timeScale = 1;
+        exitGameConfirmationScreen.SetActive(false);
+        music.Play();
+    }
+
+    public void ExitPuzzle()
+    {
+        Time.timeScale = 1;
+        GameManager.Instance.UpdateGameState(GameState.Exploration);
+        GameManager.Instance.ChangeScene(GameScene.Arcade);
+    }
+
+    private void OpenPuzzleCompletionScreen()
+    {
+        puzzleCompletionScreen.SetActive(true);
+    }
+
+    public void ExitCompletedPuzzle()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Exploration);
+        GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
+        GameManager.Instance.ChangeScene(GameScene.Arcade);
     }
 }

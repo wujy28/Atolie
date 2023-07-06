@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class SubmitItemPopup : MonoBehaviour
     [SerializeField] private Text requiredItemName;
     [SerializeField] private Image requiredItemImage;
     [SerializeField] private Button submitButton;
+
+    // Event to notify QuestManager/other managers when an item is submitted
+    public static event Action<Item> OnSubmittedItemEvent;
 
     private void Awake()
     {
@@ -85,5 +89,6 @@ public class SubmitItemPopup : MonoBehaviour
         InventoryManager.instance.GetSelectedItem(true);
         HidePopup();
         InteractionExecutable.currentExecutableCompleted();
+        OnSubmittedItemEvent?.Invoke(requiredItem);
     }
 }

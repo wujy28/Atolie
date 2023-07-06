@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Temp Menu/Start Screen.unity
+    guid: 9e39d4adf5f9a3141a3833627ec6fbee
+  - enabled: 1
     path: Assets/Scenes/Arcade.unity
     guid: b3b4ea81e3dc7bd4bb05c1750212bf83
   - enabled: 1
@@ -21,9 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Puzzles/Watering Cans Puzzle.unity
     guid: 092c7e9a69b7a4e2a82e4ab36c8a5971
   - enabled: 1
-    path: Assets/Scenes/Temp Menu/Start Screen.unity
-    guid: 9e39d4adf5f9a3141a3833627ec6fbee
-  - enabled: 1
     path: Assets/Scenes/Temp Menu/Instruction Screen.unity
     guid: c528ec02b1bccc34c943f5e6effecefe
+  - enabled: 1
+    path: Assets/Scenes/Puzzles/DDR.unity
+    guid: a7efac3f0da73e7439004acd29203987
+  - enabled: 1
+    path: Assets/Scenes/Temp Menu/End Demo Scene.unity
+    guid: 111dd5a49552a41c79e27c6ea42f1b3c
   m_configObjects: {}

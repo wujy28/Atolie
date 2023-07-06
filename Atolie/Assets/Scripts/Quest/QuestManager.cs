@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
@@ -104,7 +105,11 @@ public class QuestManager : MonoBehaviour
 
     public void CompleteQuest(Quest quest)
     {
-        isCompleted.Add(quest, true);
+        if (!isCompleted.TryAdd(quest, true))
+        {
+            isCompleted.Remove(quest);
+            isCompleted.Add(quest, true);
+        }
         activeQuests.Remove(quest);
         foreach (Quest childQuest in quest.childQuests)
         {
@@ -131,17 +136,38 @@ public class QuestManager : MonoBehaviour
         foreach (string interactable in interactions.Keys)
         {
             Interaction interaction = interactions.GetValueOrDefault(interactable);
-            InteractionManager.Instance.LoadInteraction(interactable, interaction);
+            GameObject.FindObjectOfType<InteractionManager>().GetComponent<InteractionManager>().LoadInteraction(interactable, interaction);
         }
     }
 
     public void CompleteQuestStep(int questId, int stepNumber)
     {
-        Quest quest = quests.GetValueOrDefault(questId);
-        if (quest.IsCurrentStep(stepNumber))
+        try
         {
-            quest.NextQuestStep();
+            if (quests.TryGetValue(questId, out Quest quest))
+            {
+                if (isCompleted.TryGetValue(quest, out bool completed))
+                {
+                    if (!completed)
+                    {
+                        Debug.Log("Complete Quest Step: Quest " + questId.ToString() + " Step " + stepNumber.ToString());
+                        if (quest.IsCurrentStep(stepNumber))
+                        {
+                            quest.NextQuestStep();
+                        }
+                        else
+                        {
+                            quest.SkipToStep(stepNumber + 1);
+                        }
+                    }
+                }
+            }
         }
+        catch (NullReferenceException e)
+        {
+            Debug.Log("Null reference exception?");
+        }
+
     }
 
     public void SkipToQuestStep(int questId, int stepNumber)

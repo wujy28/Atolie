@@ -25,12 +25,13 @@ public class DialogueManager : MonoBehaviour
             instance = this;
             //DontDestroyOnLoad(gameObject);
         }
+        sentences = new Queue<string>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        sentences = new Queue<string>();
+        
     }
 
     public void StartDialogue(Dialogue dialogue)

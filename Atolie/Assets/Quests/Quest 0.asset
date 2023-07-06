@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Quest 0
+  m_EditorClassIdentifier: 
+  questID: 0
+  questName: Starter Arcade
+  questDescription: Starting Interactions for Arcade Interactables (Excluding ones
+    involved in other starter quests)
+  prerequisiteQuests: []
+  childQuests: []
+  questSteps:
+  - stepNumber: 0
+    description: AM, VM, HT
+    interactions:
+      _serializedList:
+      - Key: Vending Machine
+        Value: {fileID: 11400000, guid: 56427ccd34c8d46a696f95118f8cc94d, type: 2}
+      - Key: Hockey Table
+        Value: {fileID: 11400000, guid: 971572425bc024797a22c1f625134a7b, type: 2}

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Quest 6
+  m_EditorClassIdentifier: 
+  questID: 6
+  questName: Unlock Watering Cans Puzzle
+  questDescription: Unlock Watering Cans Puzzle by submitting Prize Cup
+  prerequisiteQuests:
+  - {fileID: 11400000, guid: ca9857dfb0b1c4050be572d737654ddb, type: 2}
+  - {fileID: 11400000, guid: 5f2d616709e334d3fb5e5c406866e0f8, type: 2}
+  childQuests:
+  - {fileID: 11400000, guid: a4bfc5fb5eea3481a87aaf21240748c3, type: 2}
+  questSteps:
+  - stepNumber: 0
+    description: DDR
+    interactions:
+      _serializedList:
+      - Key: DDR
+        Value: {fileID: 11400000, guid: 1e6189c162f704cfd97b556c90668661, type: 2}
+  - stepNumber: 1
+    description: AM, WC
+    interactions:
+      _serializedList:
+      - Key: Arcade Manager
+        Value: {fileID: 11400000, guid: b8c2c239035754770a9983749fc3ebe5, type: 2}
+      - Key: Watering Cans
+        Value: {fileID: 11400000, guid: 911f1a2c148da4b64a8226748c516e66, type: 2}
+  - stepNumber: 2
+    description: WC
+    interactions:
+      _serializedList:
+      - Key: Watering Cans
+        Value: {fileID: 11400000, guid: cb547139e773a4d8f9cc6627f72359f4, type: 2}

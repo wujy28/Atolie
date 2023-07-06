@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Quest 3
+  m_EditorClassIdentifier: 
+  questID: 3
+  questName: Color and Unlock DDR Puzzle
+  questDescription: Unlock DDR Puzzle by Coloring, then play game with Token obtained
+  prerequisiteQuests: []
+  childQuests:
+  - {fileID: 11400000, guid: 9b963a1c5bc8d4f0fbc7b6b08de52717, type: 2}
+  - {fileID: 11400000, guid: 5420e4ef9f3d04fd8b8db2f851281016, type: 2}
+  questSteps:
+  - stepNumber: 0
+    description: DDR
+    interactions:
+      _serializedList:
+      - Key: DDR
+        Value: {fileID: 11400000, guid: ee515e866b146481f81037b7fa3daa42, type: 2}
+  - stepNumber: 1
+    description: DDR
+    interactions:
+      _serializedList:
+      - Key: DDR
+        Value: {fileID: 11400000, guid: bdf9fb973fda848e9bc1b3fdd37ccc53, type: 2}

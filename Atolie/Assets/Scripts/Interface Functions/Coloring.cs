@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class Coloring : MonoBehaviour
     /// The correct color for this object.
     /// </summary>
     public string correctColor;
+
+    public static event Action<Transform> OnColoredInEvent;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +59,8 @@ public class Coloring : MonoBehaviour
             // Unsubscribes from Paint Bucket's information channel
             PaintBucketMode paintBucketMode = GameObject.Find("PaintBucket").GetComponent<PaintBucketMode>();
             paintBucketMode.ColoringModeOnEvent -= flash;
+
+            OnColoredInEvent?.Invoke(transform);
         }
     }
 

@@ -11,6 +11,8 @@ public class PondMazeTracker : MonoBehaviour
     [SerializeField] private Stage currentStage;
     [SerializeField] private GameObject welcomeScreen;
     [SerializeField] private GameObject puzzleCompletionScreen;
+    [SerializeField] private GameObject exitGameConfirmationScreen;
+    [SerializeField] private Interaction postPuzzleInteraction;
     [SerializeField] private Transform player;
 
     void Awake()
@@ -29,6 +31,8 @@ public class PondMazeTracker : MonoBehaviour
     {
         UpdateStage(Stage.Welcome);
         puzzleCompletionScreen.SetActive(false);
+        exitGameConfirmationScreen.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.Puzzle);
     }
 
     public void UpdateStage(Stage newStage)
@@ -69,5 +73,31 @@ public class PondMazeTracker : MonoBehaviour
         Welcome,
         PuzzleActive,
         PuzzleComplete
+    }
+
+    public void PausePuzzle()
+    {
+        exitGameConfirmationScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void ResumePuzzle()
+    {
+        Time.timeScale = 1;
+        exitGameConfirmationScreen.SetActive(false);
+    }
+
+    public void ExitPuzzle()
+    {
+        Time.timeScale = 1;
+        GameManager.Instance.UpdateGameState(GameState.Exploration);
+        GameManager.Instance.ChangeScene(GameScene.MushroomGarden);
+    }
+
+    public void ExitCompletedPuzzle()
+    {
+        GameManager.Instance.UpdateGameState(GameState.Exploration);
+        GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
+        GameManager.Instance.ChangeScene(GameScene.MushroomGarden);
     }
 }

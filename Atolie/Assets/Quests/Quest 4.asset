@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4655d8c89f890424197500760337b240, type: 3}
+  m_Name: Quest 4
+  m_EditorClassIdentifier: 
+  questID: 4
+  questName: Color and Unlock Prize Counter
+  questDescription: Unlock Prize Counter by Coloring, then prize exchange is allowed
+  prerequisiteQuests: []
+  childQuests:
+  - {fileID: 11400000, guid: 5420e4ef9f3d04fd8b8db2f851281016, type: 2}
+  questSteps:
+  - stepNumber: 0
+    description: PC, AM
+    interactions:
+      _serializedList:
+      - Key: Prize Counter
+        Value: {fileID: 11400000, guid: 84d8b0dde47c343de945fa027962a48d, type: 2}
+      - Key: Arcade Manager
+        Value: {fileID: 11400000, guid: 154009ba12c2b4b55b0fa848dee0b061, type: 2}

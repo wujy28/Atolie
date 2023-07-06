@@ -33,12 +33,14 @@ public class InteractionManager : MonoBehaviour
         {
             Instance = this;
         }
+        Debug.Log("Awake");
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerInteraction = player.GetComponent<PlayerInteraction>();
         // playerSettings = player.GetComponent<PlayerSettings>();
         currentTarget = null;
         inInteraction = false;
         currentInteraction = new Queue<InteractionExecutable>();
+        interactables = transform.GetComponentInChildren<Interactables>();
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
     }
 
@@ -106,6 +108,7 @@ public class InteractionManager : MonoBehaviour
             removeTarget();
             inInteraction = false;
         }
+        QuestManager.Instance.LoadActiveQuests();
     }
 
     public void forceExitInteraction()
@@ -139,7 +142,7 @@ public class InteractionManager : MonoBehaviour
 
     public void LoadInteraction(string InteractableName, Interaction interaction)
     {
-        Transform interactable = interactables.transform.Find(InteractableName);
+        Transform interactable = transform.Find("Interactables").Find(InteractableName);
         if (interactable != null)
         {
             interactable.GetComponent<InteractionTrigger>().setCurrentInteraction(interaction);
@@ -153,9 +156,9 @@ public class InteractionManager : MonoBehaviour
         if (name != null && name != "")
         {
             Transform interactable = interactables.transform.Find(name);
-            Debug.Log(interactable.name);
             if (interactable != null)
             {
+                Debug.Log(interactable.name);
                 interactable.gameObject.SetActive(false);
             }
         }

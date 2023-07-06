@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 762499248}
   - component: {fileID: 762499247}
   - component: {fileID: 762499246}
-  - component: {fileID: 762499245}
+  - component: {fileID: 762499249}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -552,18 +552,6 @@ RectTransform:
   m_AnchoredPosition: {x: 450.33, y: -457}
   m_SizeDelta: {x: 341.55, y: 102.62}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &762499245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 762499243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b25a04ea8cff3e43bff587b5653ecfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &762499246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,14 +596,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 762499245}
-        m_TargetAssemblyTypeName: ChangeTab, Assembly-CSharp
+      - m_Target: {fileID: 762499249}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: MoveToTab
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -658,6 +646,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762499243}
   m_CullTransparentMesh: 1
+--- !u!114 &762499249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762499243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c910a54a0f624d01b9dd02b763d7808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1046256219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,7 +1167,8 @@ MonoBehaviour:
 
 
     Clicking
-    on this will enable painting mode, where you can choose a color & color in objects!'
+    on this will enable paint bucket mode, where you can choose a color & color in
+    objects!'
 --- !u!222 &1498885836
 CanvasRenderer:
   m_ObjectHideFlags: 0

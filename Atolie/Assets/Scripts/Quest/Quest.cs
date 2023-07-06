@@ -53,6 +53,7 @@ public class Quest : ScriptableObject
         isActive = false;
         isCompleted = true;
         QuestManager.Instance.CompleteQuest(this);
+        Debug.Log("Quest: " + questName + " completed.");
     }
 
     public void AddToCompletedPrereq(Quest quest)
@@ -95,10 +96,27 @@ public class Quest : ScriptableObject
         QuestManager.Instance.LoadQuestStep(currentStep);
     }
 
+    private void LoadAllStepsAndComplete()
+    {
+        while (questStepsQueue.Count > 0)
+        {
+            QuestStep nextStep = questStepsQueue.Dequeue();
+            currentStep = nextStep;
+            QuestManager.Instance.LoadQuestStep(currentStep);
+        }
+        QuestCompleted();
+    }
+
     public void SkipToStep(int step)
     {
+        Debug.Log("Quest: " + questName + " skipped to step " + step.ToString());
+        if (step > questSteps.Count - 1)
+        {
+            LoadAllStepsAndComplete();
+            return;
+        }
         QuestStep questStep = questSteps[step];
-        if (questStep.stepNumber <= currentStep.stepNumber || questStep == null)
+        if (questStep.stepNumber < currentStep.stepNumber || questStep == null)
         {
             Debug.LogError("SkipToStep: Currently at Step " + currentStep.stepNumber + ". Cannot skip to step " + step + ".");
             return;
@@ -107,6 +125,7 @@ public class Quest : ScriptableObject
         {
             QuestStep nextStep = questStepsQueue.Dequeue();
             currentStep = nextStep;
+            QuestManager.Instance.LoadQuestStep(currentStep);
         }
         QuestManager.Instance.LoadQuestStep(currentStep);
     }

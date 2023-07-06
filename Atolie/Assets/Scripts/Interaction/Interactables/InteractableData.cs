@@ -31,6 +31,7 @@ public class InteractableData : ScriptableObject
 
     public void ResetData()
     {
+        Debug.Log("InteractableData reset");
         interactables = new SerializedDictionary<string, InteractableStatus>();
     }
 
@@ -41,6 +42,7 @@ public class InteractableData : ScriptableObject
         if (!interactables.ContainsKey(interactableName))
         {
             Debug.Log("Cannot update status: " + interactableName + " does not exist.");
+            interactables.Add(interactableName, status);
             return;
         }
         else
