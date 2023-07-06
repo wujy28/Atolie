@@ -47,7 +47,7 @@ public class WirePuzzleGrid : MonoBehaviour
         if (numOfUsedTiles == numOfTiles && numOfTerminals == numOfConnectedTerminals)
         {
             Debug.Log("STAGE COMPLETE!");
-            //puzzleManager.CompleteStage(level);
+            puzzleManager.CompleteStage(level);
         }
     }
 

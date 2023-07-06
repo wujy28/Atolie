@@ -94,6 +94,7 @@ public class WirePuzzleTracker : MonoBehaviour
             case 1:
                 levelSelectScreen.SetActive(false);
                 stage_1.SetActive(true);
+                OpenInstructionsScreen();
                 break;
             case 2:
                 levelSelectScreen.SetActive(false);
@@ -184,6 +185,7 @@ public class WirePuzzleTracker : MonoBehaviour
     public void NextStage()
     {
         stageCompletionScreen.SetActive(false);
+        EnableStageBlocker();
         UpdateStage(currentStage + 1);
     }
 
@@ -220,13 +222,13 @@ public class WirePuzzleTracker : MonoBehaviour
     {
         Time.timeScale = 1;
         GameManager.Instance.UpdateGameState(GameState.Exploration);
-        GameManager.Instance.ChangeScene(GameScene.MushroomGarden);
+        GameManager.Instance.ChangeScene(GameScene.CyberpunkCity);
     }
 
     public void ExitCompletedPuzzle()
     {
         GameManager.Instance.UpdateGameState(GameState.Exploration);
         GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
-        GameManager.Instance.ChangeScene(GameScene.MushroomGarden);
+        GameManager.Instance.ChangeScene(GameScene.CyberpunkCity);
     }
 }
