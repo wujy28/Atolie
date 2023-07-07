@@ -73,16 +73,24 @@ public class PaintBucketMode : MonoBehaviour
         currentColor = "noColor";
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerSettings = player.GetComponent<PlayerSettings>();
+        changeColor(FindObjectOfType<ColorManager>().GetSelectedColorAsString());
     }
 
     private void Awake()
     {
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+        ColorManager.OnSelectedColorChanged += ColorManager_OnSelectedColorChanged;
+    }
+
+    private void ColorManager_OnSelectedColorChanged(string color)
+    {
+        changeColor(color);
     }
 
     private void OnDestroy()
     {
         GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+        ColorManager.OnSelectedColorChanged -= ColorManager_OnSelectedColorChanged;
     }
 
     // Tbh I'm pretty sure there's a better way to do this than to check every
@@ -137,7 +145,7 @@ public class PaintBucketMode : MonoBehaviour
     /// Changes the current selected color of the Paint Bucket.
     /// </summary>
     /// <param name="color"></param> Color to change to
-    public void changeColor(string color)
+    private void changeColor(string color)
     {
         currentColor = color;
         // Notifies/updates subscribers of the change in current selected color
