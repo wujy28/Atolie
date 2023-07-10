@@ -42,6 +42,15 @@ public class ColorManager : MonoBehaviour
         }
     }
 
+    public void AddColor(ColorManager.Color color)
+    {
+        int toCurrColorID = (int)color;
+        if (toCurrColorID == currColor + 1)
+        {
+            AddColor();
+        }
+    }
+
     public void ChangeSelectedColor(int color)
     {
         selectedColor = (Color)color;

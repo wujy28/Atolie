@@ -59,6 +59,10 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
         if (interactionsAllowed)
         {
             InteractionManager.Instance.setCurrentTarget(transform);
+            if (TryGetComponent(out Interactable interactable))
+            {
+                interactable.UpdateInteraction();
+            }
         }
     }
 

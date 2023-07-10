@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Interactables : MonoBehaviour
 {
-    public InteractableData interactableData;
+    public InteractablesData interactableData;
 
     [SerializeField] private List<Transform> interactables;
     public CurrentScene currentScene;

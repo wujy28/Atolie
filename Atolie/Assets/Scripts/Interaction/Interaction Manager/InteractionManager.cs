@@ -108,7 +108,7 @@ public class InteractionManager : MonoBehaviour
             removeTarget();
             inInteraction = false;
         }
-        QuestManager.Instance.LoadActiveQuests();
+        // QuestManager.Instance.LoadActiveQuests();
     }
 
     public void forceExitInteraction()

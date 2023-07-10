@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
 
     // Data
-    [SerializeField] private InteractableData interactableData;
+    [SerializeField] private InteractablesData interactableData;
 
     // References
     private InventoryManager inventory;

@@ -65,6 +65,22 @@ public class Coloring : MonoBehaviour
         }
     }
 
+    public void colorInQuietly()
+    {
+        if (!coloredIn)
+        {
+            coloredIn = true;
+            // Changes to colored in sprite animation
+            GetComponent<Animator>().SetBool("IsColoredIn", true);
+            // Enables interaction and trigger zone
+            gameObject.GetComponent<InteractionTrigger>().enabled = true;
+            gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
+            // Unsubscribes from Paint Bucket's information channel
+            PaintBucketMode paintBucketMode = GameObject.Find("PaintBucket").GetComponent<PaintBucketMode>();
+            paintBucketMode.ColoringModeOnEvent -= flash;
+        }
+    }
+
     /// <summary>
     /// Glows/flashes when correct color is selected during Paint Bucket Mode
     /// </summary>
