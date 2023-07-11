@@ -6,6 +6,8 @@ public class DataManager : MonoBehaviour
 {
     [SerializeField] private List<InteractableData> allInteractableData;
     [SerializeField] private List<InteractableListener> allInteractableListener;
+    [SerializeField] private List<ChooseInteractionExecutable> allChooseInteractionExecutables;
+    [SerializeField] private List<ChooseInteractionListener> allChooseInteractionListeners;
 
     public static DataManager Instance;
 
@@ -29,6 +31,7 @@ public class DataManager : MonoBehaviour
         {
             UnsubscribeAllListeners();
             ResetAllInteractableData();
+            ResetAllChooseInteractionExecutables();
             Debug.Log("On Destroy");
         }
     }
@@ -39,6 +42,7 @@ public class DataManager : MonoBehaviour
         {
             UnsubscribeAllListeners();
             ResetAllInteractableData();
+            ResetAllChooseInteractionExecutables();
             Debug.Log("On Disable");
         }
     }
@@ -46,6 +50,11 @@ public class DataManager : MonoBehaviour
     private void SubscribeAllListeners()
     {
         foreach (InteractableListener listener in allInteractableListener)
+        {
+            listener.SubscribeToAllEvents();
+        }
+
+        foreach (ChooseInteractionListener listener in allChooseInteractionListeners)
         {
             listener.SubscribeToAllEvents();
         }
@@ -57,6 +66,11 @@ public class DataManager : MonoBehaviour
         {
             listener.UnsubscribeFromAllEvents();
         }
+
+        foreach (ChooseInteractionListener listener in allChooseInteractionListeners)
+        {
+            listener.UnsubscribeFromAllEvents();
+        }
     }
 
     private void ResetAllInteractableData()
@@ -64,6 +78,14 @@ public class DataManager : MonoBehaviour
         foreach (InteractableData interactable in allInteractableData)
         {
             interactable.ResetData();
+        }
+    }
+
+    private void ResetAllChooseInteractionExecutables()
+    {
+        foreach (ChooseInteractionExecutable executable in  allChooseInteractionExecutables)
+        {
+            executable.ResetAllOptions();
         }
     }
 }
