@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DDRManager : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class DDRManager : MonoBehaviour
     public Text percentText, normalText, goodText, perfectText, missText, finalScoreText;
 
     [SerializeField] private GameObject welcomeScreen;
+    [SerializeField] private GameObject failedScreen;
 
     // Screens
     [SerializeField] private GameObject puzzleCompletionScreen;
@@ -93,22 +95,28 @@ public class DDRManager : MonoBehaviour
         {
             if (!music.isPlaying && !resultsScreen.activeInHierarchy && !puzzlePaused)
             {
-                resultsScreen.SetActive(true);
-                scoreText.enabled = false;
-                comboText.enabled = false;
+                if (currentScore < 38500)
+                {
+                    failedScreen.SetActive(true);
+                } else
+                {
+                    resultsScreen.SetActive(true);
+                    scoreText.enabled = false;
+                    comboText.enabled = false;
 
-                normalText.text = normalHits.ToString();
-                goodText.text = goodHits.ToString();
-                perfectText.text = perfectHits.ToString();
-                missText.text = missedHits.ToString();
+                    normalText.text = normalHits.ToString();
+                    goodText.text = goodHits.ToString();
+                    perfectText.text = perfectHits.ToString();
+                    missText.text = missedHits.ToString();
 
-                float totalHit = normalHits + goodHits + perfectHits;
-                float percentHit = (totalHit / totalNotes) * 100f;
-                percentText.text = percentHit.ToString("F1") + "%";
+                    float totalHit = normalHits + goodHits + perfectHits;
+                    float percentHit = (totalHit / totalNotes) * 100f;
+                    percentText.text = percentHit.ToString("F1") + "%";
 
-                finalScoreText.text = currentScore.ToString();
+                    finalScoreText.text = currentScore.ToString();
 
-                Invoke("OpenPuzzleCompletionScreen", 7);
+                    Invoke("OpenPuzzleCompletionScreen", 7);
+                }
             }
         }
     }
@@ -176,6 +184,11 @@ public class DDRManager : MonoBehaviour
         comboText.text = "Combo: " + currentCombo;
 
         missedHits++;
+    }
+
+    public void TryAgain()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     // Functions for puzzle pause, exit and completion
