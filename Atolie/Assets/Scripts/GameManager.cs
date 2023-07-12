@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
             SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+            UpdateGameState(State);
         }
         inventory = FindObjectOfType<InventoryManager>();
         questSystem = FindObjectOfType<QuestManager>();

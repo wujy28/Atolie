@@ -37,6 +37,7 @@ public class ChooseInteractionPopup : MonoBehaviour
 
     private void LoadOptions()
     {
+        dropdown.options.Clear();
         foreach (string description in optionDescriptions)
         {
             dropdown.options.Add(new Dropdown.OptionData() { text = description });

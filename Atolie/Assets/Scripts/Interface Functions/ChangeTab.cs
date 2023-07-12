@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChangeTab : MonoBehaviour
 {
@@ -17,6 +18,29 @@ public class ChangeTab : MonoBehaviour
                 break;
             case 2:
                 GameManager.Instance.ChangeScene(GameScene.MushroomGarden);
+                break;
+        }
+    }
+
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnGameStateChanged -= GameManager_OnGameStateChanged;
+    }
+
+    private void GameManager_OnGameStateChanged(GameState state)
+    {
+        switch (state)
+        {
+            case GameState.Exploration:
+                GetComponent<Button>().interactable = true;
+                break;
+            case GameState.Interaction:
+                GetComponent<Button>().interactable = false;
                 break;
         }
     }

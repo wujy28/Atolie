@@ -8,6 +8,7 @@ public class DataManager : MonoBehaviour
     [SerializeField] private List<InteractableListener> allInteractableListener;
     [SerializeField] private List<ChooseInteractionExecutable> allChooseInteractionExecutables;
     [SerializeField] private List<ChooseInteractionListener> allChooseInteractionListeners;
+    [SerializeField] private TraderRoListener traderRoListener;
 
     public static DataManager Instance;
 
@@ -32,6 +33,7 @@ public class DataManager : MonoBehaviour
             UnsubscribeAllListeners();
             ResetAllInteractableData();
             ResetAllChooseInteractionExecutables();
+            traderRoListener.Reset();
             Debug.Log("On Destroy");
         }
     }
@@ -43,6 +45,7 @@ public class DataManager : MonoBehaviour
             UnsubscribeAllListeners();
             ResetAllInteractableData();
             ResetAllChooseInteractionExecutables();
+            traderRoListener.Reset();
             Debug.Log("On Disable");
         }
     }
@@ -58,6 +61,8 @@ public class DataManager : MonoBehaviour
         {
             listener.SubscribeToAllEvents();
         }
+
+        traderRoListener.SubscribeToAllEvents();
     }
 
     private void UnsubscribeAllListeners()
@@ -71,6 +76,8 @@ public class DataManager : MonoBehaviour
         {
             listener.UnsubscribeFromAllEvents();
         }
+
+        traderRoListener.UnsubscribeFromAllEvents();
     }
 
     private void ResetAllInteractableData()
