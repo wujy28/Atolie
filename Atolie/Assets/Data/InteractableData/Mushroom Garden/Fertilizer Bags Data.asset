@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
-  m_Name: Mushroom House Data
+  m_Name: Fertilizer Bags Data
   m_EditorClassIdentifier: 
-  interactableName: Mushroom House
+  interactableName: Fertilizer Bags
   initiallyActive: 1
-  initiallyColoredIn: 1
+  initiallyColoredIn: 0
   initialInteractionIndex: 0
   interactionsList:
-  - {fileID: 11400000, guid: 627d916fcf89b435cb09ed804b03ea78, type: 2}
-  - {fileID: 11400000, guid: 75afbc4445f1345528a9a78521f94138, type: 2}
+  - {fileID: 11400000, guid: aa7c79f58eb4946f09bb5e7c917f9058, type: 2}

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
-  m_Name: Pond Data
+  m_Name: ElderTruffle Data
   m_EditorClassIdentifier: 
-  interactableName: Pond
-  initiallyActive: 1
-  initiallyColoredIn: 0
+  interactableName: ElderTruffle
+  initiallyActive: 0
+  initiallyColoredIn: 1
   initialInteractionIndex: 0
   interactionsList:
-  - {fileID: 11400000, guid: 0444764c4737a429688cc3dc363667b1, type: 2}
+  - {fileID: 11400000, guid: e4cf22a640c694297909f8d49d854497, type: 2}

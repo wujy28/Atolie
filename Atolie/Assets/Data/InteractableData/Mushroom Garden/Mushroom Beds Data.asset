@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: Mushroom Beds Data
+  m_EditorClassIdentifier: 
+  interactableName: Mushroom Beds
+  initiallyActive: 1
+  initiallyColoredIn: 0
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: 9ed59964d1d8348619bba92163af2a00, type: 2}
+  - {fileID: 11400000, guid: 59efe8fe35b884e84a70f1d897a73d01, type: 2}
+  - {fileID: 11400000, guid: 838e8e82fc5ad49d3a40c3afaa17adc2, type: 2}

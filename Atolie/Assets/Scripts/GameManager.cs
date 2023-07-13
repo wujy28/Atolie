@@ -14,11 +14,12 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> OnGameStateChanged;
 
     // Data
-    [SerializeField] private InteractablesData interactableData;
+    // [SerializeField] private InteractablesData interactableData;
 
     // References
     private InventoryManager inventory;
-    private QuestManager questSystem;
+    private DataManager dataManager;
+    private ColorManager colorManager;
 
     private Interaction postSceneChangeInteraction;
 
@@ -36,14 +37,15 @@ public class GameManager : MonoBehaviour
             UpdateGameState(State);
         }
         inventory = FindObjectOfType<InventoryManager>();
-        questSystem = FindObjectOfType<QuestManager>();
+        dataManager = FindObjectOfType<DataManager>();
+        colorManager = FindObjectOfType<ColorManager>();
     }
 
     private void OnDestroy()
     {
         if (this == Instance)
         {
-            interactableData.ResetData();
+            // interactableData.ResetData();
             SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
         }
     }
@@ -59,11 +61,6 @@ public class GameManager : MonoBehaviour
             }
         }
         postSceneChangeInteraction = null;
-
-        if (Scene == GameScene.Arcade || Scene == GameScene.CyberpunkCity || Scene == GameScene.MushroomGarden)
-        {
-            questSystem.LoadActiveQuests();
-        }
     }
 
     public void ChangeScene(GameScene scene)
@@ -93,6 +90,21 @@ public class GameManager : MonoBehaviour
                 break;
             case GameScene.PondMaze:
                 SceneManager.LoadScene(4);
+                break;
+            case GameScene.WireConnectingPuzzle:
+                SceneManager.LoadScene(9);
+                break;
+            case GameScene.VendingMachineTangram:
+                SceneManager.LoadScene(10);
+                break;
+            case GameScene.TrashCanSlidingPuzzle:
+                SceneManager.LoadScene(11);
+                break;
+            case GameScene.Nonogram:
+                SceneManager.LoadScene(12);
+                break;
+            case GameScene.TraderRos:
+                SceneManager.LoadScene(13);
                 break;
             case GameScene.DemoEnd:
                 SceneManager.LoadScene(8);
@@ -140,9 +152,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(inventory.gameObject);
         }
-        if (questSystem != null)
+        if (dataManager != null)
         {
-            Destroy(questSystem.gameObject);
+            Destroy(dataManager.gameObject);
+        }
+        if (colorManager != null)
+        {
+            Destroy(colorManager.gameObject);
         }
     }
 
@@ -155,9 +171,13 @@ public class GameManager : MonoBehaviour
         {
             inventory.gameObject.SetActive(false);
         }
-        if (questSystem != null)
+        if (dataManager != null)
         {
-            questSystem.gameObject.SetActive(true);
+            dataManager.gameObject.SetActive(true);
+        }
+        if (colorManager != null)
+        {
+            colorManager.gameObject.SetActive(false);
         }
     }
 
@@ -168,9 +188,13 @@ public class GameManager : MonoBehaviour
         {
             inventory.gameObject.SetActive(false);
         }
-        if (questSystem != null)
+        if (dataManager != null)
         {
-            questSystem.gameObject.SetActive(false);
+            dataManager.gameObject.SetActive(false);
+        }
+        if (colorManager != null)
+        {
+            colorManager.gameObject.SetActive(false);
         }
     }
 
@@ -181,9 +205,13 @@ public class GameManager : MonoBehaviour
         {
             inventory.gameObject.SetActive(true);
         }
-        if (questSystem != null)
+        if (dataManager != null)
         {
-            questSystem.gameObject.SetActive(true);
+            dataManager.gameObject.SetActive(true);
+        }
+        if (colorManager != null)
+        {
+            colorManager.gameObject.SetActive(true);
         }
     }
 
@@ -198,7 +226,11 @@ public class GameManager : MonoBehaviour
 
     private void HandlePaintBucketMode()
     {
-
+        CursorController cursorController = FindObjectOfType<CursorController>();
+        if (cursorController != null)
+        {
+            cursorController.setPaintBucketCursor();
+        }
     }
 
     public void PlayInterationAfterSceneChange(Interaction interaction)
@@ -227,5 +259,10 @@ public enum GameScene
     DDR,
     WateringCansPuzzle,
     PondMaze,
+    WireConnectingPuzzle,
+    VendingMachineTangram,
+    TrashCanSlidingPuzzle,
+    Nonogram,
+    TraderRos,
     DemoEnd
 }

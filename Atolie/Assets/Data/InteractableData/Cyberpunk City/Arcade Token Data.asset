@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
-  m_Name: Mysterious Goop Data
+  m_Name: Arcade Token Data
   m_EditorClassIdentifier: 
-  interactableName: Mysterious Goop
+  interactableName: Arcade Token
   initiallyActive: 1
-  initiallyColoredIn: 0
+  initiallyColoredIn: 1
   initialInteractionIndex: 0
   interactionsList:
-  - {fileID: 11400000, guid: b05a73dd3d5004137a5a86de2f99f0a8, type: 2}
+  - {fileID: 11400000, guid: a022b899bac6448ce9bab2d3ccb1e0d6, type: 2}

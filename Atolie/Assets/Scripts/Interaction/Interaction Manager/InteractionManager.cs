@@ -16,7 +16,7 @@ public class InteractionManager : MonoBehaviour
     private PlayerInteraction playerInteraction;
     // private PlayerSettings playerSettings;
 
-    [SerializeField] private Interactables interactables;
+    [SerializeField] private GameObject interactables;
     [SerializeField] private bool inInteraction;
     [SerializeField] private Transform currentTarget;
     [SerializeField] private Queue<InteractionExecutable> currentInteraction;
@@ -40,7 +40,6 @@ public class InteractionManager : MonoBehaviour
         currentTarget = null;
         inInteraction = false;
         currentInteraction = new Queue<InteractionExecutable>();
-        interactables = transform.GetComponentInChildren<Interactables>();
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
     }
 
