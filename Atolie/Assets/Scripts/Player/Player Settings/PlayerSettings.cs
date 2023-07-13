@@ -26,6 +26,15 @@ public class PlayerSettings : MonoBehaviour
     private void Awake()
     {
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
+        playerInteraction = GetComponent<PlayerInteraction>();
+        if (TryGetComponent<MovementController2D>(out MovementController2D controller))
+        {
+            movementController2D = controller;
+        }
+        else
+        {
+            movementController = GetComponent<MovementController>();
+        }
     }
 
     private void OnDestroy()

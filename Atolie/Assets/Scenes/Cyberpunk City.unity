@@ -13612,7 +13612,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -14116,6 +14116,7 @@ GameObject:
   - component: {fileID: 3996455280582087023}
   - component: {fileID: 2771735719603607274}
   - component: {fileID: 6380574612629988453}
+  - component: {fileID: 6380574612629988454}
   m_Layer: 6
   m_Name: Cyborg Dog
   m_TagString: Interactable
@@ -14278,6 +14279,20 @@ MonoBehaviour:
   interactableData: {fileID: 11400000, guid: eb63560da8ccd46c3a777b10e980b0e0, type: 2}
   coloring: {fileID: 3520649040532524172}
   interactionTrigger: {fileID: 2771735719603607274}
+--- !u!114 &6380574612629988454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035067442635998691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216d3f350697e49b2ac464e707db56b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener: {fileID: 11400000, guid: 5b39260c351a24a6da954eeebff87e87, type: 2}
+  animator: {fileID: 3996455280582087023}
 --- !u!212 &6642715662394833212
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14439,6 +14454,8 @@ GameObject:
   - component: {fileID: 2529973700917685905}
   - component: {fileID: 7989247675614319349}
   - component: {fileID: 7989247675614319350}
+  - component: {fileID: 7989247675614319351}
+  - component: {fileID: 7989247675614319352}
   m_Layer: 6
   m_Name: Boy
   m_TagString: NPC
@@ -14575,6 +14592,40 @@ MonoBehaviour:
   interactableData: {fileID: 11400000, guid: 13b21cf9844214e8b91ef12dcbccb3b3, type: 2}
   coloring: {fileID: 0}
   interactionTrigger: {fileID: 7989247675614319349}
+--- !u!95 &7989247675614319351
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319199859321140083}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83a933d3e1cb146769818963b91d95e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7989247675614319352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7319199859321140083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e08d03027fa4e3e8dda849d5d1e0f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener: {fileID: 11400000, guid: 5ce4539564bad4f9bb59326d6872f0c4, type: 2}
+  animator: {fileID: 7989247675614319351}
 --- !u!114 &8218785709269675372
 MonoBehaviour:
   m_ObjectHideFlags: 0

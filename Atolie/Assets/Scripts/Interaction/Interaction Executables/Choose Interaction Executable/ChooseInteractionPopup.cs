@@ -71,6 +71,6 @@ public class ChooseInteractionPopup : MonoBehaviour
         Interaction interaction = interactionOptions[selectedOption];
         HidePopup();
         InteractionManager.Instance.forceExitInteraction();
-        InteractionManager.Instance.playInteraction(interaction);
+        InteractionManager.Instance.playAdditionalInteraction(interaction);
     }
 }

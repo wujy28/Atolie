@@ -3682,7 +3682,7 @@ MonoBehaviour:
   stageCompletionScreen: {fileID: 1552176241}
   puzzleCompletionScreen: {fileID: 964302690}
   exitGameConfirmationScreen: {fileID: 1548307022}
-  postPuzzleInteraction: {fileID: 0}
+  postPuzzleInteraction: {fileID: 11400000, guid: a6d524c6a53c74d3aad63a6b80bb688b, type: 2}
 --- !u!4 &1214596471
 Transform:
   m_ObjectHideFlags: 0

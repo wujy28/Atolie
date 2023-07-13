@@ -97,6 +97,16 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    private void enterNewInteraction()
+    {
+        if (!inInteraction)
+        {
+            GameManager.Instance.UpdateGameState(GameState.Interaction);
+            // playerSettings.pausePlayer();
+            inInteraction = true;
+        }
+    }
+
     public void exitInteraction()
     {
         Debug.Log("Interaction Exited");
@@ -114,6 +124,18 @@ public class InteractionManager : MonoBehaviour
     {
         currentInteraction.Clear();
         exitInteraction();
+    }
+
+    public void playPostPuzzleInteraction(Interaction interaction)
+    {
+        playInteraction(interaction);
+        enterNewInteraction();
+    }
+
+    public void playAdditionalInteraction(Interaction interaction)
+    {
+        playInteraction(interaction);
+        enterNewInteraction();
     }
 
     public void playInteraction(Interaction interaction)

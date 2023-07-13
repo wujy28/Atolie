@@ -256,7 +256,7 @@ MonoBehaviour:
   exitGameConfirmationScreen: {fileID: 502236363}
   blockerScreen: {fileID: 1119540305}
   dollarBill: {fileID: 1537310499}
-  postPuzzleInteraction: {fileID: 0}
+  postPuzzleInteraction: {fileID: 11400000, guid: be21ba10d284e4df88b252c6d55d6a40, type: 2}
 --- !u!4 &47961049 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7328076873828632615, guid: 54ea40e21af0546bab57dc1a27b314bb, type: 3}
@@ -2778,7 +2778,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 4
   Scene: 0
-  interactableData: {fileID: 11400000, guid: 68ebb014853e94864b3e4951ddd77a1f, type: 2}
 --- !u!4 &818405461
 Transform:
   m_ObjectHideFlags: 0

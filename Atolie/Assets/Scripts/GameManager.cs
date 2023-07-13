@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
             InteractionManager interactionManager = FindObjectOfType<InteractionManager>();
             if (interactionManager != null)
             {
-                interactionManager.playInteraction(postSceneChangeInteraction);
+                interactionManager.playPostPuzzleInteraction(postSceneChangeInteraction);
             }
         }
         postSceneChangeInteraction = null;

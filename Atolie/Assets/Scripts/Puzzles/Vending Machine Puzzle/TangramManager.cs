@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,9 @@ public class TangramManager : MonoBehaviour
 
     // Interaction to play after completing puzzle
     [SerializeField] private Interaction postPuzzleInteraction;
+
+    // Event for completion of tangram
+    public static event Action VendingMachineTangramCompleted;
 
     private void Awake()
     {
@@ -110,6 +114,7 @@ public class TangramManager : MonoBehaviour
 
     public void ExitCompletedPuzzle()
     {
+        VendingMachineTangramCompleted?.Invoke();
         GameManager.Instance.UpdateGameState(GameState.Exploration);
         GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
         GameManager.Instance.ChangeScene(GameScene.Arcade);

@@ -8636,6 +8636,7 @@ GameObject:
   - component: {fileID: 1230759050}
   - component: {fileID: 1230759052}
   - component: {fileID: 1230759053}
+  - component: {fileID: 1230759054}
   m_Layer: 6
   m_Name: Pond
   m_TagString: Interactable
@@ -8923,6 +8924,20 @@ MonoBehaviour:
   interactableData: {fileID: 11400000, guid: 22a13e43c4570420a9a962e1e5ecf2bf, type: 2}
   coloring: {fileID: 1230759048}
   interactionTrigger: {fileID: 1230759052}
+--- !u!114 &1230759054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230759045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2bb7b367bf3945c18a70939382d12df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener: {fileID: 11400000, guid: 95faf8a12d37b42cfa619b6ce633ecf1, type: 2}
+  animator: {fileID: 1230759050}
 --- !u!1 &1244791785
 GameObject:
   m_ObjectHideFlags: 0
@@ -11014,6 +11029,7 @@ GameObject:
   - component: {fileID: 1552887507}
   - component: {fileID: 1552887508}
   - component: {fileID: 1552887509}
+  - component: {fileID: 1552887510}
   m_Layer: 6
   m_Name: Mushroom Beds
   m_TagString: Interactable
@@ -11269,6 +11285,20 @@ MonoBehaviour:
   interactableData: {fileID: 11400000, guid: 982bcdfe61aed4de7ac9efaf5375dd88, type: 2}
   coloring: {fileID: 1552887508}
   interactionTrigger: {fileID: 1552887506}
+--- !u!114 &1552887510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552887499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5aa25fb86de049aeb63cfc91c092099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener: {fileID: 11400000, guid: 87b41992e91334505abdfccf94d6eba1, type: 2}
+  animator: {fileID: 1552887507}
 --- !u!1 &1554301524
 GameObject:
   m_ObjectHideFlags: 0
@@ -14922,6 +14952,7 @@ GameObject:
   - component: {fileID: 2131318172}
   - component: {fileID: 2131318173}
   - component: {fileID: 2131318174}
+  - component: {fileID: 2131318175}
   m_Layer: 6
   m_Name: Mushroom House
   m_TagString: Interactable
@@ -15298,6 +15329,21 @@ MonoBehaviour:
   interactableData: {fileID: 11400000, guid: 0fcf96add1d1a4295866e169ef9da736, type: 2}
   coloring: {fileID: 2131318170}
   interactionTrigger: {fileID: 2131318173}
+--- !u!114 &2131318175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131318167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a3afeb088275425a83964396f58f83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listener: {fileID: 11400000, guid: 59c75b57231be4d97a16ca489b490ad5, type: 2}
+  animator: {fileID: 2131318172}
+  ElderTruffle: {fileID: 1471684380}
 --- !u!1 &2133736800
 GameObject:
   m_ObjectHideFlags: 0
@@ -15560,9 +15606,13 @@ PrefabInstance:
       value: DataManager
       objectReference: {fileID: 0}
     - target: {fileID: 7286716785449009042, guid: 29fff2eb347e4491da97acd14d4dbdb7, type: 3}
-      propertyPath: allInteractableData.Array.data[7]
+      propertyPath: allInteractableListener.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 42f103c124e3c4060b28967688565862, type: 2}
+      objectReference: {fileID: 11400000, guid: 95faf8a12d37b42cfa619b6ce633ecf1, type: 2}
+    - target: {fileID: 7286716785449009042, guid: 29fff2eb347e4491da97acd14d4dbdb7, type: 3}
+      propertyPath: allChooseInteractionExecutables.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7e0a5b64c3d894e09a5c2ce12d463d89, type: 2}
     - target: {fileID: 7286716785449009043, guid: 29fff2eb347e4491da97acd14d4dbdb7, type: 3}
       propertyPath: m_RootOrder
       value: 2

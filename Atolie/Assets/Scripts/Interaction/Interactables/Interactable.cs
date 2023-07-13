@@ -35,6 +35,7 @@ public class Interactable : MonoBehaviour
             Interaction currentInteraction = interactableData.GetCurrentInteraction();
             interactionTrigger.setCurrentInteraction(currentInteraction);
         }
+        Debug.Log(gameObject.name + " loaded.");
     }
 
     public void UpdateInteraction()

@@ -3391,7 +3391,7 @@ MonoBehaviour:
   - {fileID: 650631476}
   - {fileID: 649865622}
   currentStage: 0
-  postPuzzleInteraction: {fileID: 0}
+  postPuzzleInteraction: {fileID: 11400000, guid: 2335ff26da31744c6b01e1308814bae4, type: 2}
 --- !u!4 &2056403774
 Transform:
   m_ObjectHideFlags: 0
