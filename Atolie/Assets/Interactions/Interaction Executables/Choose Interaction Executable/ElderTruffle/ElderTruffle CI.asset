@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abd2940e86d574847a42576010a69b3e, type: 3}
-  m_Name: Arcade Manager CI
+  m_Name: ElderTruffle CI
   m_EditorClassIdentifier: 
   allInteractions:
-  - isActive: 0
-    description: Hobbies
-    allInteractionsForOption: []
+  - isActive: 1
+    description: Pond
+    allInteractionsForOption:
+    - {fileID: 11400000, guid: fbe4341cea88648d68f93e1ef7f6bbd5, type: 2}
     currentInteractionIndex: 0
-  - isActive: 0
-    description: Hockey Table
-    allInteractionsForOption: []
-    currentInteractionIndex: 0
-  - isActive: 0
-    description: Vending Machine
-    allInteractionsForOption: []
+  - isActive: 1
+    description: Mushroom Beds
+    allInteractionsForOption:
+    - {fileID: 11400000, guid: fbf811e94f3014a9ba0a428f900d5f77, type: 2}
     currentInteractionIndex: 0
