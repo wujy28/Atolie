@@ -12,7 +12,13 @@ public class PondListener : InteractableListener
         pondTrimmed = false;
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
         SubmitItemPopup.OnSubmittedItemEvent += SubmitItemPopup_OnSubmittedItemEvent;
+        AgreeToHelpElderTruffleRunnable.AgreeToHelpElderTruffle += AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle;
         TrimPondRunnable.OnPondTrimmed += TrimPondRunnable_OnPondTrimmed;
+    }
+
+    private void AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle()
+    {
+        interactableData.SetCurrentInteractionIndex(1);
     }
 
     private void SubmitItemPopup_OnSubmittedItemEvent(Item item)
@@ -52,6 +58,7 @@ public class PondListener : InteractableListener
         pondTrimmed = false;
         InventoryManager.OnObtainedItemEvent -= InventoryManager_OnObtainedItemEvent;
         SubmitItemPopup.OnSubmittedItemEvent -= SubmitItemPopup_OnSubmittedItemEvent;
+        AgreeToHelpElderTruffleRunnable.AgreeToHelpElderTruffle -= AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle;
         TrimPondRunnable.OnPondTrimmed -= TrimPondRunnable_OnPondTrimmed;
     }
 }

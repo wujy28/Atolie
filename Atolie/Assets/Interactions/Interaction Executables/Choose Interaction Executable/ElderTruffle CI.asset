@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allInteractions:
   - isActive: 0
-    description: Choice 1
+    description: Pond
     allInteractionsForOption: []
     currentInteractionIndex: 0
   - isActive: 0
-    description: Choice 2
+    description: Mushroom Beds
     allInteractionsForOption: []
     currentInteractionIndex: 0

@@ -65,13 +65,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fb8ef6e762e804185ba2a7fee4592656, type: 2}
   - {fileID: 11400000, guid: b0612589e733f4e2ba613c6e77c11568, type: 2}
   allInteractableListener:
-  - {fileID: 11400000, guid: 59c75b57231be4d97a16ca489b490ad5, type: 2}
-  - {fileID: 11400000, guid: 5b39260c351a24a6da954eeebff87e87, type: 2}
+  - {fileID: 11400000, guid: 239b81af93e994cd1874f5ea439c275c, type: 2}
   - {fileID: 11400000, guid: 5ce4539564bad4f9bb59326d6872f0c4, type: 2}
+  - {fileID: 11400000, guid: 5b39260c351a24a6da954eeebff87e87, type: 2}
+  - {fileID: 11400000, guid: 6159b0bf98fd4489b965b6e475e439e2, type: 2}
+  - {fileID: 11400000, guid: e12d315d5db634ff5be0663ee2f932b0, type: 2}
+  - {fileID: 11400000, guid: 1af371608f6be48f186c0a6e01557bf9, type: 2}
+  - {fileID: 11400000, guid: 6527d40238ca34f08b1236abfd279e8a, type: 2}
   - {fileID: 11400000, guid: 87b41992e91334505abdfccf94d6eba1, type: 2}
+  - {fileID: 11400000, guid: 59c75b57231be4d97a16ca489b490ad5, type: 2}
+  - {fileID: 11400000, guid: a478324303a51409690d3ba286447b00, type: 2}
   - {fileID: 11400000, guid: 95faf8a12d37b42cfa619b6ce633ecf1, type: 2}
+  - {fileID: 11400000, guid: 26be6078f19c54e6fa0cf35760683ab8, type: 2}
+  - {fileID: 11400000, guid: c93680643ccbc45979077f3fa38153c6, type: 2}
+  - {fileID: 11400000, guid: 484a520a250bb415ca83a802734fa629, type: 2}
   allChooseInteractionExecutables:
   - {fileID: 11400000, guid: 7e0a5b64c3d894e09a5c2ce12d463d89, type: 2}
+  - {fileID: 11400000, guid: c90d08620325441399e6431204a3a8ea, type: 2}
   allChooseInteractionListeners:
   - {fileID: 11400000, guid: 6f8144c4970ff4dcda520a27818a5364, type: 2}
+  - {fileID: 11400000, guid: 1c14b59777d664751a55cf2903ae091b, type: 2}
   traderRoListener: {fileID: 11400000, guid: 7e4c33343bbc94bc99c641a606a9edb0, type: 2}

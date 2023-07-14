@@ -7,7 +7,7 @@ public class ShopDialogueManager : MonoBehaviour
 {
     public static ShopDialogueManager instance;
 
-    [SerializeField] private TraderRoShop traderRoShop;
+    // [SerializeField] private TraderRoShop traderRoShop;
 
     public Text nameText;
     public Text dialogueText;
@@ -75,7 +75,7 @@ public class ShopDialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        traderRoShop.DialogueCompleted();
+        TraderRoShop.instance.DialogueCompleted();
     }
 
     public void StartStubDialogue(Dialogue dialogue)

@@ -18,7 +18,7 @@ public class MushroomBedsListener : InteractableListener
     private void WaterMushroomBedsRunnable_OnMushroomBedsWatered()
     {
         watered = true;
-        interactableData.SetCurrentInteractionIndex(6);
+        interactableData.SetCurrentInteractionIndex(3);
     }
 
     private void SubmitItemPopup_OnSubmittedItemEvent(Item item)

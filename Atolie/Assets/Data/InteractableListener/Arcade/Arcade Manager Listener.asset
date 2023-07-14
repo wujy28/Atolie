@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de26f1d3524b345009344131dd2c74fe, type: 3}
+  m_Name: Arcade Manager Listener
+  m_EditorClassIdentifier: 
+  interactableData: {fileID: 11400000, guid: d40c8038009e248d2a6a603bffc02220, type: 2}

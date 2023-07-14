@@ -9,8 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de4c75aef6864d619e4bcc79d3c699c, type: 3}
-  m_Name: TR 1.0
+  m_Script: {fileID: 11500000, guid: f5d6885f754f54a05a586ea4d794cc17, type: 3}
+  m_Name: TangramOrExit
   m_EditorClassIdentifier: 
-  executables:
-  - {fileID: 11400000, guid: 6a55439491f964f94bffc42ff25aa374, type: 2}
+  description: Start restocking the vending machine?
+  enterText: Yes
+  enterName: SwitchToTangramRunnable
+  exitText: No
+  exitName: ExitInteractionRunnable

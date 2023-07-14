@@ -11,7 +11,29 @@ public class MushroomHouseListener : InteractableListener
     {
         mushroomHouseUnlocked = false;
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
+        SubmitItemPopup.OnSubmittedItemEvent += SubmitItemPopup_OnSubmittedItemEvent;
+        ColorManager.OnColorObtained += ColorManager_OnColorObtained;
         UnlockMushroomHouseRunnable.OnMushroomHouseUnlocked += UnlockMushroomHouseRunnable_OnMushroomHouseUnlocked;
+    }
+
+    private void ColorManager_OnColorObtained(ColorManager.Color color)
+    {
+        switch (color)
+        {
+            case ColorManager.Color.Pink:
+                interactableData.SetCurrentInteractionIndex(3);
+                break;
+        }
+    }
+
+    private void SubmitItemPopup_OnSubmittedItemEvent(Item item)
+    {
+        switch (item.name)
+        {
+            case "Mushroom Key":
+                interactableData.SetCurrentInteractionIndex(2);
+                break;
+        }
     }
 
     private void UnlockMushroomHouseRunnable_OnMushroomHouseUnlocked()
@@ -33,6 +55,8 @@ public class MushroomHouseListener : InteractableListener
     {
         mushroomHouseUnlocked = false;
         InventoryManager.OnObtainedItemEvent -= InventoryManager_OnObtainedItemEvent;
+        SubmitItemPopup.OnSubmittedItemEvent -= SubmitItemPopup_OnSubmittedItemEvent;
+        ColorManager.OnColorObtained -= ColorManager_OnColorObtained;
         UnlockMushroomHouseRunnable.OnMushroomHouseUnlocked -= UnlockMushroomHouseRunnable_OnMushroomHouseUnlocked;
     }
 }

@@ -8,7 +8,7 @@ public class TraderRoShop : MonoBehaviour
     public static TraderRoShop instance;
 
     [SerializeField] private TraderRoListener listener;
-    private ShopDialogueManager shopDialogueManager;
+    [SerializeField] private ShopDialogueManager shopDialogueManager;
     [SerializeField] private TradeItemPopup tradeBox;
     [SerializeField] private Button tradeButton;
     [SerializeField] private Button talkButton;
@@ -42,7 +42,12 @@ public class TraderRoShop : MonoBehaviour
         itemToBeObtained = null;
         currentTalkDialogueIndex = listener.currentTalkDialogueIndex;
         shopDialogueManager = ShopDialogueManager.instance;
+    }
+
+    private void Start()
+    {
         UpdateShopMode(currentMode);
+
     }
 
     public void TradeItem(Item item)

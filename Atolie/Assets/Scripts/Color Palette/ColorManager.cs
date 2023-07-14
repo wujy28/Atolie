@@ -16,6 +16,8 @@ public class ColorManager : MonoBehaviour
 
     public static event Action<String> OnSelectedColorChanged;
 
+    public static event Action<ColorManager.Color> OnColorObtained;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -48,6 +50,7 @@ public class ColorManager : MonoBehaviour
         if (toCurrColorID == currColor + 1)
         {
             AddColor();
+            OnColorObtained?.Invoke(color);
         }
     }
 

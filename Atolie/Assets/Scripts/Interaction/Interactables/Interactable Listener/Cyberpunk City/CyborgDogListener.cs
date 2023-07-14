@@ -12,7 +12,12 @@ public class CyborgDogListener : InteractableListener
         wirePuzzleCompleted = false;
         WirePuzzleTracker.WirePuzzleCompleted += WirePuzzleTracker_WirePuzzleCompleted;
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
-        // CO: Agree to help boy
+        AgreeToHelpBoyRunnable.AgreeToHelpBoy += AgreeToHelpBoyRunnable_AgreeToHelpBoy;
+    }
+
+    private void AgreeToHelpBoyRunnable_AgreeToHelpBoy()
+    {
+        interactableData.SetCurrentInteractionIndex(1);
     }
 
     private void InventoryManager_OnObtainedItemEvent(Item item)
@@ -35,6 +40,6 @@ public class CyborgDogListener : InteractableListener
         wirePuzzleCompleted = false;
         WirePuzzleTracker.WirePuzzleCompleted -= WirePuzzleTracker_WirePuzzleCompleted;
         InventoryManager.OnObtainedItemEvent -= InventoryManager_OnObtainedItemEvent;
-        // CO: Agree to help boy
+        AgreeToHelpBoyRunnable.AgreeToHelpBoy -= AgreeToHelpBoyRunnable_AgreeToHelpBoy;
     }
 }
