@@ -18,8 +18,12 @@ MonoBehaviour:
     allInteractionsForOption:
     - {fileID: 11400000, guid: fbe4341cea88648d68f93e1ef7f6bbd5, type: 2}
     currentInteractionIndex: 0
+    isInitiallyActive: 1
+    initialInteractionIndex: 0
   - isActive: 1
     description: Mushroom Beds
     allInteractionsForOption:
     - {fileID: 11400000, guid: fbf811e94f3014a9ba0a428f900d5f77, type: 2}
     currentInteractionIndex: 0
+    isInitiallyActive: 1
+    initialInteractionIndex: 0

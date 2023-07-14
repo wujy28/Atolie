@@ -84,6 +84,9 @@ public class ChooseInteractionExecutable : InteractionExecutable
         public List<Interaction> allInteractionsForOption;
         public int currentInteractionIndex;
 
+        public bool isInitiallyActive;
+        public int initialInteractionIndex;
+
         public Interaction GetCurrentInteraction()
         {
             return allInteractionsForOption[currentInteractionIndex];
@@ -91,8 +94,8 @@ public class ChooseInteractionExecutable : InteractionExecutable
 
         public void Reset()
         {
-            isActive = false;
-            currentInteractionIndex = 0;
+            isActive = isInitiallyActive;
+            currentInteractionIndex = initialInteractionIndex;
         }
     }
 }

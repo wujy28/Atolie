@@ -13,19 +13,25 @@ MonoBehaviour:
   m_Name: Arcade Manager CI
   m_EditorClassIdentifier: 
   allInteractions:
-  - isActive: 0
+  - isActive: 1
     description: Hobbies
     allInteractionsForOption:
     - {fileID: 11400000, guid: 4ec920fb159f74d01b003a431b36f93f, type: 2}
     currentInteractionIndex: 0
-  - isActive: 0
+    isInitiallyActive: 1
+    initialInteractionIndex: 0
+  - isActive: 1
     description: Hockey Striker
     allInteractionsForOption:
     - {fileID: 11400000, guid: bdb4cc2e334f9459493183bd2523ab19, type: 2}
     - {fileID: 11400000, guid: bd1b2cff787344d029a9371284113051, type: 2}
     currentInteractionIndex: 0
+    isInitiallyActive: 0
+    initialInteractionIndex: 0
   - isActive: 0
     description: Vending Machine
     allInteractionsForOption:
     - {fileID: 11400000, guid: 16cbf2825ad3a493d93e57622d3e6522, type: 2}
     currentInteractionIndex: 0
+    isInitiallyActive: 0
+    initialInteractionIndex: 0
