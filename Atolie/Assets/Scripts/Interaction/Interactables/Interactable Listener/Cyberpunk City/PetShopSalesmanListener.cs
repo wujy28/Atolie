@@ -11,7 +11,7 @@ public class PetShopSalesmanListener : InteractableListener
     {
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
         Coloring.OnColoredInEvent += Coloring_OnColoredInEvent;
-        InitiateConditions(conditionsForPSS2, 2);
+        InitiateConditions(2);
     }
 
     private void Coloring_OnColoredInEvent(Transform interactable)
@@ -20,7 +20,7 @@ public class PetShopSalesmanListener : InteractableListener
         {
             case "Pet Shop":
                 interactableData.SetCurrentInteractionIndex(1);
-                MeetCondition(conditionsForPSS2, 1);
+                MeetCondition(1);
                 break;
         }
     }
@@ -30,7 +30,7 @@ public class PetShopSalesmanListener : InteractableListener
         switch (item.name)
         {
             case "Ripped Bill":
-                MeetCondition(conditionsForPSS2, 0);
+                MeetCondition(0);
                 break;
             case "Handle":
                 interactableData.SetCurrentInteractionIndex(3);
@@ -50,19 +50,19 @@ public class PetShopSalesmanListener : InteractableListener
         Coloring.OnColoredInEvent -= Coloring_OnColoredInEvent;
     }
 
-    private void InitiateConditions(bool[] condition, int size)
+    private void InitiateConditions(int size)
     {
-        condition = new bool[size];
-        for (int i = 0; i < condition.Length; i++)
+        conditionsForPSS2 = new bool[size];
+        for (int i = 0; i < conditionsForPSS2.Length; i++)
         {
-            condition[i] = false;
+            conditionsForPSS2[i] = false;
         }
     }
 
-    private void MeetCondition(bool[] condition, int index)
+    private void MeetCondition(int index)
     {
-        condition[index] = true;
-        CheckIfAllConditionsAreMet(condition);
+        conditionsForPSS2[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForPSS2);
     }
 
     private void CheckIfAllConditionsAreMet(bool[] condition)

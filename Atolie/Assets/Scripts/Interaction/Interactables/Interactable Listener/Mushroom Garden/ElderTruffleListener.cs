@@ -14,17 +14,17 @@ public class ElderTruffleListener : InteractableListener
         AgreeToHelpElderTruffleRunnable.AgreeToHelpElderTruffle += AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle;
         TrimPondRunnable.OnPondTrimmed += TrimPondRunnable_OnPondTrimmed;
         WaterMushroomBedsRunnable.OnMushroomBedsWatered += WaterMushroomBedsRunnable_OnMushroomBedsWatered;
-        InitiateConditions(conditionsForET2, 2);
+        InitiateConditions(2);
     }
 
     private void WaterMushroomBedsRunnable_OnMushroomBedsWatered()
     {
-        MeetCondition(conditionsForET2, 1);
+        MeetCondition(1);
     }
 
     private void TrimPondRunnable_OnPondTrimmed()
     {
-        MeetCondition(conditionsForET2, 0);
+        MeetCondition(0);
     }
 
     private void AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle()
@@ -50,19 +50,19 @@ public class ElderTruffleListener : InteractableListener
         WaterMushroomBedsRunnable.OnMushroomBedsWatered -= WaterMushroomBedsRunnable_OnMushroomBedsWatered;
     }
 
-    private void InitiateConditions(bool[] condition, int size)
+    private void InitiateConditions(int size)
     {
-        condition = new bool[size];
-        for (int i = 0; i < condition.Length; i++)
+        conditionsForET2 = new bool[size];
+        for (int i = 0; i < conditionsForET2.Length; i++)
         {
-            condition[i] = false;
+            conditionsForET2[i] = false;
         }
     }
 
-    private void MeetCondition(bool[] condition, int index)
+    private void MeetCondition(int index)
     {
-        condition[index] = true;
-        CheckIfAllConditionsAreMet(condition);
+        conditionsForET2[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForET2);
     }
 
     private void CheckIfAllConditionsAreMet(bool[] condition)

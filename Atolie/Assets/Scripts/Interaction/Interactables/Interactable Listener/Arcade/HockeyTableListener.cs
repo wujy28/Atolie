@@ -15,8 +15,8 @@ public class HockeyTableListener : InteractableListener
         SubmitItemPopup.OnSubmittedItemEvent += SubmitItemPopup_OnSubmittedItemEvent;
         AgreeToFixHockeyStrikerRunnable.AgreeToFixHockeyStriker += AgreeToFixHockeyStrikerRunnable_AgreeToFixHockeyStriker;
         FixHockeyStrikerRunnable.OnHockeyStrikerFixed += FixHockeyStrikerRunnable_OnHockeyStrikerFixed;
-        InitiateConditions(conditionsForHT2, 2);
-        InitiateConditions(conditionsForHT3, 2);
+        InitiateConditionsForHT2(2);
+        InitiateConditionsForHT3(2);
     }
 
     private void FixHockeyStrikerRunnable_OnHockeyStrikerFixed()
@@ -34,10 +34,10 @@ public class HockeyTableListener : InteractableListener
         switch (item.name)
         {
             case "Goop":
-                MeetCondition(conditionsForHT3, 0);
+                MeetConditionForHT3(0);
                 break;
             case "Handle":
-                MeetCondition(conditionsForHT3, 1);
+                MeetConditionForHT3(1);
                 break;
         }
     }
@@ -47,10 +47,10 @@ public class HockeyTableListener : InteractableListener
         switch (item.name)
         {
             case "Goop":
-                MeetCondition(conditionsForHT2, 0);
+                MeetConditionForHT2(0);
                 break;
             case "Handle":
-                MeetCondition(conditionsForHT2, 1);
+                MeetConditionForHT2(1);
                 break;
         }
     }
@@ -63,19 +63,34 @@ public class HockeyTableListener : InteractableListener
         FixHockeyStrikerRunnable.OnHockeyStrikerFixed -= FixHockeyStrikerRunnable_OnHockeyStrikerFixed;
     }
 
-    private void InitiateConditions(bool[] condition, int size)
+    private void InitiateConditionsForHT2(int size)
     {
-        condition = new bool[size];
-        for (int i = 0; i < condition.Length; i++)
+        conditionsForHT2 = new bool[size];
+        for (int i = 0; i < conditionsForHT2.Length; i++)
         {
-            condition[i] = false;
+            conditionsForHT2[i] = false;
         }
     }
 
-    private void MeetCondition(bool[] condition, int index)
+    private void InitiateConditionsForHT3(int size)
     {
-        condition[index] = true;
-        CheckIfAllConditionsAreMet(condition);
+        conditionsForHT3 = new bool[size];
+        for (int i = 0; i < conditionsForHT3.Length; i++)
+        {
+            conditionsForHT3[i] = false;
+        }
+    }
+
+    private void MeetConditionForHT2(int index)
+    {
+        conditionsForHT2[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForHT2);
+    }
+
+    private void MeetConditionForHT3(int index)
+    {
+        conditionsForHT3[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForHT3);
     }
 
     private void CheckIfAllConditionsAreMet(bool[] condition)
