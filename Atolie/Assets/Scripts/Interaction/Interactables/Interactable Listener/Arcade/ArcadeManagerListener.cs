@@ -14,13 +14,13 @@ public class ArcadeManagerListener : InteractableListener
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
         Coloring.OnColoredInEvent += Coloring_OnColoredInEvent;
         TangramManager.VendingMachineTangramCompleted += TangramManager_VendingMachineTangramCompleted;
-        InitiateConditions(conditionsForAM2, 2);
-        InitiateConditions(conditionsForAM7, 3);
+        InitiateConditionsForAM2();
+        InitiateConditionsForAM7();
     }
 
     private void TangramManager_VendingMachineTangramCompleted()
     {
-        MeetCondition(conditionsForAM7, 2);
+        MeetConditionForAM7(2);
     }
 
     private void Coloring_OnColoredInEvent(Transform interactable)
@@ -29,7 +29,7 @@ public class ArcadeManagerListener : InteractableListener
         {
             case "Prize Counter":
                 interactableData.SetCurrentInteractionIndex(1);
-                MeetCondition(conditionsForAM2, 1);
+                MeetConditionForAM2(1);
                 break;
         }
     }
@@ -39,16 +39,16 @@ public class ArcadeManagerListener : InteractableListener
         switch (item.name)
         {
             case "Ticket":
-                MeetCondition(conditionsForAM2, 0);
+                MeetConditionForAM2(0);
                 break;
             case "Tamagotchi":
                 interactableData.SetCurrentInteractionIndex(3);
                 break;
             case "Battery":
-                MeetCondition(conditionsForAM7, 0);
+                MeetConditionForAM7(0);
                 break;
             case "Cup":
-                MeetCondition(conditionsForAM7, 1);
+                MeetConditionForAM7(1);
                 break;
             case "Dog Tag":
                 interactableData.SetCurrentInteractionIndex(5);
@@ -64,19 +64,45 @@ public class ArcadeManagerListener : InteractableListener
 
     }
 
+    /*
     private void InitiateConditions(bool[] condition, int size)
     {
         condition = new bool[size];
-        for (int i = 0; i < condition.Length; i++)
+        for (int i = 0; i < size; i++)
         {
             condition[i] = false;
         }
     }
+    */
 
-    private void MeetCondition(bool[] condition, int index)
+    private void InitiateConditionsForAM2()
     {
-        condition[index] = true;
-        CheckIfAllConditionsAreMet(condition);
+        conditionsForAM2 = new bool[2];
+        for (int i = 0; i < conditionsForAM2.Length; i++)
+        {
+            conditionsForAM2[i] = false;
+        }
+    }
+
+    private void InitiateConditionsForAM7()
+    {
+        conditionsForAM7 = new bool[3];
+        for (int i = 0; i < conditionsForAM7.Length; i++)
+        {
+            conditionsForAM7[i] = false;
+        }
+    }
+
+    private void MeetConditionForAM2(int index)
+    {
+        conditionsForAM2[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForAM2);
+    }
+
+    private void MeetConditionForAM7(int index)
+    {
+        conditionsForAM7[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForAM7);
     }
 
     private void CheckIfAllConditionsAreMet(bool[] condition)
