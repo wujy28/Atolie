@@ -17,4 +17,7 @@ MonoBehaviour:
   initiallyColoredIn: 1
   initialInteractionIndex: 0
   interactionsList:
-  - {fileID: 11400000, guid: e4cf22a640c694297909f8d49d854497, type: 2}
+  - {fileID: 11400000, guid: 58bff08e9d1bb450ba997abea99573a1, type: 2}
+  - {fileID: 11400000, guid: d38534fe207bd4adab63fea4dbd03380, type: 2}
+  - {fileID: 11400000, guid: 1c1a2e244f7364fe3997b782af65b5f4, type: 2}
+  - {fileID: 11400000, guid: 368021cc3eeb34c1b9c494bb41795235, type: 2}

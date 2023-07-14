@@ -70,7 +70,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b39260c351a24a6da954eeebff87e87, type: 2}
   - {fileID: 11400000, guid: 6159b0bf98fd4489b965b6e475e439e2, type: 2}
   - {fileID: 11400000, guid: e12d315d5db634ff5be0663ee2f932b0, type: 2}
-  - {fileID: 11400000, guid: 1af371608f6be48f186c0a6e01557bf9, type: 2}
+  - {fileID: 11400000, guid: 95faf8a12d37b42cfa619b6ce633ecf1, type: 2}
   - {fileID: 11400000, guid: 6527d40238ca34f08b1236abfd279e8a, type: 2}
   - {fileID: 11400000, guid: 87b41992e91334505abdfccf94d6eba1, type: 2}
   - {fileID: 11400000, guid: 59c75b57231be4d97a16ca489b490ad5, type: 2}
@@ -81,7 +81,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 484a520a250bb415ca83a802734fa629, type: 2}
   allChooseInteractionExecutables:
   - {fileID: 11400000, guid: 7e0a5b64c3d894e09a5c2ce12d463d89, type: 2}
-  - {fileID: 11400000, guid: c90d08620325441399e6431204a3a8ea, type: 2}
+  - {fileID: 11400000, guid: 7e0a5b64c3d894e09a5c2ce12d463d89, type: 2}
   allChooseInteractionListeners:
   - {fileID: 11400000, guid: 6f8144c4970ff4dcda520a27818a5364, type: 2}
   - {fileID: 11400000, guid: 1c14b59777d664751a55cf2903ae091b, type: 2}

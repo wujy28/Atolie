@@ -17,6 +17,8 @@ MonoBehaviour:
   initiallyColoredIn: 0
   initialInteractionIndex: 0
   interactionsList:
-  - {fileID: 11400000, guid: c5b4b0daec5a543e79e359c77b50647a, type: 2}
-  - {fileID: 11400000, guid: 911f1a2c148da4b64a8226748c516e66, type: 2}
-  - {fileID: 11400000, guid: cb547139e773a4d8f9cc6627f72359f4, type: 2}
+  - {fileID: 11400000, guid: 8b5f9b59c77fa4cd8ad9f0e3c2457740, type: 2}
+  - {fileID: 11400000, guid: fb018dcb57c5845db899575d68c41e58, type: 2}
+  - {fileID: 11400000, guid: 7fc9c602112bf4e4abcdb588196b785f, type: 2}
+  - {fileID: 11400000, guid: e38a4dd17b212446d9e3d656f1df4dbe, type: 2}
+  - {fileID: 11400000, guid: 568311d5c23014ef481d821694b45695, type: 2}

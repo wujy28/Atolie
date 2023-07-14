@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0365361a842461698c76e28266cfa4, type: 3}
+  m_Name: PSS 1 3
+  m_EditorClassIdentifier: 
+  dialogue:
+    speaker: Pet Shop Salesman
+    sentences:
+    - Of course!
+    - "I\u2019ll never forget a potential customer!"
+    - Well, we have a range of cyborg pets you can choose from.
+    - Our best-seller is this cyborg fish with a variety of functions,
+    - 'Such as but not limited to: '
+    - Remote control movement, underwater retrieval and photography, and sonar navigation.
+    - Pretty nifty, wouldn't you say?
+    - Other than that, we also have some materials and parts you can get to repair
+      or customize your pets!
+    - Other than that, we also have some materials and parts you can get to repair
+      or customize your pets!
+    - We provide only the best products to our customers!
