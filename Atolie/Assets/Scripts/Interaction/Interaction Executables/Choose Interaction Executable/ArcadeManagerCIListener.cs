@@ -5,10 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Arcade Manager CI Listener", menuName = "Choose Interaction Listener/Arcade Manager CI Listener")]
 public class ArcadeManagerCIListener : ChooseInteractionListener
 {
+    [SerializeField] private bool interactedWithHT;
+    [SerializeField] private bool interactedWithVM;
+
     public override void SubscribeToAllEvents()
     {
+        interactedWithHT = false;
+        interactedWithVM = false;
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
-        Coloring.OnColoredInEvent += Coloring_OnColoredInEvent;
+        // Coloring.OnColoredInEvent += Coloring_OnColoredInEvent;
+        InteractionTrigger.OnInteractedWith += InteractionTrigger_OnInteractedWith;
         TangramManager.VendingMachineTangramCompleted += TangramManager_VendingMachineTangramCompleted;
         FixHockeyStrikerRunnable.OnHockeyStrikerFixed += FixHockeyStrikerRunnable_OnHockeyStrikerFixed;
     }
@@ -23,6 +29,7 @@ public class ArcadeManagerCIListener : ChooseInteractionListener
         executable.RemoveFromOptions(2);
     }
 
+    /*
     private void Coloring_OnColoredInEvent(Transform interactable)
     {
         switch (interactable.name)
@@ -32,6 +39,28 @@ public class ArcadeManagerCIListener : ChooseInteractionListener
                 break;
             case "Vending Machine":
                 executable.AddToOptions(2);
+                break;
+        }
+    }
+    */
+
+    private void InteractionTrigger_OnInteractedWith(Transform interactable)
+    {
+        switch (interactable.name)
+        {
+            case "Hockey Table":
+                if (!interactedWithHT)
+                {
+                    executable.AddToOptions(1);
+                    interactedWithHT = true;
+                }
+                break;
+            case "Vending Machine":
+                if (!interactedWithVM)
+                {
+                    executable.AddToOptions(2);
+                    interactedWithVM = true;
+                }
                 break;
         }
     }
@@ -55,8 +84,11 @@ public class ArcadeManagerCIListener : ChooseInteractionListener
 
     public override void UnsubscribeFromAllEvents()
     {
+        interactedWithHT = false;
+        interactedWithVM = false;
         InventoryManager.OnObtainedItemEvent -= InventoryManager_OnObtainedItemEvent;
-        Coloring.OnColoredInEvent -= Coloring_OnColoredInEvent;
+        // Coloring.OnColoredInEvent -= Coloring_OnColoredInEvent;
+        InteractionTrigger.OnInteractedWith -= InteractionTrigger_OnInteractedWith;
         TangramManager.VendingMachineTangramCompleted -= TangramManager_VendingMachineTangramCompleted;
         FixHockeyStrikerRunnable.OnHockeyStrikerFixed -= FixHockeyStrikerRunnable_OnHockeyStrikerFixed;
     }
