@@ -95,7 +95,7 @@ public class DDRManager : MonoBehaviour
         {
             if (!music.isPlaying && !resultsScreen.activeInHierarchy && !puzzlePaused)
             {
-                if (currentScore < 38500)
+                if (currentScore < 37500)
                 {
                     failedScreen.SetActive(true);
                 } else

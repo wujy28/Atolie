@@ -25,17 +25,17 @@ public class NoteObject : MonoBehaviour
             {
                 gameObject.SetActive(false);
 
-                if (Mathf.Abs(transform.position.y) > 0.75)
+                if (transform.position.y > 0.75f || transform.position.y < 0.15f) //Mathf.Abs(transform.position.y) > 0.75
                 {
                     Debug.Log("Normal Hit");
                     DDRManager.instance.NormalHit();
                     Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
-                } else if (Mathf.Abs(transform.position.y) > 0.55f)
+                } else if (transform.position.y > 0.55f || transform.position.y < 0.30f) //Mathf.Abs(transform.position.y) > 0.55f
                 {
                     Debug.Log("Good Hit");
                     DDRManager.instance.GoodHit();
                     Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
-                } else
+                } else 
                 {
                     Debug.Log("Perfect Hit");
                     DDRManager.instance.PerfectHit();
