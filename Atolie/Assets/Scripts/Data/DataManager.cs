@@ -23,6 +23,9 @@ public class DataManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
             SubscribeAllListeners();
+            ResetAllInteractableData();
+            ResetAllChooseInteractionExecutables();
+            traderRoListener.Reset();
         }
     }
 

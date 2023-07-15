@@ -15,7 +15,7 @@ public class HockeyTableListener : InteractableListener
         SubmitItemPopup.OnSubmittedItemEvent += SubmitItemPopup_OnSubmittedItemEvent;
         AgreeToFixHockeyStrikerRunnable.AgreeToFixHockeyStriker += AgreeToFixHockeyStrikerRunnable_AgreeToFixHockeyStriker;
         FixHockeyStrikerRunnable.OnHockeyStrikerFixed += FixHockeyStrikerRunnable_OnHockeyStrikerFixed;
-        InitiateConditionsForHT2(2);
+        InitiateConditionsForHT2(3);
         InitiateConditionsForHT3(2);
     }
 
@@ -27,6 +27,7 @@ public class HockeyTableListener : InteractableListener
     private void AgreeToFixHockeyStrikerRunnable_AgreeToFixHockeyStriker()
     {
         interactableData.SetCurrentInteractionIndex(1);
+        MeetConditionForHT2(2);
     }
 
     private void SubmitItemPopup_OnSubmittedItemEvent(Item item)
@@ -35,6 +36,7 @@ public class HockeyTableListener : InteractableListener
         {
             case "Goop":
                 MeetConditionForHT3(0);
+                interactableData.SetCurrentInteractionIndex(5);
                 break;
             case "Handle":
                 MeetConditionForHT3(1);

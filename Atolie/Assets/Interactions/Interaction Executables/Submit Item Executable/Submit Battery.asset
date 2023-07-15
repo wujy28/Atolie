@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94f8f6eda2e174dbfaeff9ad5d7cbc92, type: 3}
-  m_Name: Obtain Dollar Bill
+  m_Script: {fileID: 11500000, guid: 2f17dcdf58f454ab0a57b52521dfa25b, type: 3}
+  m_Name: Submit Battery
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 3e18efcb2da4041e3b52ada0f81252d3, type: 2}
+  requiredItem: {fileID: 11400000, guid: 69ebcadfb9d353d4185b00300579e348, type: 2}

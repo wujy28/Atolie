@@ -10,13 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f0365361a842461698c76e28266cfa4, type: 3}
-  m_Name: Tangram 1
+  m_Name: HT 5 0
   m_EditorClassIdentifier: 
   dialogue:
     speaker: Iro
     sentences:
-    - Whew, okay it's DONE!
-    - That was more exhauthing than I thought.
-    - Anyway, this guy is stocked and loaded now!
-    - But I'm still a little disappointed that I can't eat any of the food...
-    - Oh well.
+    - Now that the glue is on,
+    - Let's add the makeshift handle and finish the job!

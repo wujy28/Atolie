@@ -14,6 +14,7 @@ public class TradeItemPopup : MonoBehaviour
     [SerializeField] private Text selectedItemName;
     [SerializeField] private Image selectedItemImage;
     [SerializeField] private Button submitButton;
+    [SerializeField] private Sprite nullItemImage;
 
     // Event to notify QuestManager/other managers when an item is submitted
     public static event Action<Item> OnSubmittedItemEvent;
@@ -42,9 +43,28 @@ public class TradeItemPopup : MonoBehaviour
         selectedItemImage.sprite = submittedItem.image;
     }
 
+    private void UpdatePopupOnReset()
+    {
+        Item selectedItem = InventoryManager.instance.GetSelectedItem(false);
+        if (selectedItem != null)
+        {
+            submittedItem = selectedItem;
+            UpdatePopup();
+        }
+    }
+
+    private void ResetPopup()
+    {
+        selectedItemName.text = "";
+        selectedItemImage.sprite = nullItemImage;
+        submittedItem = null;
+    }
+
     public void ShowPopup()
     {
+        ResetPopup();
         popup.SetActive(true);
+        UpdatePopupOnReset();
     }
 
     public void HidePopup()
@@ -71,10 +91,13 @@ public class TradeItemPopup : MonoBehaviour
     {
         if (popup.activeSelf)
         {
-            if (selectedItem != null)
+            if (TraderRoShop.instance.GetMode() != TraderRoShop.Mode.Trading)
             {
-                submittedItem = selectedItem;
-                UpdatePopup();
+                if (selectedItem != null)
+                {
+                    submittedItem = selectedItem;
+                    UpdatePopup();
+                }
             }
         }
     }

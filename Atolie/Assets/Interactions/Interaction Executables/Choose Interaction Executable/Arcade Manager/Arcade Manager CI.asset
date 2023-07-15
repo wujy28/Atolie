@@ -20,7 +20,7 @@ MonoBehaviour:
     currentInteractionIndex: 0
     isInitiallyActive: 1
     initialInteractionIndex: 0
-  - isActive: 1
+  - isActive: 0
     description: Hockey Striker
     allInteractionsForOption:
     - {fileID: 11400000, guid: bdb4cc2e334f9459493183bd2523ab19, type: 2}

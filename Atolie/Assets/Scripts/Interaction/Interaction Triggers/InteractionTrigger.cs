@@ -12,16 +12,19 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
 
     [SerializeField] public static bool interactionsAllowed;
 
+    public static event Action<Transform> OnInteractedWith;
+
     public void interact()
     {
-            if (currentInteraction != null)
-            {
-                InteractionManager.Instance.playInteraction(currentInteraction);
-            }
-            else
-            {
-                Debug.Log("No Interaction Assigned");
-            }
+        if (currentInteraction != null)
+        {
+            InteractionManager.Instance.playInteraction(currentInteraction);
+            OnInteractedWith?.Invoke(transform);
+        }
+        else
+        {
+            Debug.Log("No Interaction Assigned");
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)

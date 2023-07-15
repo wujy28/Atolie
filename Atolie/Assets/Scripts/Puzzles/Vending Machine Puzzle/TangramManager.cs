@@ -48,6 +48,7 @@ public class TangramManager : MonoBehaviour
         welcomeScreen.SetActive(true);
         stageCompletionScreen.SetActive(false);
         puzzleCompletionScreen.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.Puzzle);
     }
 
     public void ResetStage()

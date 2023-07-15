@@ -35,6 +35,7 @@ public class NonogramManager : MonoBehaviour
         welcomeScreen.SetActive(true);
         stageCompletionScreen.SetActive(false);
         puzzleCompletionScreen.SetActive(false);
+        GameManager.Instance.UpdateGameState(GameState.Puzzle);
     }
 
     public void CloseWelcomeScreen()
