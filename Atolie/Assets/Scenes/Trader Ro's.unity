@@ -2709,7 +2709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 2
-  Scene: 0
+  Scene: 12
 --- !u!4 &818405461
 Transform:
   m_ObjectHideFlags: 0
@@ -5214,7 +5214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a83b0ee58939b41b4b0061df256201b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  traderRoShop: {fileID: 1078561558}
   nameText: {fileID: 2087306540}
   dialogueText: {fileID: 1626317717}
   continueButton: {fileID: 115144372}

@@ -15605,6 +15605,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DataManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7286716785449009042, guid: 29fff2eb347e4491da97acd14d4dbdb7, type: 3}
+      propertyPath: allInteractableData.Array.data[19]
+      value: 
+      objectReference: {fileID: 11400000, guid: 42f103c124e3c4060b28967688565862, type: 2}
+    - target: {fileID: 7286716785449009042, guid: 29fff2eb347e4491da97acd14d4dbdb7, type: 3}
+      propertyPath: allInteractableListener.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: 484a520a250bb415ca83a802734fa629, type: 2}
     - target: {fileID: 7286716785449009043, guid: 29fff2eb347e4491da97acd14d4dbdb7, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -12354,8 +12354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 4
-  Scene: 0
-  interactableData: {fileID: 11400000, guid: 68ebb014853e94864b3e4951ddd77a1f, type: 2}
+  Scene: 5
 --- !u!4 &1755113523
 Transform:
   m_ObjectHideFlags: 0

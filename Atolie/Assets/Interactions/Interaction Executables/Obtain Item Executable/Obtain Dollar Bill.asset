@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f8f6eda2e174dbfaeff9ad5d7cbc92, type: 3}
   m_Name: Obtain Dollar Bill
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 3e18efcb2da4041e3b52ada0f81252d3, type: 2}
