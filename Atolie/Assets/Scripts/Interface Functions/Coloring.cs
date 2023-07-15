@@ -25,6 +25,7 @@ public class Coloring : MonoBehaviour
     {
         // Subscribes to the Paint Bucket's information channel
         PaintBucketMode paintBucketMode = GameObject.Find("PaintBucket").GetComponent<PaintBucketMode>();
+        //ColorManager paintBucketMode = GameObject.Find("ColorManager").GetComponent<ColorManager>();
         // Add the behavior that is affected by the coloring mode on event??
         // Here, it is to glow/flash when correct color is selected during Paint Bucket Mode
         paintBucketMode.ColoringModeOnEvent += flash;
