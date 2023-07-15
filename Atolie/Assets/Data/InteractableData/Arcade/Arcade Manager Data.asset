@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: Arcade Manager Data
+  m_EditorClassIdentifier: 
+  interactableName: Arcade Manager
+  initiallyActive: 1
+  initiallyColoredIn: 1
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: b4849c1bd8c6841f1b27588e2d12eb57, type: 2}
+  - {fileID: 11400000, guid: 691ed176bd6fb42d9a0a34a6b0e2fd51, type: 2}
+  - {fileID: 11400000, guid: 64cc37dc53af640668288c2128af45d0, type: 2}
+  - {fileID: 11400000, guid: 53f729cd79ead4712bcbf267a49e2c16, type: 2}
+  - {fileID: 11400000, guid: 4fb0bf317adec4228a3f58fdd05d2083, type: 2}
+  - {fileID: 11400000, guid: eed5bb8d123c04902a86a143239a790d, type: 2}

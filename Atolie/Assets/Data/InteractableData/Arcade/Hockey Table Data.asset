@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: Hockey Table Data
+  m_EditorClassIdentifier: 
+  interactableName: Hockey Table
+  initiallyActive: 1
+  initiallyColoredIn: 0
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: 26186d626d1c4430ab67abbfa769e9ee, type: 2}
+  - {fileID: 11400000, guid: 21398e6fb35104509b8dc28cb7cf05c1, type: 2}
+  - {fileID: 11400000, guid: 78c51171f1c2c4ba48d2f57de49b08a4, type: 2}
+  - {fileID: 11400000, guid: aaa55295e91764ecfb467c005fb49ed3, type: 2}
+  - {fileID: 11400000, guid: 801f7cd042e8a454d97e177363e385b7, type: 2}

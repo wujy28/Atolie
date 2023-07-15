@@ -26,6 +26,8 @@ public class WirePuzzleTracker : MonoBehaviour
 
     public static event Action<Stage> OnStageChanged;
 
+    public static event Action WirePuzzleCompleted;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -227,6 +229,7 @@ public class WirePuzzleTracker : MonoBehaviour
 
     public void ExitCompletedPuzzle()
     {
+        WirePuzzleCompleted?.Invoke();
         GameManager.Instance.UpdateGameState(GameState.Exploration);
         GameManager.Instance.PlayInterationAfterSceneChange(postPuzzleInteraction);
         GameManager.Instance.ChangeScene(GameScene.CyberpunkCity);

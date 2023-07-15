@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: ElderTruffle Data
+  m_EditorClassIdentifier: 
+  interactableName: ElderTruffle
+  initiallyActive: 0
+  initiallyColoredIn: 1
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: 58bff08e9d1bb450ba997abea99573a1, type: 2}
+  - {fileID: 11400000, guid: d38534fe207bd4adab63fea4dbd03380, type: 2}
+  - {fileID: 11400000, guid: 1c1a2e244f7364fe3997b782af65b5f4, type: 2}
+  - {fileID: 11400000, guid: 368021cc3eeb34c1b9c494bb41795235, type: 2}

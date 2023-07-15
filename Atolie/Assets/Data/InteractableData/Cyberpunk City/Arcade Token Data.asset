@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: Arcade Token Data
+  m_EditorClassIdentifier: 
+  interactableName: Arcade Token
+  initiallyActive: 1
+  initiallyColoredIn: 1
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: 33594da3e0b8541d5a42f025f9849405, type: 2}

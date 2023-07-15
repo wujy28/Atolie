@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: Pet Shop Salesman Data
+  m_EditorClassIdentifier: 
+  interactableName: Pet Shop Salesman
+  initiallyActive: 1
+  initiallyColoredIn: 1
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: 9beb731d2d2cf4a7a82f7419b79c71b8, type: 2}
+  - {fileID: 11400000, guid: 3beb383209e454bea8ddfb91475dac48, type: 2}
+  - {fileID: 11400000, guid: 7f5c7ebf0f7164ced942d176d7cd0395, type: 2}
+  - {fileID: 11400000, guid: d0f715e038ac54922b23618479de9e85, type: 2}
+  - {fileID: 11400000, guid: 231865a59130649dd893eb6e2db93b31, type: 2}
+  - {fileID: 11400000, guid: f5632679bb3da4f149904b02bf37f848, type: 2}

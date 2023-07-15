@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd2940e86d574847a42576010a69b3e, type: 3}
+  m_Name: ElderTruffle CI
+  m_EditorClassIdentifier: 
+  allInteractions:
+  - isActive: 1
+    description: Pond
+    allInteractionsForOption:
+    - {fileID: 11400000, guid: fbe4341cea88648d68f93e1ef7f6bbd5, type: 2}
+    currentInteractionIndex: 0
+    isInitiallyActive: 1
+    initialInteractionIndex: 0
+  - isActive: 1
+    description: Mushroom Beds
+    allInteractionsForOption:
+    - {fileID: 11400000, guid: fbf811e94f3014a9ba0a428f900d5f77, type: 2}
+    currentInteractionIndex: 0
+    isInitiallyActive: 1
+    initialInteractionIndex: 0

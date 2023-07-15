@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: Fertilizer Bags Data
+  m_EditorClassIdentifier: 
+  interactableName: Fertilizer Bags
+  initiallyActive: 1
+  initiallyColoredIn: 0
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: f68f0f5f365c44dfcae80634e73f0aff, type: 2}
+  - {fileID: 11400000, guid: cd7c3496fc8934857bf6770775ccf197, type: 2}
+  - {fileID: 11400000, guid: 60b7e129c990b4cc4872f323aa465b49, type: 2}

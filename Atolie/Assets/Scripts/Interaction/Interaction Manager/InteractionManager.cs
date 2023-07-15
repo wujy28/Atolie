@@ -16,7 +16,7 @@ public class InteractionManager : MonoBehaviour
     private PlayerInteraction playerInteraction;
     // private PlayerSettings playerSettings;
 
-    [SerializeField] private Interactables interactables;
+    [SerializeField] private GameObject interactables;
     [SerializeField] private bool inInteraction;
     [SerializeField] private Transform currentTarget;
     [SerializeField] private Queue<InteractionExecutable> currentInteraction;
@@ -40,7 +40,6 @@ public class InteractionManager : MonoBehaviour
         currentTarget = null;
         inInteraction = false;
         currentInteraction = new Queue<InteractionExecutable>();
-        interactables = transform.GetComponentInChildren<Interactables>();
         GameManager.OnGameStateChanged += GameManager_OnGameStateChanged;
     }
 
@@ -98,6 +97,16 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    private void enterNewInteraction()
+    {
+        if (!inInteraction)
+        {
+            GameManager.Instance.UpdateGameState(GameState.Interaction);
+            // playerSettings.pausePlayer();
+            inInteraction = true;
+        }
+    }
+
     public void exitInteraction()
     {
         Debug.Log("Interaction Exited");
@@ -108,13 +117,25 @@ public class InteractionManager : MonoBehaviour
             removeTarget();
             inInteraction = false;
         }
-        QuestManager.Instance.LoadActiveQuests();
+        // QuestManager.Instance.LoadActiveQuests();
     }
 
     public void forceExitInteraction()
     {
         currentInteraction.Clear();
         exitInteraction();
+    }
+
+    public void playPostPuzzleInteraction(Interaction interaction)
+    {
+        playInteraction(interaction);
+        enterNewInteraction();
+    }
+
+    public void playAdditionalInteraction(Interaction interaction)
+    {
+        playInteraction(interaction);
+        enterNewInteraction();
     }
 
     public void playInteraction(Interaction interaction)

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0365361a842461698c76e28266cfa4, type: 3}
+  m_Name: ET 0 0
+  m_EditorClassIdentifier: 
+  dialogue:
+    speaker: Elder Truffle
+    sentences:
+    - HEY!
+    - Who is being so loud so early in the morning!?
+    - Is it you?
+    - "What even are you, you don\u2019t look like you\u2019re from around here."
+    - And who said that you could break into my house!?

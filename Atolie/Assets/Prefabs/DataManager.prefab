@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7286716785449009041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7286716785449009043}
+  - component: {fileID: 7286716785449009042}
+  m_Layer: 0
+  m_Name: DataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7286716785449009043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286716785449009041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.1299339, y: 1.3467481, z: 85.94263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7286716785449009042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7286716785449009041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade264e4c9b92459b895ea016f2e9020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allInteractableData:
+  - {fileID: 11400000, guid: 0fcf96add1d1a4295866e169ef9da736, type: 2}
+  - {fileID: 11400000, guid: 22a13e43c4570420a9a962e1e5ecf2bf, type: 2}
+  - {fileID: 11400000, guid: 96e8af76b610f47cd85b26749fe73bce, type: 2}
+  - {fileID: 11400000, guid: 2f6b6cfa339a1427d9598737973a058d, type: 2}
+  - {fileID: 11400000, guid: 9b26d119d579c45b9beb16700ae560e4, type: 2}
+  - {fileID: 11400000, guid: 982bcdfe61aed4de7ac9efaf5375dd88, type: 2}
+  - {fileID: 11400000, guid: 42f103c124e3c4060b28967688565862, type: 2}
+  - {fileID: 11400000, guid: c4cc2f4a447e249739f2225f2bcebf44, type: 2}
+  - {fileID: 11400000, guid: 13b21cf9844214e8b91ef12dcbccb3b3, type: 2}
+  - {fileID: 11400000, guid: eb63560da8ccd46c3a777b10e980b0e0, type: 2}
+  - {fileID: 11400000, guid: 53af82302bc184a96937e8971e925ce5, type: 2}
+  - {fileID: 11400000, guid: 7d064847fb760466a974117cb446d07c, type: 2}
+  - {fileID: 11400000, guid: acc40cc67610f4dc0aefd295fdc1c62e, type: 2}
+  - {fileID: 11400000, guid: 4c94ce14673d541ba8a1fcc9612ad4f8, type: 2}
+  - {fileID: 11400000, guid: d40c8038009e248d2a6a603bffc02220, type: 2}
+  - {fileID: 11400000, guid: 21cd20ba78b8448598e4a90fcfed4b67, type: 2}
+  - {fileID: 11400000, guid: a24cfa8c719d04b82a4d16019b12b5c6, type: 2}
+  - {fileID: 11400000, guid: fb8ef6e762e804185ba2a7fee4592656, type: 2}
+  - {fileID: 11400000, guid: b0612589e733f4e2ba613c6e77c11568, type: 2}
+  allInteractableListener:
+  - {fileID: 11400000, guid: 239b81af93e994cd1874f5ea439c275c, type: 2}
+  - {fileID: 11400000, guid: 5ce4539564bad4f9bb59326d6872f0c4, type: 2}
+  - {fileID: 11400000, guid: 5b39260c351a24a6da954eeebff87e87, type: 2}
+  - {fileID: 11400000, guid: 6159b0bf98fd4489b965b6e475e439e2, type: 2}
+  - {fileID: 11400000, guid: e12d315d5db634ff5be0663ee2f932b0, type: 2}
+  - {fileID: 11400000, guid: 95faf8a12d37b42cfa619b6ce633ecf1, type: 2}
+  - {fileID: 11400000, guid: 6527d40238ca34f08b1236abfd279e8a, type: 2}
+  - {fileID: 11400000, guid: 87b41992e91334505abdfccf94d6eba1, type: 2}
+  - {fileID: 11400000, guid: 59c75b57231be4d97a16ca489b490ad5, type: 2}
+  - {fileID: 11400000, guid: a478324303a51409690d3ba286447b00, type: 2}
+  - {fileID: 11400000, guid: 95faf8a12d37b42cfa619b6ce633ecf1, type: 2}
+  - {fileID: 11400000, guid: 26be6078f19c54e6fa0cf35760683ab8, type: 2}
+  - {fileID: 11400000, guid: c93680643ccbc45979077f3fa38153c6, type: 2}
+  - {fileID: 11400000, guid: 484a520a250bb415ca83a802734fa629, type: 2}
+  allChooseInteractionExecutables:
+  - {fileID: 11400000, guid: 7e0a5b64c3d894e09a5c2ce12d463d89, type: 2}
+  - {fileID: 11400000, guid: 7e0a5b64c3d894e09a5c2ce12d463d89, type: 2}
+  allChooseInteractionListeners:
+  - {fileID: 11400000, guid: 6f8144c4970ff4dcda520a27818a5364, type: 2}
+  - {fileID: 11400000, guid: 1c14b59777d664751a55cf2903ae091b, type: 2}
+  traderRoListener: {fileID: 11400000, guid: 7e4c33343bbc94bc99c641a606a9edb0, type: 2}

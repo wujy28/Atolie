@@ -59,6 +59,10 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
         if (interactionsAllowed)
         {
             InteractionManager.Instance.setCurrentTarget(transform);
+            if (TryGetComponent(out Interactable interactable))
+            {
+                interactable.UpdateInteraction();
+            }
         }
     }
 
@@ -70,7 +74,6 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
     public void setCurrentInteraction(Interaction newInteraction)
     {
         currentInteraction = newInteraction;
-        GetComponentInParent<Interactables>().interactableData.UpdateInteraction(gameObject.name, currentInteraction);
     }
 
     public Interaction GetCurrentInteraction()

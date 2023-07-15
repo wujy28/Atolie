@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Encapsulates Paint Bucket Mode that is enabled when the Paint Bucket Button is clicked.
@@ -50,6 +51,8 @@ public class PaintBucketMode : MonoBehaviour
     private Transform player;
 
     private PlayerSettings playerSettings;
+
+    [SerializeField] private Button paintBucketButton;
 
     /* This creates an 'information publisher' that tells subscribers
      * when Paint Bucket Mode is on and the current selected color of the
@@ -152,6 +155,16 @@ public class PaintBucketMode : MonoBehaviour
         ColoringModeOnEvent?.Invoke(currentColor, paintBucketModeOn);
     }
 
+    private void DisablePaintBucketButton()
+    {
+        paintBucketButton.interactable = false;
+    }
+
+    private void EnablePaintBucketButton()
+    {
+        paintBucketButton.interactable = true;
+    }
+
     private void GameManager_OnGameStateChanged(GameState state)
     {
         switch (state)
@@ -160,12 +173,15 @@ public class PaintBucketMode : MonoBehaviour
                 break;
             case GameState.Exploration:
                 paintBucketModeOn = false;
+                EnablePaintBucketButton();
                 break;
             case GameState.Interaction:
                 paintBucketModeOn = false;
+                DisablePaintBucketButton();
                 break;
             case GameState.PaintBucketMode:
                 paintBucketModeOn = true;
+                EnablePaintBucketButton();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);

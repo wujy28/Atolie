@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c69cb23d4d1749ae95aec2eba4caaf4, type: 3}
+  m_Name: Mushroom House Data
+  m_EditorClassIdentifier: 
+  interactableName: Mushroom House
+  initiallyActive: 1
+  initiallyColoredIn: 1
+  initialInteractionIndex: 0
+  interactionsList:
+  - {fileID: 11400000, guid: 9d3f25f5d48854e1ea2b930c530917f6, type: 2}
+  - {fileID: 11400000, guid: c6ecd0c93f8f8446e8dc51782fb06bac, type: 2}
+  - {fileID: 11400000, guid: a057cb381f4ed4e8997a5d1946d3297c, type: 2}
+  - {fileID: 11400000, guid: 04611da9a66214faab417b3791a1f85c, type: 2}

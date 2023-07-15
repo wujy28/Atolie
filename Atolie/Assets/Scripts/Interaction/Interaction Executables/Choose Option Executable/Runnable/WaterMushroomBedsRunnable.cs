@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class WaterMushroomBedsRunnable : Runnable
 {
+    public static event Action OnMushroomBedsWatered;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void InitializeAndAdd()
     {
@@ -15,6 +18,6 @@ public class WaterMushroomBedsRunnable : Runnable
 
     public override void Run()
     {
-        QuestManager.Instance.CompleteQuestStep(9, 1);
+        OnMushroomBedsWatered?.Invoke();
     }
 }

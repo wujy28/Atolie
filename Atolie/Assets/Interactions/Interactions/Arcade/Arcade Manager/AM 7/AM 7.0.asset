@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0365361a842461698c76e28266cfa4, type: 3}
+  m_Name: AM 7.0
+  m_EditorClassIdentifier: 
+  dialogue:
+    speaker: Arcade Manager
+    sentences:
+    - "\u2026"
+    - Hey, thanks for all your help! Sorry for being rude to you at first.
+    - "\u2026 You remind me of how I used to be, all optimistic and happy."
+    - That was the time when I was playing in one of the biggest bands there was!
+    - "Though that\u2019s irrelevant now."
+    - Here, you can have this.
+    - "You\u2019d be able to find a better use for it than me."

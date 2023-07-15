@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e007447799acf48aeb71c5337c4e9393, type: 3}
+  m_Name: Hockey Table Listener
+  m_EditorClassIdentifier: 
+  interactableData: {fileID: 11400000, guid: a24cfa8c719d04b82a4d16019b12b5c6, type: 2}
