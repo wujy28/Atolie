@@ -183,8 +183,6 @@ public class PaintBucketMode : MonoBehaviour
                 paintBucketModeOn = true;
                 EnablePaintBucketButton();
                 break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
     }
 }
