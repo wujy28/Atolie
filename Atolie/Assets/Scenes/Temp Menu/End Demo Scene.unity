@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 0
-  Scene: 0
+  Scene: 13
 --- !u!4 &340213551
 Transform:
   m_ObjectHideFlags: 0
