@@ -972,6 +972,7 @@ MonoBehaviour:
   selectedItemName: {fileID: 1564702027}
   selectedItemImage: {fileID: 737116328}
   submitButton: {fileID: 1654873176}
+  nullItemImage: {fileID: 21300000, guid: 26f0fce0f466d41d483b4b0b42144d3f, type: 3}
 --- !u!1 &201554495
 GameObject:
   m_ObjectHideFlags: 0

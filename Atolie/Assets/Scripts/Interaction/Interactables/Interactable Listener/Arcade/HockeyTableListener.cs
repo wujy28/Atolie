@@ -35,6 +35,7 @@ public class HockeyTableListener : InteractableListener
         {
             case "Goop":
                 MeetConditionForHT3(0);
+                interactableData.SetCurrentInteractionIndex(5);
                 break;
             case "Handle":
                 MeetConditionForHT3(1);

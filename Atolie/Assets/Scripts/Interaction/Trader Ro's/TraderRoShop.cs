@@ -191,6 +191,11 @@ public class TraderRoShop : MonoBehaviour
         exitButton.interactable = false;
     }
 
+    public Mode GetMode()
+    {
+        return currentMode;
+    }
+
     public enum Mode
     {
         Welcome,

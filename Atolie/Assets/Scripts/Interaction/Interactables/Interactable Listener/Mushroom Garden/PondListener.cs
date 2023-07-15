@@ -7,6 +7,8 @@ public class PondListener : InteractableListener
 {
     public bool pondTrimmed;
 
+    private bool[] conditionsForP3;
+
     public override void SubscribeToAllEvents()
     {
         pondTrimmed = false;
@@ -14,6 +16,7 @@ public class PondListener : InteractableListener
         SubmitItemPopup.OnSubmittedItemEvent += SubmitItemPopup_OnSubmittedItemEvent;
         AgreeToHelpElderTruffleRunnable.AgreeToHelpElderTruffle += AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle;
         TrimPondRunnable.OnPondTrimmed += TrimPondRunnable_OnPondTrimmed;
+        InitiateConditionsForP3(2);
     }
 
     private void AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle()
@@ -26,10 +29,14 @@ public class PondListener : InteractableListener
         switch (item.name)
         {
             case "Fish":
-                interactableData.SetCurrentInteractionIndex(3);
+                MeetConditionForP3(1);
                 break;
             case "Shears":
                 interactableData.SetCurrentInteractionIndex(5);
+                break;
+            case "Battery":
+                MeetConditionForP3(0);
+                interactableData.SetCurrentInteractionIndex(7);
                 break;
         }
     }
@@ -60,5 +67,40 @@ public class PondListener : InteractableListener
         SubmitItemPopup.OnSubmittedItemEvent -= SubmitItemPopup_OnSubmittedItemEvent;
         AgreeToHelpElderTruffleRunnable.AgreeToHelpElderTruffle -= AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle;
         TrimPondRunnable.OnPondTrimmed -= TrimPondRunnable_OnPondTrimmed;
+    }
+
+    private void InitiateConditionsForP3(int size)
+    {
+        conditionsForP3 = new bool[size];
+        for (int i = 0; i < conditionsForP3.Length; i++)
+        {
+            conditionsForP3[i] = false;
+        }
+    }
+
+    private void MeetConditionForP3(int index)
+    {
+        conditionsForP3[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForP3);
+    }
+
+    private void CheckIfAllConditionsAreMet(bool[] condition)
+    {
+        foreach (bool met in condition)
+        {
+            if (!met)
+            {
+                return;
+            }
+        }
+        AllConditionsMet(condition);
+    }
+
+    private void AllConditionsMet(bool[] condition)
+    {
+        if (condition == conditionsForP3)
+        {
+            interactableData.SetCurrentInteractionIndex(3);
+        }
     }
 }
