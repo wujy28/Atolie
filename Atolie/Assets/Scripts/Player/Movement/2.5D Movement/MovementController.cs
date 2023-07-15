@@ -38,11 +38,12 @@ public class MovementController : MonoBehaviour
     private bool faceRight;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         followSpot = transform.position;
         agent = GetComponent<NavMeshAgent>();
         // To prevent the player from rotating?
+        transform.rotation = new Quaternion(0,0,0,0);
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         faceRight = true;
