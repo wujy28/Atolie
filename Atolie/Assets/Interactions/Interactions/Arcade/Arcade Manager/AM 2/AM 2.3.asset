@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AM 2.3
   m_EditorClassIdentifier: 
   dialogue:
-    speaker: Arcade Manger
+    speaker: Arcade Manager
     sentences:
     - ...
