@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,12 +22,24 @@ public class WirePuzzleGrid : MonoBehaviour
     private void Awake()
     {
         numOfTiles = gridSize * gridSize;
+        ResetGrid();
+        SetUpTiles();
+    }
+
+    private void ResetGrid()
+    {
         numOfUsedTiles = 0;
         numOfConnectedTerminals = 0;
         tileCountInConnections = new int[numOfTerminals + 1];
         activeTerminal = 0;
+        startingTerminal = null;
         activeConnection = new Stack<WirePuzzleTile>();
-        SetUpTiles();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log(Enum.GetName(typeof(WirePuzzleTracker.Stage), level) + " Reset");
+        ResetGrid();
     }
 
     private void SetUpTiles()

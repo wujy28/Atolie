@@ -9,13 +9,31 @@ public class SlidingPuzzleBlock : MonoBehaviour, IDragHandler, IBeginDragHandler
     public int length;
     private Rigidbody2D rb;
 
+    [SerializeField] private bool goalReached;
+
     private List<SlidingPuzzleTile> contactedTiles;
 
     public void Awake()
     {
+        goalReached = false;
         contactedTiles = new List<SlidingPuzzleTile>();
         rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.bodyType = RigidbodyType2D.Static;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        switch (lockX)
+        {
+            case true:
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
+                break;
+            case false:
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+                break;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        rb.MovePosition(transform.position);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -73,7 +91,10 @@ public class SlidingPuzzleBlock : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     private void ChangeRBToKinematic()
     {
-        rb.bodyType = RigidbodyType2D.Kinematic;
+        if (!goalReached)
+        {
+            rb.bodyType = RigidbodyType2D.Static;
+        }
     }
 
     private List<SlidingPuzzleTile> CalculateDistanceToContactedTiles()
@@ -135,6 +156,9 @@ public class SlidingPuzzleBlock : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     public void MoveDollarBillToTrigger()
     {
+        goalReached = true;
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        rb.gravityScale = 0;
         rb.AddForce(transform.up * 2, ForceMode2D.Impulse);
     }
 }

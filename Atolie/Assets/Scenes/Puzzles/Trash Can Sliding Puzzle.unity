@@ -525,18 +525,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.39119673, y: 7.568104}
+    - - {x: 0.41263688, y: 7.954027}
       - {x: 0.3817828, y: 3.5854976}
       - {x: 3.2542946, y: 3.5901797}
       - {x: 3.2565088, y: -5.0018764}
       - {x: -5.3248615, y: -4.997461}
       - {x: -5.342573, y: 3.5878932}
       - {x: -1.053101, y: 3.5869226}
-      - {x: -1.0547094, y: 7.5212507}
-      - {x: -6.614188, y: 7.5011134}
-      - {x: -6.6070566, y: -6.2510185}
-      - {x: 4.6416497, y: -6.242762}
-      - {x: 4.7779455, y: 7.600454}
+      - {x: -1.0547094, y: 8.043852}
+      - {x: -16.024189, y: 8.213841}
+      - {x: -16.038496, y: -8.169277}
+      - {x: 14.392799, y: -8.214306}
+      - {x: 14.27521, y: 8.007816}
 --- !u!50 &140078827
 Rigidbody2D:
   serializedVersion: 4
@@ -4773,7 +4773,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25840855, y: 10.541145}
+  m_Offset: {x: -0.35980695, y: 10.541145}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4784,7 +4784,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.9031315, y: 4.647957}
+  m_Size: {x: 1.0478345, y: 4.647957}
   m_EdgeRadius: 0
 --- !u!4 &1429356856 stripped
 Transform:
