@@ -16,6 +16,21 @@ public class SlidingPuzzleBlock : MonoBehaviour, IDragHandler, IBeginDragHandler
         contactedTiles = new List<SlidingPuzzleTile>();
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        switch (lockX)
+        {
+            case true:
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionX;
+                break;
+            case false:
+                rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+                break;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        rb.MovePosition(transform.position);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
