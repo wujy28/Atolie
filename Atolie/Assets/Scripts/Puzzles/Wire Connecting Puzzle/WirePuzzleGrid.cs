@@ -136,11 +136,26 @@ public class WirePuzzleGrid : MonoBehaviour
         UnregisterTerminalConnection(terminal.terminalID);
     }
 
+    /*
     public void ResetActiveConnection()
     {
         if (activeTerminal != 0)
         {
             ResetConnection(startingTerminal);
+        }
+        TerminateConnection();
+    }
+    */
+
+    public void ResetActiveConnection()
+    {
+        if (activeTerminal != 0)
+        {
+            while (activeConnection.Count > 0)
+            {
+                WirePuzzleTile tile = activeConnection.Pop();
+                tile.Disconnect();
+            }
         }
         TerminateConnection();
     }
