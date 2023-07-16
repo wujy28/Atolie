@@ -6,7 +6,7 @@ public class SlidingPuzzleGoal : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision != null && collision.CompareTag("Interactable"))
+        if (collision != null && collision.transform.name == "Dollar Bill")
         {
             if (collision.transform.TryGetComponent<SlidingPuzzleBlock>(out SlidingPuzzleBlock dollar))
             {
