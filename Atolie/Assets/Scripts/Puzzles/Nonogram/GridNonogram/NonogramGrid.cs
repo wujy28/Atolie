@@ -17,10 +17,22 @@ public class NonogramGrid : MonoBehaviour
 
     private NonogramAnswer answer;
 
+    private int[] stage2Hint = { 8, 29, 100, 115 };
+    private int[] stage3Hint = { 12, 25, 52, 65, 78, 80, 91, 101, 117, 119, 134, 135, 154, 161, 169, 188 };
+
     void Start()
     {
         answer = GetComponent<NonogramAnswer>();
         CreateGrid();
+
+        if (NonogramManager.instance.currentStage == 1)
+        {
+            GiveHint(stage2Hint);
+        }
+        else if (NonogramManager.instance.currentStage == 2)
+        {
+            GiveHint(stage3Hint);
+        }
     }
 
     private void Update()
@@ -153,5 +165,13 @@ public class NonogramGrid : MonoBehaviour
             var comp = _gridSquares[i].GetComponent<NonogramGridSquare>();
             comp.Deselect();
         }   
+    }
+
+    public void GiveHint(int[] indexes)
+    {
+        for (int i = 0; i < indexes.Length; i++)
+        {
+            _gridSquares[indexes[i]].GetComponent<NonogramGridSquare>().ClickSquare();
+        }
     }
 }

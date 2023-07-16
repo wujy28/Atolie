@@ -704,7 +704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 465, y: 195}
+  m_AnchoredPosition: {x: -278, y: 108}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &514816271
@@ -2267,12 +2267,13 @@ MonoBehaviour:
   m_Text: 'Clicking on this paint bucket tool will enable paint bucket mode, where
     you can choose a color & color in objects!
 
-    (You will start off with no colors
-    tho)
+
+    (You will start off with no
+    colors tho)
 
 
-    Remember to click the tool again once you''re done coloring to exit
-    paint bucket mode~'
+    Remember to click the tool again once you''re done coloring
+    to exit paint bucket mode~'
 --- !u!222 &1498885836
 CanvasRenderer:
   m_ObjectHideFlags: 0

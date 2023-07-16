@@ -84,7 +84,7 @@ public class DDRManager : MonoBehaviour
     {
         if (!startPlaying)
         {
-            if (Input.anyKeyDown)
+            if (Input.GetMouseButtonDown(0))
             {
                 startPlaying = true;
                 beatScroller.hasStarted = true;
@@ -95,7 +95,7 @@ public class DDRManager : MonoBehaviour
         {
             if (!music.isPlaying && !resultsScreen.activeInHierarchy && !puzzlePaused)
             {
-                if (currentScore < 37500)
+                if (currentScore < 36000)
                 {
                     failedScreen.SetActive(true);
                 } else
