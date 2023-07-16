@@ -59,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         */
 
-        if (currentTarget != null)
+        if (currentTarget != null && !MovementController2D.switchingLevels)
         {
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, overlapCircleRadius, LayerMask.GetMask("Game World"));
             if (hits != null && hits.Length != 0)

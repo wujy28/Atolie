@@ -38,7 +38,7 @@ public class MovementController2D : MonoBehaviour
 
     private float maxX = 6.7f;
 
-    private bool switchingLevels;
+    public static bool switchingLevels;
 
     public float upperY;
 
@@ -59,6 +59,12 @@ public class MovementController2D : MonoBehaviour
     private void OnDisable()
     {
         followSpot = transform.position;
+        switchingLevels = false;
+    }
+
+    private void OnDestroy()
+    {
+        switchingLevels = false;
     }
 
     // Update is called once per frame
