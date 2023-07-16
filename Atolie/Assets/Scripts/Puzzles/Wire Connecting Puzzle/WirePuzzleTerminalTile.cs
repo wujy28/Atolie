@@ -14,10 +14,15 @@ public class WirePuzzleTerminalTile : WirePuzzleTile, IDragHandler, IBeginDragHa
 
     private void Awake()
     {
-        connectedDirection = ConnectDirection.Unconnected;
         animator = GetComponent<Animator>();
-        startingTerminal = null;
         transform.Find("Canvas").GetComponentInChildren<Text>().text = terminalID.ToString();
+        Disconnect();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log(transform.name + " reset");
+        Disconnect();
     }
 
     public override void Disconnect()

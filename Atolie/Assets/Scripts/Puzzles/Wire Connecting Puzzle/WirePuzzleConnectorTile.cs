@@ -14,9 +14,14 @@ public class WirePuzzleConnectorTile : WirePuzzleTile, IPointerEnterHandler, IPo
 
     private void Awake()
     {
-        inDirection = ConnectDirection.Unconnected;
-        outDirection = ConnectDirection.Unconnected;
         animator = GetComponent<Animator>();
+        Disconnect();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log(transform.name + " reset");
+        Disconnect();
     }
 
     public override void Disconnect()
@@ -75,7 +80,6 @@ public class WirePuzzleConnectorTile : WirePuzzleTile, IPointerEnterHandler, IPo
 
     public override void CreateConnection(ConnectDirection direction, WirePuzzleTile tile)
     {
-        // TODO: implement
         if (inDirection == ConnectDirection.Unconnected)
         {
             inDirection = direction;
