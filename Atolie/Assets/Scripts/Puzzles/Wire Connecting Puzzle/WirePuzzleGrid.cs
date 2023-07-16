@@ -156,6 +156,7 @@ public class WirePuzzleGrid : MonoBehaviour
                 WirePuzzleTile tile = activeConnection.Pop();
                 tile.Disconnect();
             }
+            UnregisterTerminalConnection(startingTerminal.terminalID);
         }
         TerminateConnection();
     }
