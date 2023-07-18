@@ -10,14 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f0365361a842461698c76e28266cfa4, type: 3}
-  m_Name: PSS 3 2
+  m_Name: AM 9 1
   m_EditorClassIdentifier: 
   dialogue:
-    speaker: Pet Shop Salesman
+    speaker: Iro
     sentences:
-    - Sure thing!
-    - 'It''s our best-seller! '
-    - It can perform a wide range of functions,
-    - 'Such as but not limited to: '
-    - Remote control movement, underwater retrieval and photography, and sonar navigation.
-    - It's really a bang for your buck!
+    - No problemo!

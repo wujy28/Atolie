@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5de4c75aef6864d619e4bcc79d3c699c, type: 3}
-  m_Name: PSS 3
+  m_Name: AM 10
   m_EditorClassIdentifier: 
   executables:
-  - {fileID: 11400000, guid: 36805b8fd60d948b9a0f9bc699dd6c5f, type: 2}
-  - {fileID: 11400000, guid: 6f6b308da45a04c7fa10e029a06c90b4, type: 2}
-  - {fileID: 11400000, guid: 73fb1596c28ce4148b7065f551cf049b, type: 2}
-  - {fileID: 11400000, guid: d733a40b4b72c43779bc692314e97783, type: 2}
-  - {fileID: 11400000, guid: 5846bd48af9674be2a69f958c7e45eca, type: 2}
+  - {fileID: 11400000, guid: eceabe5763a2a4e7db5488dc7bbfa01b, type: 2}
+  - {fileID: 11400000, guid: ae5430498e43c4104b3e85f53d1782c5, type: 2}

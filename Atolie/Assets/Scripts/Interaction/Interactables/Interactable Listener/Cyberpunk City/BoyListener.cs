@@ -13,6 +13,12 @@ public class BoyListener : InteractableListener
         WirePuzzleTracker.WirePuzzleCompleted += WirePuzzleTracker_WirePuzzleCompleted;
         InventoryManager.OnObtainedItemEvent += InventoryManager_OnObtainedItemEvent;
         Coloring.OnColoredInEvent += Coloring_OnColoredInEvent;
+        AgreeToHelpBoyRunnable.AgreeToHelpBoy += AgreeToHelpBoyRunnable_AgreeToHelpBoy;
+    }
+
+    private void AgreeToHelpBoyRunnable_AgreeToHelpBoy()
+    {
+        interactableData.SetCurrentInteractionIndex(3);
     }
 
     private void Coloring_OnColoredInEvent(Transform interactable)
@@ -46,5 +52,6 @@ public class BoyListener : InteractableListener
         WirePuzzleTracker.WirePuzzleCompleted -= WirePuzzleTracker_WirePuzzleCompleted;
         InventoryManager.OnObtainedItemEvent -= InventoryManager_OnObtainedItemEvent;
         Coloring.OnColoredInEvent -= Coloring_OnColoredInEvent;
+        AgreeToHelpBoyRunnable.AgreeToHelpBoy -= AgreeToHelpBoyRunnable_AgreeToHelpBoy;
     }
 }
