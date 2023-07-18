@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class UpDownControls : MonoBehaviour
 {
-    [SerializeField] Button button;
+    [SerializeField] GameObject stairs;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            button.interactable = true;
+            stairs.SetActive(true);
         }
     }
 
@@ -19,7 +19,7 @@ public class UpDownControls : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            button.interactable = false;
+            stairs.SetActive(false);
         }
     }
 }

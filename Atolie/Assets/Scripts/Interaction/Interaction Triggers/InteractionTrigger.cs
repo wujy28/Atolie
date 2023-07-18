@@ -10,7 +10,7 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
 
     private CursorController cursorController;
 
-    [SerializeField] public static bool interactionsAllowed;
+    [SerializeField] public static bool interactionsAllowed = true;
 
     public static event Action<Transform> OnInteractedWith;
 

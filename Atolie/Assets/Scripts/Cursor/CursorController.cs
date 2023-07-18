@@ -13,6 +13,8 @@ public class CursorController : MonoBehaviour
     [SerializeField] private Texture2D WateringCansPuzzle_waterCursor;
     [SerializeField] private Texture2D WateringCansPuzzle_fertilizerCursor;
     [SerializeField] private Texture2D paintBucketCursor;
+    [SerializeField] private Texture2D stairsUp;
+    [SerializeField] private Texture2D stairsDown;
 
 
     private void Awake()
@@ -73,5 +75,15 @@ public class CursorController : MonoBehaviour
     public void setPaintBucketCursor()
     {
         Cursor.SetCursor(paintBucketCursor, default, default);
+    }
+
+    public void setStairsUpCursor()
+    {
+        Cursor.SetCursor(stairsUp, default, default);
+    }
+
+    public void setStairsDownCursor()
+    {
+        Cursor.SetCursor(stairsDown, default, default);
     }
 }
