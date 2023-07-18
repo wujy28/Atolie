@@ -35,7 +35,7 @@ public class DDRManager : MonoBehaviour
     public float missedHits;
 
     public GameObject resultsScreen;
-    public Text percentText, normalText, goodText, perfectText, missText, finalScoreText;
+    public Text percentText, normalText, goodText, perfectText, missText, finalScoreText, failedScoreText;
 
     [SerializeField] private GameObject welcomeScreen;
     [SerializeField] private GameObject failedScreen;
@@ -95,9 +95,11 @@ public class DDRManager : MonoBehaviour
         {
             if (!music.isPlaying && !resultsScreen.activeInHierarchy && !puzzlePaused)
             {
-                if (currentScore < 36000)
+                if (currentScore < 34000)
                 {
                     failedScreen.SetActive(true);
+                    failedScoreText.text = "Your score was: " + currentScore.ToString();
+                    
                 } else
                 {
                     resultsScreen.SetActive(true);

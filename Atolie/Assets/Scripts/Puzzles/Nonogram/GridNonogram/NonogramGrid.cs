@@ -19,6 +19,8 @@ public class NonogramGrid : MonoBehaviour
 
     private int[] stage2Hint = { 8, 29, 100, 115 };
     private int[] stage3Hint = { 12, 25, 52, 65, 78, 80, 91, 101, 117, 119, 134, 135, 154, 161, 169, 188 };
+    private int[] crosses = { 4, 6, 11, 17, 19, 23, 30, 37, 40, 44, 50, 53, 59, 60, 66, 69, 81, 88, 94, 103, 118, 123, 125, 127, 128, 142,
+                              152, 156, 162, 166, 168, 171, 177, 182, 186, 190, 194, 205, 206 };
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class NonogramGrid : MonoBehaviour
         else if (NonogramManager.instance.currentStage == 2)
         {
             GiveHint(stage3Hint);
+            GiveCrossHint();
         }
     }
 
@@ -172,6 +175,16 @@ public class NonogramGrid : MonoBehaviour
         for (int i = 0; i < indexes.Length; i++)
         {
             _gridSquares[indexes[i]].GetComponent<NonogramGridSquare>().ClickSquare();
+            _gridSquares[indexes[i]].GetComponent<NonogramGridSquare>().DisableClick();
+        }
+    }
+
+    public void GiveCrossHint()
+    {
+        for (int i = 0; i < crosses.Length; i++)
+        {
+            _gridSquares[crosses[i]].GetComponent<NonogramGridSquare>().CrossOut();
+            _gridSquares[crosses[i]].GetComponent<NonogramGridSquare>().DisableClick();
         }
     }
 }

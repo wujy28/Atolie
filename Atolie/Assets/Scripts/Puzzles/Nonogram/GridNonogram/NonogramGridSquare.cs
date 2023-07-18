@@ -7,6 +7,7 @@ public class NonogramGridSquare : MonoBehaviour
 {
     public Image activeImage;
     public Image normalImage;
+    public Image crossImage;
 
     public bool isColored = false;
 
@@ -28,6 +29,7 @@ public class NonogramGridSquare : MonoBehaviour
     public void Select()
     {
         activeImage.gameObject.SetActive(true);
+        crossImage.gameObject.SetActive(false);
         isColored = true;
     }
 
@@ -35,17 +37,43 @@ public class NonogramGridSquare : MonoBehaviour
     public void Deselect()
     {
         activeImage.gameObject.SetActive(false);
+        crossImage.gameObject.SetActive(false);
         isColored = false;
+    }
+
+    public void CrossOut()
+    {
+        activeImage.gameObject.SetActive(false);
+        crossImage.gameObject.SetActive(true);
+        isColored = false;
+    }
+
+    public void DisableClick()
+    {
+        Destroy(gameObject.GetComponent<Button>());
     }
 
     public void ClickSquare()
     {
-        if (isColored == false)
+        if (!isColored)
         {
             Select();
+
         } else
         {
             Deselect();
         }
+        /*if (!isColored && !activeImage.gameObject.activeSelf && !crossImage.gameObject.activeSelf)
+        {
+            Select();
+
+        } else if (isColored && activeImage.gameObject.activeSelf && !crossImage.gameObject.activeSelf)
+        {
+            CrossOut();
+
+        } else if (!isColored && !activeImage.gameObject.activeSelf && crossImage.gameObject.activeSelf)
+        {
+            Deselect();
+        }*/
     }
 }
