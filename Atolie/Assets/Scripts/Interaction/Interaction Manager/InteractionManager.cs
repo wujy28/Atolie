@@ -68,8 +68,6 @@ public class InteractionManager : MonoBehaviour
             case GameState.PaintBucketMode:
                 InteractionTrigger.interactionsAllowed = false;
                 break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
     }
 
