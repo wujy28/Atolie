@@ -8,6 +8,7 @@ public class NonogramGridSquare : MonoBehaviour
     public Image activeImage;
     public Image normalImage;
     public Image crossImage;
+    public Image qnMarkImage;
 
     public bool isColored = false;
 
@@ -30,6 +31,7 @@ public class NonogramGridSquare : MonoBehaviour
     {
         activeImage.gameObject.SetActive(true);
         crossImage.gameObject.SetActive(false);
+        qnMarkImage.gameObject.SetActive(false);
         isColored = true;
     }
 
@@ -38,6 +40,7 @@ public class NonogramGridSquare : MonoBehaviour
     {
         activeImage.gameObject.SetActive(false);
         crossImage.gameObject.SetActive(false);
+        qnMarkImage.gameObject.SetActive(false);
         isColored = false;
     }
 
@@ -45,6 +48,15 @@ public class NonogramGridSquare : MonoBehaviour
     {
         activeImage.gameObject.SetActive(false);
         crossImage.gameObject.SetActive(true);
+        qnMarkImage.gameObject.SetActive(false);
+        isColored = false;
+    }
+
+    public void QnMark()
+    {
+        activeImage.gameObject.SetActive(false);
+        crossImage.gameObject.SetActive(false);
+        qnMarkImage.gameObject.SetActive(true);
         isColored = false;
     }
 
@@ -55,25 +67,26 @@ public class NonogramGridSquare : MonoBehaviour
 
     public void ClickSquare()
     {
-        if (!isColored)
+        /*if (!isColored)
         {
             Select();
 
         } else
         {
             Deselect();
-        }
-        /*if (!isColored && !activeImage.gameObject.activeSelf && !crossImage.gameObject.activeSelf)
+        }*/
+
+        if (!isColored && !activeImage.gameObject.activeSelf && !qnMarkImage.gameObject.activeSelf)
         {
             Select();
 
-        } else if (isColored && activeImage.gameObject.activeSelf && !crossImage.gameObject.activeSelf)
+        } else if (isColored && activeImage.gameObject.activeSelf && !qnMarkImage.gameObject.activeSelf)
         {
-            CrossOut();
+            QnMark();
 
-        } else if (!isColored && !activeImage.gameObject.activeSelf && crossImage.gameObject.activeSelf)
+        } else if (!isColored && !activeImage.gameObject.activeSelf && qnMarkImage.gameObject.activeSelf)
         {
             Deselect();
-        }*/
+        }
     }
 }
