@@ -13,6 +13,7 @@ public class TrashCanSlidingPuzzleTracker : MonoBehaviour
     [SerializeField] private GameObject puzzleCompletionScreen;
     [SerializeField] private GameObject exitGameConfirmationScreen;
     [SerializeField] private GameObject blockerScreen;
+    [SerializeField] private GameObject instructionsScreen;
     [SerializeField] private Transform dollarBill;
     [SerializeField] private SlidingPuzzleDifficultyManager difficultyManager;
 
@@ -35,6 +36,7 @@ public class TrashCanSlidingPuzzleTracker : MonoBehaviour
         UpdateStage(Stage.Welcome);
         puzzleCompletionScreen.SetActive(false);
         exitGameConfirmationScreen.SetActive(false);
+        instructionsScreen.SetActive(false);
         blockerScreen.SetActive(false);
         GameManager.Instance.UpdateGameState(GameState.Puzzle);
     }
@@ -48,6 +50,18 @@ public class TrashCanSlidingPuzzleTracker : MonoBehaviour
     private void PuzzleCompleted()
     {
         puzzleCompletionScreen.SetActive(true);
+    }
+
+    public void ShowInstructions()
+    {
+        instructionsScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void HideInstructions()
+    {
+        Time.timeScale = 1;
+        instructionsScreen.SetActive(false);
     }
 
     public void PausePuzzle()

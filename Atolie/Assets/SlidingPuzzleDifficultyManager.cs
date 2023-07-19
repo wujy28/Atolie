@@ -19,7 +19,7 @@ public class SlidingPuzzleDifficultyManager : MonoBehaviour
     public static event Action OnReset;
 
     private float currentTime = 0f;
-    private float startingTime = 60f;
+    private float startingTime = 90f;
 
     private void Awake()
     {
