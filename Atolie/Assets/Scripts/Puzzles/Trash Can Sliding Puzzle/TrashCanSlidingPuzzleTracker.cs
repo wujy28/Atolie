@@ -14,6 +14,7 @@ public class TrashCanSlidingPuzzleTracker : MonoBehaviour
     [SerializeField] private GameObject exitGameConfirmationScreen;
     [SerializeField] private GameObject blockerScreen;
     [SerializeField] private Transform dollarBill;
+    [SerializeField] private SlidingPuzzleDifficultyManager difficultyManager;
 
     [SerializeField] private Interaction postPuzzleInteraction;
 
@@ -41,6 +42,7 @@ public class TrashCanSlidingPuzzleTracker : MonoBehaviour
     public void EnterPuzzle()
     {
         UpdateStage(Stage.PuzzleActive);
+        difficultyManager.StartTimer();
     }
 
     private void PuzzleCompleted()
