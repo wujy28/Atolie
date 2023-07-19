@@ -44,6 +44,8 @@ public class SubmitItemPopup : MonoBehaviour
         requiredItemName.text = requiredItem.name;
         ChangeImageAlpha(requiredItemImage, 128);
         requiredItemImage.sprite = requiredItem.image;
+        submittedItem = InventoryManager.instance.GetSelectedItem(false);
+        CheckSubmittedItem();
     }
 
     private void ChangeImageAlpha(Image image, int a)
@@ -72,6 +74,11 @@ public class SubmitItemPopup : MonoBehaviour
     private void InventoryManager_OnSelectedItemChangeEvent(Item selectedItem)
     {
         submittedItem = selectedItem;
+        CheckSubmittedItem();
+    }
+
+    private void CheckSubmittedItem()
+    {
         if (submittedItem == requiredItem)
         {
             submitButton.interactable = true;
