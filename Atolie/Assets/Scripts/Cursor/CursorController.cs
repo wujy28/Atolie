@@ -5,17 +5,28 @@ using UnityEngine.EventSystems;
 
 public class CursorController : MonoBehaviour
 {
+
+    [SerializeField] private Texture2D defaultCursor;
     [SerializeField] private Texture2D interactableCursor;
     [SerializeField] private Texture2D NPCCursor;
     [SerializeField] private Texture2D collectibleCursor;
     [SerializeField] private Texture2D WateringCansPuzzle_waterCursor;
     [SerializeField] private Texture2D WateringCansPuzzle_fertilizerCursor;
     [SerializeField] private Texture2D paintBucketCursor;
+    [SerializeField] private Texture2D stairsUp;
+    [SerializeField] private Texture2D stairsDown;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        
+        if (defaultCursor != null)
+        {
+            Cursor.SetCursor(defaultCursor, default, default);
+        }
+        else
+        {
+            Cursor.SetCursor(default, default, default);
+        }
     }
 
     // Update is called once per frame
@@ -26,7 +37,14 @@ public class CursorController : MonoBehaviour
 
     public void setDefaultCursor()
     {
-        Cursor.SetCursor(default, default, default);
+        if (defaultCursor != null)
+        {
+            Cursor.SetCursor(defaultCursor, default, default);
+        }
+        else
+        {
+            Cursor.SetCursor(default, default, default);
+        }
     }
 
     public void setInteractableCursor()
@@ -57,5 +75,15 @@ public class CursorController : MonoBehaviour
     public void setPaintBucketCursor()
     {
         Cursor.SetCursor(paintBucketCursor, default, default);
+    }
+
+    public void setStairsUpCursor()
+    {
+        Cursor.SetCursor(stairsUp, default, default);
+    }
+
+    public void setStairsDownCursor()
+    {
+        Cursor.SetCursor(stairsDown, default, default);
     }
 }

@@ -14,7 +14,7 @@ public class PaintBucketMode : MonoBehaviour
     /// <summary>
     /// Whether Paint Bucket Mode is on
     /// </summary>
-    public bool paintBucketModeOn;
+    public static bool paintBucketModeOn;
 
     /// <summary>
     /// The current selected color for the Paint Bucket.

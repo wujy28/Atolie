@@ -10,7 +10,7 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
 
     private CursorController cursorController;
 
-    [SerializeField] public static bool interactionsAllowed;
+    [SerializeField] public static bool interactionsAllowed = true;
 
     public static event Action<Transform> OnInteractedWith;
 
@@ -48,6 +48,8 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
         if (interactionsAllowed)
         {
             cursorController.setDefaultCursor();
+            // Debug.Log("Pointer Exit: " + transform.name);
+            // Debug.Log("InteractionsAllowed: " + interactionsAllowed.ToString());
         }
     }
 
@@ -86,7 +88,7 @@ public abstract class InteractionTrigger : MonoBehaviour, IPointerEnterHandler, 
 
     private void Start()
     {
-        interactionsAllowed = true;
+        // interactionsAllowed = true;
     }
 
     // Start is called before the first frame update
