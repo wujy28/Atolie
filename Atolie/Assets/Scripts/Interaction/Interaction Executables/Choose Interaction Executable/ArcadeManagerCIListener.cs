@@ -17,6 +17,18 @@ public class ArcadeManagerCIListener : ChooseInteractionListener
         InteractionTrigger.OnInteractedWith += InteractionTrigger_OnInteractedWith;
         TangramManager.VendingMachineTangramCompleted += TangramManager_VendingMachineTangramCompleted;
         FixHockeyStrikerRunnable.OnHockeyStrikerFixed += FixHockeyStrikerRunnable_OnHockeyStrikerFixed;
+        AgreeToFixHockeyStrikerRunnable.AgreeToFixHockeyStriker += AgreeToFixHockeyStrikerRunnable_AgreeToFixHockeyStriker;
+        AgreeToHelpWithVMRunnable.AgreeToHelpWithVM += AgreeToHelpWithVMRunnable_AgreeToHelpWithVM;
+    }
+
+    private void AgreeToHelpWithVMRunnable_AgreeToHelpWithVM()
+    {
+        executable.GoToStep(2, 1);
+    }
+
+    private void AgreeToFixHockeyStrikerRunnable_AgreeToFixHockeyStriker()
+    {
+        executable.GoToStep(1, 2);
     }
 
     private void FixHockeyStrikerRunnable_OnHockeyStrikerFixed()
@@ -91,5 +103,7 @@ public class ArcadeManagerCIListener : ChooseInteractionListener
         InteractionTrigger.OnInteractedWith -= InteractionTrigger_OnInteractedWith;
         TangramManager.VendingMachineTangramCompleted -= TangramManager_VendingMachineTangramCompleted;
         FixHockeyStrikerRunnable.OnHockeyStrikerFixed -= FixHockeyStrikerRunnable_OnHockeyStrikerFixed;
+        AgreeToFixHockeyStrikerRunnable.AgreeToFixHockeyStriker -= AgreeToFixHockeyStrikerRunnable_AgreeToFixHockeyStriker;
+        AgreeToHelpWithVMRunnable.AgreeToHelpWithVM -= AgreeToHelpWithVMRunnable_AgreeToHelpWithVM;
     }
 }

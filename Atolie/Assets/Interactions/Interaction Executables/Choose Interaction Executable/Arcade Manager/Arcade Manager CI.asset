@@ -25,6 +25,7 @@ MonoBehaviour:
     allInteractionsForOption:
     - {fileID: 11400000, guid: bdb4cc2e334f9459493183bd2523ab19, type: 2}
     - {fileID: 11400000, guid: bd1b2cff787344d029a9371284113051, type: 2}
+    - {fileID: 11400000, guid: 7cd942eb674444ecf85378b9bb4a02cf, type: 2}
     currentInteractionIndex: 0
     isInitiallyActive: 0
     initialInteractionIndex: 0
@@ -32,6 +33,7 @@ MonoBehaviour:
     description: Vending Machine
     allInteractionsForOption:
     - {fileID: 11400000, guid: 16cbf2825ad3a493d93e57622d3e6522, type: 2}
+    - {fileID: 11400000, guid: e2632229383ab4c6daa00c26da25caf1, type: 2}
     currentInteractionIndex: 0
     isInitiallyActive: 0
     initialInteractionIndex: 0

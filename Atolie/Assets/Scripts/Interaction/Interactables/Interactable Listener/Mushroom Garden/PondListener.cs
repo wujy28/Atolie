@@ -7,6 +7,7 @@ public class PondListener : InteractableListener
 {
     public bool pondTrimmed;
 
+    private bool[] conditionsForP2;
     private bool[] conditionsForP3;
 
     public override void SubscribeToAllEvents()
@@ -16,12 +17,14 @@ public class PondListener : InteractableListener
         SubmitItemPopup.OnSubmittedItemEvent += SubmitItemPopup_OnSubmittedItemEvent;
         AgreeToHelpElderTruffleRunnable.AgreeToHelpElderTruffle += AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle;
         TrimPondRunnable.OnPondTrimmed += TrimPondRunnable_OnPondTrimmed;
+        InitiateConditionsForP2(2);
         InitiateConditionsForP3(2);
     }
 
     private void AgreeToHelpElderTruffleRunnable_AgreeToHelpElderTruffle()
     {
         interactableData.SetCurrentInteractionIndex(1);
+        MeetConditionForP2(1);
     }
 
     private void SubmitItemPopup_OnSubmittedItemEvent(Item item)
@@ -35,8 +38,8 @@ public class PondListener : InteractableListener
                 interactableData.SetCurrentInteractionIndex(5);
                 break;
             case "Battery":
-                MeetConditionForP3(0);
                 interactableData.SetCurrentInteractionIndex(7);
+                MeetConditionForP3(0);
                 break;
         }
     }
@@ -52,7 +55,7 @@ public class PondListener : InteractableListener
         switch (item.name)
         {
             case "Fish":
-                interactableData.SetCurrentInteractionIndex(2);
+                MeetConditionForP2(0);
                 break;
             case "Shears":
                 interactableData.SetCurrentInteractionIndex(4);
@@ -69,6 +72,15 @@ public class PondListener : InteractableListener
         TrimPondRunnable.OnPondTrimmed -= TrimPondRunnable_OnPondTrimmed;
     }
 
+    private void InitiateConditionsForP2(int size)
+    {
+        conditionsForP2 = new bool[size];
+        for (int i = 0; i < conditionsForP2.Length; i++)
+        {
+            conditionsForP2[i] = false;
+        }
+    }
+
     private void InitiateConditionsForP3(int size)
     {
         conditionsForP3 = new bool[size];
@@ -76,6 +88,12 @@ public class PondListener : InteractableListener
         {
             conditionsForP3[i] = false;
         }
+    }
+
+    private void MeetConditionForP2(int index)
+    {
+        conditionsForP2[index] = true;
+        CheckIfAllConditionsAreMet(conditionsForP2);
     }
 
     private void MeetConditionForP3(int index)
@@ -98,6 +116,10 @@ public class PondListener : InteractableListener
 
     private void AllConditionsMet(bool[] condition)
     {
+        if (condition == conditionsForP2)
+        {
+            interactableData.SetCurrentInteractionIndex(2);
+        }
         if (condition == conditionsForP3)
         {
             interactableData.SetCurrentInteractionIndex(3);
