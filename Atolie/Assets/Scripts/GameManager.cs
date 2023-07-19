@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private InventoryManager inventory;
     private DataManager dataManager;
     private ColorManager colorManager;
+    private MusicManager musicManager;
 
     private Interaction postSceneChangeInteraction;
 
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         inventory = FindObjectOfType<InventoryManager>();
         dataManager = FindObjectOfType<DataManager>();
         colorManager = FindObjectOfType<ColorManager>();
+        musicManager = FindObjectOfType<MusicManager>();
     }
 
     private void OnDestroy()
@@ -75,39 +77,51 @@ public class GameManager : MonoBehaviour
                 break;
             case GameScene.Arcade:
                 SceneManager.LoadScene(1);
+                PlayMainBGM();
                 break;
             case GameScene.CyberpunkCity:
                 SceneManager.LoadScene(2);
+                PlayMainBGM();
                 break;
             case GameScene.MushroomGarden:
                 SceneManager.LoadScene(3);
+                PlayMainBGM();
                 break;
             case GameScene.DDR:
                 SceneManager.LoadScene(7);
+                PauseMainBGM();
                 break;
             case GameScene.WateringCansPuzzle:
                 SceneManager.LoadScene(5);
+                PauseMainBGM();
                 break;
             case GameScene.PondMaze:
                 SceneManager.LoadScene(4);
+                PauseMainBGM();
                 break;
             case GameScene.WireConnectingPuzzle:
                 SceneManager.LoadScene(9);
+                PauseMainBGM();
                 break;
             case GameScene.VendingMachineTangram:
                 SceneManager.LoadScene(10);
+                PauseMainBGM();
                 break;
             case GameScene.TrashCanSlidingPuzzle:
                 SceneManager.LoadScene(11);
+                PauseMainBGM();
                 break;
             case GameScene.Nonogram:
                 SceneManager.LoadScene(12);
+                PauseMainBGM();
                 break;
             case GameScene.TraderRos:
                 SceneManager.LoadScene(13);
+                PauseMainBGM();
                 break;
             case GameScene.DemoEnd:
                 SceneManager.LoadScene(8);
+                PlayMainBGM();
                 break;
         }
 
@@ -236,6 +250,22 @@ public class GameManager : MonoBehaviour
     public void PlayInterationAfterSceneChange(Interaction interaction)
     {
         postSceneChangeInteraction = interaction;
+    }
+
+    private void PlayMainBGM()
+    {
+        if (musicManager != null)
+        {
+            musicManager.gameObject.SetActive(true);
+        }
+    }
+
+    private void PauseMainBGM()
+    {
+        if (musicManager != null)
+        {
+            musicManager.gameObject.SetActive(false);
+        }
     }
 }
 

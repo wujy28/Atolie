@@ -42,6 +42,9 @@ public class ChangeTab : MonoBehaviour
             case GameState.Interaction:
                 GetComponent<Button>().interactable = false;
                 break;
+            case GameState.PaintBucketMode:
+                GetComponent<Button>().interactable = false;
+                break;
         }
     }
 }
