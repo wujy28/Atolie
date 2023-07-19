@@ -59,6 +59,8 @@ public class WirePuzzleConnectorTile : WirePuzzleTile, IPointerEnterHandler, IPo
                 {
                     grid.RemovePreviousTileFromActiveConnection();
                     grid.RemovePreviousTileFromActiveConnection();
+                    connectedTerminalID = terminalID;
+                    connectedTerminal = grid.startingTerminal;
                     grid.AddTileToActiveConnection(this);
                 }
                 else
