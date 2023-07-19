@@ -10,6 +10,7 @@ public class SlidingPuzzleBlock : MonoBehaviour, IDragHandler, IBeginDragHandler
     private Rigidbody2D rb;
 
     [SerializeField] private bool goalReached;
+    private Vector2 initialPosition;
 
     private List<SlidingPuzzleTile> contactedTiles;
 
@@ -29,6 +30,22 @@ public class SlidingPuzzleBlock : MonoBehaviour, IDragHandler, IBeginDragHandler
                 rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
                 break;
         }
+        initialPosition = transform.position;
+    }
+
+    private void OnEnable()
+    {
+        SlidingPuzzleDifficultyManager.OnReset += SlidingPuzzleDifficultyManager_OnReset;
+    }
+
+    private void SlidingPuzzleDifficultyManager_OnReset()
+    {
+        ResetPosition();
+    }
+
+    private void OnDisable()
+    {
+        SlidingPuzzleDifficultyManager.OnReset -= SlidingPuzzleDifficultyManager_OnReset;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -160,5 +177,10 @@ public class SlidingPuzzleBlock : MonoBehaviour, IDragHandler, IBeginDragHandler
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0;
         rb.AddForce(transform.up * 2, ForceMode2D.Impulse);
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = initialPosition;
     }
 }
