@@ -10,7 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5c4216907e5e764bb0b6e6fe8c339a4, type: 3}
-  m_Name: Elixir
+  m_Name: Prize Ticket
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: e24396ca15a784a19855036ae2a4a5fd, type: 3}
-  interactableName: 
+  image: {fileID: 21300000, guid: 87457d3d028693648919d006d7244827, type: 3}

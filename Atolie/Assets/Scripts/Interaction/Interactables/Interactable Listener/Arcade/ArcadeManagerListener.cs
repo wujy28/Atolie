@@ -38,7 +38,7 @@ public class ArcadeManagerListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Ticket":
+            case "Prize Ticket":
                 MeetConditionForAM2(0);
                 break;
             case "Tamagotchi":

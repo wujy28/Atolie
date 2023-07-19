@@ -31,7 +31,7 @@ public class PondListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Fish":
+            case "Cyborg Fish":
                 MeetConditionForP3(1);
                 break;
             case "Shears":
@@ -54,7 +54,7 @@ public class PondListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Fish":
+            case "Cyborg Fish":
                 MeetConditionForP2(0);
                 break;
             case "Shears":
