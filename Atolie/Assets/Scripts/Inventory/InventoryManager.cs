@@ -35,6 +35,11 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        ChangeSelectedSlot(0); //selects first slot on start
+    }
+
     private void Update()
     {
         //This is for using a mouse to click & select an inventory slot
