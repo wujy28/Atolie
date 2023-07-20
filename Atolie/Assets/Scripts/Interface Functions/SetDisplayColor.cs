@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,23 +12,18 @@ public class SetDisplayColor : MonoBehaviour
 
     public Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // ColorManager.Color currentColor = ColorManager.instance.selectedColor;
-        // changeCurrentColor((int)currentColor);
-    }
-
-    private void Awake()
-    {
-        ColorManager.Color currentColor = ColorManager.instance.selectedColor;
-        changeCurrentColor((int)currentColor);
-    }
-
     private void OnEnable()
     {
-        ColorManager.Color currentColor = ColorManager.instance.selectedColor;
-        changeCurrentColor((int)currentColor);
+        try
+        {
+            ColorManager.Color currentColor = ColorManager.instance.selectedColor;
+            changeCurrentColor((int)currentColor);
+        }
+        catch (NullReferenceException e)
+        {
+            ColorManager.Color currentColor = FindObjectOfType<ColorManager>().selectedColor;
+            changeCurrentColor((int)currentColor);
+        }
     }
 
     public void changeCurrentColor(int color)
