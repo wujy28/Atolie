@@ -87,8 +87,12 @@ public class WateringCansPuzzleTracker : MonoBehaviour
                 tutorialInstructions.transform.Find("TargetDrag").gameObject.SetActive(false);
                 tutorialInstructions.transform.Find("TransferBetween").gameObject.SetActive(true);
                 break;
-            case TutorialStep.WateringCan:
+            case TutorialStep.WaterSupply:
                 tutorialInstructions.transform.Find("TransferBetween").gameObject.SetActive(false);
+                tutorialInstructions.transform.Find("WaterSupply").gameObject.SetActive(true);
+                break;
+            case TutorialStep.WateringCan:
+                tutorialInstructions.transform.Find("WaterSupply").gameObject.SetActive(false);
                 tutorialInstructions.transform.Find("WateringCan").gameObject.SetActive(true);
                 break;
             case TutorialStep.Fertilizer:
@@ -161,6 +165,7 @@ public class WateringCansPuzzleTracker : MonoBehaviour
     {
         TargetDrag,
         TransferBetween,
+        WaterSupply,
         WateringCan,
         Fertilizer,
         EndTutorial

@@ -15,6 +15,8 @@ public class PondMazeTracker : MonoBehaviour
     [SerializeField] private Interaction postPuzzleInteraction;
     [SerializeField] private Transform player;
 
+    public static event Action PuzzleStart;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -48,6 +50,7 @@ public class PondMazeTracker : MonoBehaviour
             case Stage.PuzzleActive:
                 player.GetComponent<FishMovement>().enabled = true;
                 welcomeScreen.SetActive(false);
+                PuzzleStart?.Invoke();
                 break;
             case Stage.PuzzleComplete:
                 player.GetComponent<FishMovement>().enabled = false;

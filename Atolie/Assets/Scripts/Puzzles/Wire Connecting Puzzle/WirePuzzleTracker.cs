@@ -21,6 +21,7 @@ public class WirePuzzleTracker : MonoBehaviour
     [SerializeField] private GameObject gridBlocker;
     [SerializeField] private GameObject puzzleCompletionScreen;
     [SerializeField] private GameObject exitGameConfirmationScreen;
+    [SerializeField] private GameObject nextLevelText;
 
     [SerializeField] private Interaction postPuzzleInteraction;
 
@@ -53,6 +54,7 @@ public class WirePuzzleTracker : MonoBehaviour
         gridBlocker.SetActive(false);
         puzzleCompletionScreen.SetActive(false);
         exitGameConfirmationScreen.SetActive(false);
+        nextLevelText.SetActive(false);
         GameManager.Instance.UpdateGameState(GameState.Puzzle);
         UpdateStage(Stage.Welcome);
     }
@@ -71,6 +73,7 @@ public class WirePuzzleTracker : MonoBehaviour
                 levelSelectManager.UnlockLevel(1);
                 break;
             case Stage.Stage_2:
+                nextLevelText.SetActive(true);
                 levelSelectManager.UnlockLevel(2);
                 break;
             case Stage.Stage_3:
