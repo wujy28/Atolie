@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de4c75aef6864d619e4bcc79d3c699c, type: 3}
-  m_Name: MB 0
+  m_Script: {fileID: 11500000, guid: c5c4216907e5e764bb0b6e6fe8c339a4, type: 3}
+  m_Name: Arcade Token
   m_EditorClassIdentifier: 
-  executables:
-  - {fileID: 11400000, guid: 35db8829379944c0182fd6d16bd91524, type: 2}
+  image: {fileID: 21300000, guid: 185554a524c472346977d45704a9c0d0, type: 3}
+  interactableName: Arcade Token

@@ -15,7 +15,7 @@ public class DDRListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Token":
+            case "Arcade Token":
                 interactableData.SetCurrentInteractionIndex(2);
                 break;
         }
@@ -25,10 +25,10 @@ public class DDRListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Ticket":
+            case "Prize Ticket":
                 interactableData.SetCurrentInteractionIndex(3);
                 break;
-            case "Token":
+            case "Arcade Token":
                 interactableData.SetCurrentInteractionIndex(1);
                 break;
         }

@@ -38,7 +38,7 @@ public class WateringCansListener : InteractableListener
             case "Cup":
                 MeetConditionForWC2(0);
                 break;
-            case "Elixir":
+            case "Growth Elixir":
                 interactableData.SetCurrentInteractionIndex(4);
                 break;
         }

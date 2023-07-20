@@ -3974,7 +3974,7 @@ MonoBehaviour:
     - or they are bots who have achieved sentience due to a bug in their code...
     - Oh? You seem like you're dozing off already.
     - Ha ha, I really shouldn't be boring you like this.
-    - Well, if you're need rest, you're free to stay here for as long as you like!
+    - Well, if you need rest, you're free to stay here for as long as you like!
   allTradeItemDialogue:
   - speaker: Rosie Bot
     sentences:
@@ -6244,10 +6244,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 26441322d11a09b498244b47879e6ea4, type: 3}
-    m_FontSize: 57
+    m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 92
     m_Alignment: 4
     m_AlignByGeometry: 0

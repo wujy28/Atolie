@@ -25,7 +25,7 @@ public class MushroomBedsListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Elixir":
+            case "Growth Elixir":
                 interactableData.SetCurrentInteractionIndex(2);
                 break;
         }
@@ -35,7 +35,7 @@ public class MushroomBedsListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Elixir":
+            case "Growth Elixir":
                 interactableData.SetCurrentInteractionIndex(1);
                 break;
         }

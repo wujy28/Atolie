@@ -43,6 +43,7 @@ public class ChooseInteractionPopup : MonoBehaviour
             dropdown.options.Add(new Dropdown.OptionData() { text = description });
         }
         dropdown.options.Add(new Dropdown.OptionData() { text = "Nothing" });
+        dropdown.RefreshShownValue();
     }
 
     public void ShowPopup()

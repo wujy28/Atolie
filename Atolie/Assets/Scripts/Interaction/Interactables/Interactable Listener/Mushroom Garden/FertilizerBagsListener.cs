@@ -20,7 +20,7 @@ public class FertilizerBagsListener : InteractableListener
     {
         switch (item.name)
         {
-            case "Elixir":
+            case "Growth Elixir":
                 interactableData.SetCurrentInteractionIndex(2);
                 break;
         }
