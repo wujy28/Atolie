@@ -17,6 +17,6 @@ MonoBehaviour:
     sentences:
     - Let's have a look...
     - Hmm...
-    - "There\u2019s already one cup here but I don't think I can measure out the
-      right volumes with these."
-    - I should probably get another one.
+    - "There\u2019s already one container here but I don't think I can measure out
+      the right volumes with these."
+    - I should probably get another one... Maybe like a cup or something?
