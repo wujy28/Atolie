@@ -14,7 +14,20 @@ public class SetDisplayColor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        changeCurrentColor(0);
+        // ColorManager.Color currentColor = ColorManager.instance.selectedColor;
+        // changeCurrentColor((int)currentColor);
+    }
+
+    private void Awake()
+    {
+        ColorManager.Color currentColor = ColorManager.instance.selectedColor;
+        changeCurrentColor((int)currentColor);
+    }
+
+    private void OnEnable()
+    {
+        ColorManager.Color currentColor = ColorManager.instance.selectedColor;
+        changeCurrentColor((int)currentColor);
     }
 
     public void changeCurrentColor(int color)

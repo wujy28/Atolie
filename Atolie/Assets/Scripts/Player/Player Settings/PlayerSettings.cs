@@ -57,8 +57,6 @@ public class PlayerSettings : MonoBehaviour
             case GameState.PaintBucketMode:
                 pausePlayer();
                 break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
     }
 
