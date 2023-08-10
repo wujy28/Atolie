@@ -23,17 +23,11 @@ public class DialogueManager : MonoBehaviour
         else
         {
             instance = this;
-            //DontDestroyOnLoad(gameObject);
         }
         sentences = new Queue<string>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    //Function to start a dialogue
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
@@ -50,6 +44,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
+    //Function to display next sentence of dialogue
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
@@ -63,6 +58,7 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(TypeSentence(sentence));
     }
 
+    //Function to type out sentence in dailogue
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -73,6 +69,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    //Function to end dialogue
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);

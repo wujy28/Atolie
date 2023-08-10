@@ -6,12 +6,13 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
+    //Function to trigger the start of a dialogue
     public void TriggerDialogue()
     {
-        //FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         DialogueManager.instance.StartDialogue(dialogue);
     }
 
+    //Function to set instance of dialogue
     public void setDialogue(Dialogue dialogue)
     {
         this.dialogue = dialogue;
