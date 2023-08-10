@@ -65,7 +65,6 @@ public class DDRManager : MonoBehaviour
     {
         welcomeScreen.SetActive(true);
 
-        // To be consistent with the other puzzles
         puzzleCompletionScreen.SetActive(false);
         exitGameConfirmationScreen.SetActive(false);
         GameManager.Instance.UpdateGameState(GameState.Puzzle);
@@ -93,7 +92,7 @@ public class DDRManager : MonoBehaviour
         {
             if (!music.isPlaying && !resultsScreen.activeInHierarchy && !puzzlePaused)
             {
-                if (currentScore < 34000)
+                if (currentScore < 34000) //score requirement to pass
                 {
                     failedScreen.SetActive(true);
                     failedScoreText.text = "Your score was: " + currentScore.ToString();
@@ -126,6 +125,7 @@ public class DDRManager : MonoBehaviour
         welcomeScreen.SetActive(false);
     }
 
+    //Function for when a note is hit, manages score and combo too
     public void NoteHit()
     {
         Debug.Log("Note Hit");
@@ -147,6 +147,7 @@ public class DDRManager : MonoBehaviour
         scoreText.text = "Score: " + currentScore;
     }
 
+    //Function when player gets normal hit for a note
     public void NormalHit()
     {
         currentScore += scorePerNote * currentMultiplier;
@@ -155,6 +156,7 @@ public class DDRManager : MonoBehaviour
         normalHits++;
     }
 
+    //Function when player gets good hit for a note
     public void GoodHit()
     {
         currentScore += scorePerGoodNote * currentMultiplier;
@@ -163,6 +165,7 @@ public class DDRManager : MonoBehaviour
         goodHits++;
     }
 
+    //Function when player gets perfect hit for a note
     public void PerfectHit()
     {
         currentScore += scorePerPerfectNote * currentMultiplier;
@@ -171,6 +174,7 @@ public class DDRManager : MonoBehaviour
         perfectHits++;
     }
 
+    //Funciton when player misses a note
     public void NoteMissed()
     {
         Debug.Log("Note Missed");
@@ -185,7 +189,7 @@ public class DDRManager : MonoBehaviour
         missedHits++;
     }
 
-    // Reloads scene for player to retry minigame
+    //Function to reload scene for player to retry minigame
     public void TryAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
