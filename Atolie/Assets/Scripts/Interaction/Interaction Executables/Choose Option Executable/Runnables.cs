@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Contains a dictionary of all created runnables for easy access by game objects (for choose option IE)
 public class Runnables : MonoBehaviour
 {
     private static Dictionary<string, Runnable> runnables = new Dictionary<string, Runnable>();

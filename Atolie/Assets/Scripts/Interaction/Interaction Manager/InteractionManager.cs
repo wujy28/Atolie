@@ -83,6 +83,7 @@ public class InteractionManager : MonoBehaviour
         playerInteraction.setCurrentTarget(null);
     }
 
+    // controls logic of entering an interaction tied to the current target
     public void enterInteraction()
     {
         if (!inInteraction)
@@ -95,6 +96,7 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    // controls logic of entering an interaction independent of current target
     private void enterNewInteraction()
     {
         if (!inInteraction)
@@ -118,18 +120,21 @@ public class InteractionManager : MonoBehaviour
         // QuestManager.Instance.LoadActiveQuests();
     }
 
+    // method called by other classes to immediately exit interaction that is playing currently
     public void forceExitInteraction()
     {
         currentInteraction.Clear();
         exitInteraction();
     }
 
+    // called to play an interaction after completing a puzzle
     public void playPostPuzzleInteraction(Interaction interaction)
     {
         playInteraction(interaction);
         enterNewInteraction();
     }
 
+    // called to play an additional interaction independent of current target
     public void playAdditionalInteraction(Interaction interaction)
     {
         playInteraction(interaction);
@@ -159,6 +164,7 @@ public class InteractionManager : MonoBehaviour
         executable.execute();
     }
 
+    // not used by current iteration of the game (used by old quest manager)
     public void LoadInteraction(string InteractableName, Interaction interaction)
     {
         Transform interactable = transform.Find("Interactables").Find(InteractableName);
@@ -168,6 +174,7 @@ public class InteractionManager : MonoBehaviour
         }
     }
 
+    // removes a collectible if it is present on screen as a sprite after being obtained
     public void RemoveFromScene(Item item)
     {
         string name = item.interactableName;

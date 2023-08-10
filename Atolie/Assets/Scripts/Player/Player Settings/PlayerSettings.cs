@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// class in charge of managing player settings (i.e. whether player movement or interaction is enabled)
 public class PlayerSettings : MonoBehaviour
 {
     private PlayerInteraction playerInteraction;

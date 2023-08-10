@@ -57,6 +57,7 @@ public class ChooseOptionPopup : MonoBehaviour
         popupCanvas.SetActive(false);
     }
 
+    // executes runnable tied to the left choose option popup button
     public void runEnter()
     {
         HidePopup();
@@ -65,6 +66,7 @@ public class ChooseOptionPopup : MonoBehaviour
         InteractionExecutable.currentExecutableCompleted();
     }
 
+    // executes runnable tied to the right choose option popup button
     public void runExit()
     {
         HidePopup();

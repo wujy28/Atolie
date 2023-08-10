@@ -14,6 +14,10 @@ public abstract class Runnable
             Runnables.AddToRunnables(temp.GetType().ToString(), temp);
             Debug.Log(Runnables.RunnablesSize());
         }
+
+
+        This method adds the interactable to the Runnables class' dictionary when game starts (so that
+        other classes can access the Runnables easily)
     */
 
     public abstract void Run();

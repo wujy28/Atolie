@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Monobehavior class in charge of resetting data for scriptable objects that handle
+ * interactable statuses/listeners when game starts/ends.
+ * Might be used to handle save system in the future.
+ */
+
 public class DataManager : MonoBehaviour
 {
     [SerializeField] private List<InteractableData> allInteractableData;

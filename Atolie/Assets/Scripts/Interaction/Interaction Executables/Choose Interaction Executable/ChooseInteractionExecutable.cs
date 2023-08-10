@@ -76,6 +76,7 @@ public class ChooseInteractionExecutable : InteractionExecutable
         }
     }
 
+    // nested class encapsulating each option of the CI dropdown list
     [System.Serializable]
     private class InteractionOption
     {

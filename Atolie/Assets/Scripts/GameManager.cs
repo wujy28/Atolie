@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // mainly in charge of playing post puzzle interactions (interactions that play immediately when scene changes after a puzzle is completed
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         if (postSceneChangeInteraction != null)
