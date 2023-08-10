@@ -61,7 +61,6 @@ public class DDRManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         welcomeScreen.SetActive(true);
@@ -79,7 +78,6 @@ public class DDRManager : MonoBehaviour
         puzzlePaused = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!startPlaying)
@@ -146,7 +144,6 @@ public class DDRManager : MonoBehaviour
         currentCombo++;
         comboText.text = "Combo: " + currentCombo;
 
-        //currentScore += scorePerNote * currentMultiplier;
         scoreText.text = "Score: " + currentScore;
     }
 
@@ -188,6 +185,7 @@ public class DDRManager : MonoBehaviour
         missedHits++;
     }
 
+    // Reloads scene for player to retry minigame
     public void TryAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

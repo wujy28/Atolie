@@ -10,13 +10,11 @@ public class NoteObject : MonoBehaviour
 
     public GameObject hitEffect, goodEffect, perfectEffect, missEffect;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(keyToPress))
@@ -25,19 +23,21 @@ public class NoteObject : MonoBehaviour
             {
                 gameObject.SetActive(false);
 
-                if (transform.position.y > 0.75f || transform.position.y < 0.15f) //Mathf.Abs(transform.position.y) > 0.75
+                if (transform.position.y > 0.75f || transform.position.y < 0.15f) //requirement for normal hit
                 {
                     Debug.Log("Normal Hit");
                     DDRManager.instance.NormalHit();
                     Instantiate(hitEffect, transform.position, hitEffect.transform.rotation);
-                } else if (transform.position.y > 0.55f || transform.position.y < 0.30f) //Mathf.Abs(transform.position.y) > 0.55f
+
+                } else if (transform.position.y > 0.55f || transform.position.y < 0.30f)  //requirement for good hit
                 {
                     Debug.Log("Good Hit");
                     DDRManager.instance.GoodHit();
                     Instantiate(goodEffect, transform.position, goodEffect.transform.rotation);
-                } else 
+
+                } else //else it is perfect hit
                 {
-                    Debug.Log("Perfect Hit");
+                    Debug.Log("Perfect Hit"); 
                     DDRManager.instance.PerfectHit();
                     Instantiate(perfectEffect, transform.position, perfectEffect.transform.rotation);
                 }
