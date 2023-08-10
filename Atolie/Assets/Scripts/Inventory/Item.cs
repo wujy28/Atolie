@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Item")]
 public class Item : ScriptableObject
 {
-    //This is where we put information we want the scriptable object to hold, for now i only put image
+    //Information of the scriptable object (inventory item)
 
     [Header("Only gameplay")]
 

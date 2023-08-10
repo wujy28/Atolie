@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Demo : MonoBehaviour
 {
-    //public InventoryManager inventoryManager;
     public Item[] itemsToPickup;
 
     //Test spawning item

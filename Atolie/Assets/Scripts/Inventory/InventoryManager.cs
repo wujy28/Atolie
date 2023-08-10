@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        //This is for using a mouse to click & select an inventory slot
+        //For using a mouse to click & select an inventory slot
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (Input.GetMouseButtonDown(0))
@@ -63,7 +63,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    //changes the inventory slot selected
+    //Changes the inventory slot selected
     void ChangeSelectedSlot(int newValue)
     {
         if (selectedSlot >= 0)
@@ -78,7 +78,8 @@ public class InventoryManager : MonoBehaviour
         OnSelectedItemChangeEvent?.Invoke(GetSelectedItem(false));
     }
 
-    //@return true is inventory is not full and item can be added, false if inventory is full and item cannot be added
+    //Adds an item into the inventory if there is space
+    //@return true if inventory is not full and item can be added, false if inventory is full and item cannot be added
     public bool AddItem(Item item)
     {
         //Find any empty inventory slot
@@ -98,6 +99,7 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
+    //Spawns an item into the specified slot
     void SpawnNewItem(Item item, InventorySlot slot)
     {
         GameObject newItemGo = Instantiate(inventoryItemPrefab, slot.transform);
@@ -105,7 +107,7 @@ public class InventoryManager : MonoBehaviour
         inventoryItem.InitialiseItem(item);
     }
 
-    //For using items
+    //For using of inventory items
     public Item GetSelectedItem(bool use)
     {
         InventorySlot slot = inventorySlots[selectedSlot];
