@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NonogramAnswer : MonoBehaviour
 {
+    //Contains the answers for all three stages
+
     public bool[] firstStageAnswer = {false, false, true, true,  false,
                                       false, false, true, false, true,
                                       false, false, true, false, true,

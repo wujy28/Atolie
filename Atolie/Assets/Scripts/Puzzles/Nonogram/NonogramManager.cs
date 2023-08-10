@@ -38,6 +38,7 @@ public class NonogramManager : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.Puzzle);
     }
 
+    //Functions for screens that show up in scene
     public void CloseWelcomeScreen()
     {
         welcomeScreen.SetActive(false);

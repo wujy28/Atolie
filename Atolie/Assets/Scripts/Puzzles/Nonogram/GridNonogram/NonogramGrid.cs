@@ -49,6 +49,7 @@ public class NonogramGrid : MonoBehaviour
         SetGridSquarePositions();
     }
 
+    //Function to spawn the grid for the nonogram
     private void SpawnGridSquares()
     {
         int squareIndex = 0;
@@ -66,6 +67,7 @@ public class NonogramGrid : MonoBehaviour
         }
     }
 
+    //Functions to set the positions of the squares in the grid according to specified values given
     private void SetGridSquarePositions()
     {
         int col = 0;
@@ -114,6 +116,7 @@ public class NonogramGrid : MonoBehaviour
         }
     }
 
+    //Function to check if Nonogram is completed
     void CheckIfCompleted()
     {
         List<bool> theAnswer = new List<bool>();
@@ -131,6 +134,7 @@ public class NonogramGrid : MonoBehaviour
         CheckIfSquaresAreCompleted(theAnswer);
     }
 
+    //Helper function to check if Nonogram is completed and correct
     private void CheckIfSquaresAreCompleted(List<bool> data)
     {
         bool stageCompleted = true;
@@ -155,12 +159,13 @@ public class NonogramGrid : MonoBehaviour
             }
             else if (NonogramManager.instance.currentStage == 2)
             {
-                //shows up too fast?
                 NonogramManager.instance.OpenPuzzleCompletionScreen(); //show puzzle completion screen
             }
         }
     }
 
+
+    //Function to reset all squares of the grid
     public void ResetGrid()
     {
         for (int i = 0; i < _gridSquares.Count; i++)
@@ -170,6 +175,7 @@ public class NonogramGrid : MonoBehaviour
         }   
     }
 
+    //Function to give hints based on input of indexes where the hint is
     public void GiveHint(int[] indexes)
     {
         for (int i = 0; i < indexes.Length; i++)
@@ -179,6 +185,7 @@ public class NonogramGrid : MonoBehaviour
         }
     }
 
+    //Function to give crosses for last stage of Nonogram
     public void GiveCrossHint()
     {
         for (int i = 0; i < crosses.Length; i++)

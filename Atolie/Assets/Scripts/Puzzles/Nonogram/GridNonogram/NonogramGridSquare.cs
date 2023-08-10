@@ -12,18 +12,11 @@ public class NonogramGridSquare : MonoBehaviour
 
     public bool isColored = false;
 
-    //public bool Selected { get; set; }
     public int SquareIndex { get; set; }
-    //public bool SquareOccupied { get; set; }
 
     private void Awake()
     {
         Deselect();
-    }
-
-    void Start()
-    {
-        //isColored = false;
     }
 
     //When square is selected, change its colour and set its bool
@@ -44,6 +37,7 @@ public class NonogramGridSquare : MonoBehaviour
         isColored = false;
     }
 
+    //Cross out square
     public void CrossOut()
     {
         activeImage.gameObject.SetActive(false);
@@ -52,6 +46,7 @@ public class NonogramGridSquare : MonoBehaviour
         isColored = false;
     }
 
+    //Set square with a question mark
     public void QnMark()
     {
         activeImage.gameObject.SetActive(false);
@@ -60,22 +55,15 @@ public class NonogramGridSquare : MonoBehaviour
         isColored = false;
     }
 
+    //Disables clicking for square
     public void DisableClick()
     {
         Destroy(gameObject.GetComponent<Button>());
     }
 
+    //Function to change state of square when clicked
     public void ClickSquare()
     {
-        /*if (!isColored)
-        {
-            Select();
-
-        } else
-        {
-            Deselect();
-        }*/
-
         if (!isColored && !activeImage.gameObject.activeSelf && !qnMarkImage.gameObject.activeSelf)
         {
             Select();
