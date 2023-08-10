@@ -34,12 +34,14 @@ public class Grid : MonoBehaviour
         CreateGrid();
     }
 
+    //Function to create grid for puzzle
     private void CreateGrid()
     {
         SpawnGridSquares();
         SetGridSquarePositions();
     }
 
+    //Function to spawn grid for puzzle
     private void SpawnGridSquares()
     {
         int squareIndex = 0;
@@ -52,12 +54,12 @@ public class Grid : MonoBehaviour
                 _gridSquares[_gridSquares.Count - 1].GetComponent<GridSquare>().SquareIndex = squareIndex;
                 _gridSquares[_gridSquares.Count - 1].transform.SetParent(this.transform);
                 _gridSquares[_gridSquares.Count - 1].transform.localScale = new Vector3(squareScale, squareScale, squareScale);
-                //_gridSquares[_gridSquares.Count - 1].GetComponent<GridSquare>().SetImage(squareIndex % 2 == 0);
                 squareIndex++;
             }
         }
     }
 
+    //Function to set positions of grid squares based on specifications provided
     private void SetGridSquarePositions()
     {
         int col = 0;
@@ -106,6 +108,7 @@ public class Grid : MonoBehaviour
         }
     }
 
+    //Function to check if shape can be placed in the grid
     private void CheckIfShapeCanBePlaced()
     {
         var squareIndexes = new List<int>();
@@ -118,7 +121,6 @@ public class Grid : MonoBehaviour
             {
                 squareIndexes.Add(gridSquare.SquareIndex);
                 gridSquare.Selected = false;
-                //gridSquare.ActivateSquare();
             }
         }
 
@@ -133,7 +135,6 @@ public class Grid : MonoBehaviour
             foreach (var squareIndex in squareIndexes)
             {
                 _gridSquares[squareIndex].GetComponent<GridSquare>().PlaceShapeOnBoard();
-                //_gridSquares[squareIndex].GetComponent<GridSquare>().indexOfActiveImage++;
             }
 
             currentSelectedShape.DeactivateSquare();
@@ -145,9 +146,9 @@ public class Grid : MonoBehaviour
             TangramEvents.MoveShapeToStartPosition();
         }
 
-        //shapeStorage.GetCurrentSelectedShape().DeactivateSquare();
     }
 
+    //Function to check if grid is fully filled with shapes
     void CheckIfCompleted()
     {
         List<int> grid = new List<int>();
@@ -157,20 +158,18 @@ public class Grid : MonoBehaviour
         gridData.Add(indicator.secondAndThirdStageGridData);
         gridData.Add(indicator.secondAndThirdStageGridData);
 
-        foreach (var squareIndex in gridData[TangramManager.instance.currentStage]) //indicator.firstStageGridData
+        foreach (var squareIndex in gridData[TangramManager.instance.currentStage])
         {
             grid.Add(squareIndex);
         }
 
-        //var completedSquares = CheckIfSquaresAreCompleted(grid);
         CheckIfSquaresAreCompleted(grid);
     }
 
+    //Helper function to check if puzzle is completed, and move on when it is completed
     private void CheckIfSquaresAreCompleted(List<int> data)
     {
         List<int> completedSquaresIndex = new List<int>();
-
-        //var squaresCompleted = 0;
 
         foreach (var squareIndex in data)
         {
@@ -192,12 +191,9 @@ public class Grid : MonoBehaviour
         {
             foreach (var squareIndex in completedSquaresIndex)
             {
-                //var completed = false;
 
                 var comp = _gridSquares[squareIndex].GetComponent<GridSquare>();
-                //waitforseconds?
                 comp.Deactivate();
-                //completed = true;
 
                 var comp2 = _gridSquares[squareIndex].GetComponent<GridSquare>();
                 comp2.ClearOccupied();
@@ -214,26 +210,9 @@ public class Grid : MonoBehaviour
             }
         }
 
-        /*foreach (var squareIndex in completedSquaresIndex) //i think the prob is here
-        {
-            var completed = false;
-
-            var comp = _gridSquares[squareIndex].GetComponent<GridSquare>();
-            comp.Deactivate();
-            completed = true;
-
-            var comp2 = _gridSquares[squareIndex].GetComponent<GridSquare>();
-            comp2.ClearOccupied();
-
-            if (completed)
-            {
-                //squaresCompleted++;
-            }
-        }*/
-
-        //return squaresCompleted;
     }
 
+    //Function to reset grid
     public void ResetGrid()
     {
         for (int i = 0; i < _gridSquares.Count; i++)
@@ -241,7 +220,6 @@ public class Grid : MonoBehaviour
             var comp = _gridSquares[i].GetComponent<GridSquare>();
             comp.Deactivate();
 
-            //var comp2 = _gridSquares[i].GetComponent<GridSquare>();
             comp.ClearOccupied();
         }   
     }

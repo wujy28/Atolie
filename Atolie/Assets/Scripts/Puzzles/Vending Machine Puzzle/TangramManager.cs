@@ -11,12 +11,9 @@ public class TangramManager : MonoBehaviour
 
     public Canvas canvas; //try
 
-    /*public GameObject firstStage;
-    public GameObject secondStage;
-    public GameObject thirdStage;*/
     public GameObject[] stages;
-    public GameObject[] grids; //array of the grid?
-    public GameObject[] shapeStorages; //array of ShapeStorage
+    public GameObject[] grids; //array of the grids
+    public GameObject[] shapeStorages; //array of ShapeStorages
     public int currentStage;
 
     public GameObject welcomeScreen;
@@ -51,24 +48,14 @@ public class TangramManager : MonoBehaviour
         GameManager.Instance.UpdateGameState(GameState.Puzzle);
     }
 
+    //Function to reset stage
     public void ResetStage()
     {
-        /*var resetGameobject = GameObject.Instantiate(stage);
-        resetGameobject.transform.parent = this.canvas.transform;
-        resetGameobject.transform.localScale = new Vector3(1f, 1f, 1f);
-        Destroy(stage);
-
-        //GameObject temp = stage.GetComponent<GameObject>();
-        //Instantiate(temp);
-        //stage.SetActive(false);
-        //stage.SetActive(true);
-
-        //SceneManager.LoadScene("Vending Machine Puzzle");*/
-
         this.grids[currentStage].GetComponent<Grid>().ResetGrid();
-        this.shapeStorages[currentStage].GetComponent<ShapeStorage>().ResetAllShapes(); //this is the problem
+        this.shapeStorages[currentStage].GetComponent<ShapeStorage>().ResetAllShapes();
     }
 
+    //Functions to manage screens that appear in puzzle
     public void CloseWelcomeScreen()
     {
         welcomeScreen.SetActive(false);

@@ -12,7 +12,6 @@ public class ShapeDataDrawer : Editor
 
     public override void OnInspectorGUI()
     {
-        //base.OnInspectorGUI();
         serializedObject.Update();
         ClearBoardButton();
         EditorGUILayout.Space();

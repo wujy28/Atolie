@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Indicator : MonoBehaviour
 {
-    //public int[,] firstStageData = new int[6, 6]; //array that stores index of every line -> not gonna implement
-    //public int[,] secondStageData = new int[7, 7];
+    //Holds arrays of the indexes of grid squares for the puzzle stages
 
     public int[] firstStageGridData = {0,  1,  2,  3,  4,  5,
                                        6,  7,  8,  9,  10, 11,

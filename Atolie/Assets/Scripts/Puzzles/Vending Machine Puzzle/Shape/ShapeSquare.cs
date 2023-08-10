@@ -12,25 +12,17 @@ public class ShapeSquare : MonoBehaviour
         occupiedImage.gameObject.SetActive(false);
     }
 
+    //Function to deactivate shape
     public void DeactivateShape()
     {
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         gameObject.SetActive(false);
     }
 
+    //Function to activate shape
     public void ActivateShape()
     {
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
         gameObject.SetActive(true);
     }
-
-    /*public void SetOccupied()
-    {
-        occupiedImage.gameObject.SetActive(true);
-    }
-
-    public void UnSetOccupied()
-    {
-        occupiedImage.gameObject.SetActive(false);
-    }*/
 }

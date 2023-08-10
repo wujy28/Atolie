@@ -43,11 +43,13 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         TangramEvents.MoveShapeToStartPosition -= MoveShapeToStartPosition;
     }
 
+    //Function to check if the shape is at its beginning position
     public bool IsOnStartPosition()
     {
         return _transform.localPosition == startPosition;
     }
 
+    //Function to check if shape is active
     public bool IsAnyOfShapeSquareActive()
     {
         foreach (var square in currShape)
@@ -61,6 +63,7 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         return false;
     }
 
+    //Function to deactivate the square of the shape
     public void DeactivateSquare()
     {
         if (shapeActive)
@@ -74,6 +77,7 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         shapeActive = false;
     }
 
+    //Function to activate the square of the shape
     public void ActivateSquare()
     {
         if (!shapeActive)
@@ -87,12 +91,14 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         shapeActive = true;
     }
 
+    //Function to get new shape
     public void RequestNewShape(ShapeData shapeData)
     {
         _transform.localPosition = startPosition;
         CreateShape(shapeData);
     }
 
+    //Function to create a shape
     public void CreateShape(ShapeData shapeData)
     {
         CurrentShapeData = shapeData;
@@ -132,6 +138,7 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         }
     }
 
+    //Function to get the x coordinate of shape square
     private float GetXPositionForShapeSquare(ShapeData shapeData, int column, Vector2 moveDistance)
     {
         float shiftOnX = 0f;
@@ -149,6 +156,7 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         return shiftOnX;
     }
 
+    //Function to get the y coordinate of shape square
     private float GetYPositionForShapeSquare(ShapeData shapeData, int row, Vector2 moveDistance)
     {
         float shiftOnY = 0f;
@@ -165,6 +173,7 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
         return shiftOnY;
     }
 
+    //Function to get the number of squares in a shape
     private int GetNumberOfSquares(ShapeData shapeData)
     {
         int number = 0;
@@ -193,7 +202,6 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        //throw new System.NotImplementedException();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -221,14 +229,15 @@ public class Shape : MonoBehaviour, IPointerClickHandler, IPointerUpHandler, IBe
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //throw new System.NotImplementedException();
     }
 
+    //Function to move shape back to start position
     private void MoveShapeToStartPosition()
     {
         _transform.transform.localPosition = startPosition;
     }
 
+    //Function to reset shape
     public void ResetShape()
     {
         if (!shapeActive)
