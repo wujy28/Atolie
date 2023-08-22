@@ -3547,9 +3547,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2056403773}
-        m_TargetAssemblyTypeName: NonogramManager, Assembly-CSharp
-        m_MethodName: ExitCompletedPuzzle
+      - m_Target: {fileID: 730754713}
+        m_TargetAssemblyTypeName: PuzzleSelectManager, Assembly-CSharp
+        m_MethodName: GoToPuzzleSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5408,9 +5408,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1427888659}
-        m_TargetAssemblyTypeName: DDRManager, Assembly-CSharp
-        m_MethodName: ExitCompletedPuzzle
+      - m_Target: {fileID: 1517157091}
+        m_TargetAssemblyTypeName: PuzzleSelectManager, Assembly-CSharp
+        m_MethodName: GoToPuzzleSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

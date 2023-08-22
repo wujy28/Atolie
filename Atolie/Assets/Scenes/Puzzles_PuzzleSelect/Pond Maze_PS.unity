@@ -886,6 +886,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1aef63c850d045d8a48452a504aac80, type: 3}
+--- !u!114 &571029919 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6745706437224814652, guid: b1aef63c850d045d8a48452a504aac80, type: 3}
+  m_PrefabInstance: {fileID: 571029918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93cc0446fefb44a14aa65e8f6a59ef07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &572198765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1537,9 +1548,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1918196832}
-        m_TargetAssemblyTypeName: PondMazeTracker, Assembly-CSharp
-        m_MethodName: ExitCompletedPuzzle
+      - m_Target: {fileID: 571029919}
+        m_TargetAssemblyTypeName: PuzzleSelectManager, Assembly-CSharp
+        m_MethodName: GoToPuzzleSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

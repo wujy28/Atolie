@@ -6357,9 +6357,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 28640185}
-        m_TargetAssemblyTypeName: WateringCansPuzzleTracker, Assembly-CSharp
-        m_MethodName: ExitCompletedPuzzle
+      - m_Target: {fileID: 1989681961}
+        m_TargetAssemblyTypeName: PuzzleSelectManager, Assembly-CSharp
+        m_MethodName: GoToPuzzleSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
