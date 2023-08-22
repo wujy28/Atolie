@@ -6,45 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Temp Menu/Start Screen.unity
-    guid: 9e39d4adf5f9a3141a3833627ec6fbee
+    path: Assets/Scenes/Puzzles_PuzzleSelect/Puzzle Select Screen.unity
+    guid: 2630252a8cc21456a9a02511189d0e15
   - enabled: 1
-    path: Assets/Scenes/Arcade.unity
-    guid: b3b4ea81e3dc7bd4bb05c1750212bf83
+    path: Assets/Scenes/Puzzles_PuzzleSelect/DDR_PS.unity
+    guid: ff2f44067bc514e3e80487bdf30bddaf
   - enabled: 1
-    path: Assets/Scenes/Cyberpunk City.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Puzzles_PuzzleSelect/Nonogram_PS.unity
+    guid: 3267a3892d77b41ea8080adcd4fa1227
   - enabled: 1
-    path: Assets/Scenes/Mushroom Garden.unity
-    guid: 99fd53ad08aa147b3ae16ee10eef4c54
+    path: Assets/Scenes/Puzzles_PuzzleSelect/Vending Machine Puzzle_PS.unity
+    guid: a2b2a2c7b628d4f0497e6d0fd53e4055
   - enabled: 1
-    path: Assets/Scenes/Puzzles/Pond Maze.unity
-    guid: da1f5982f64914b1cbca741ec6c2fa1d
+    path: Assets/Scenes/Puzzles_PuzzleSelect/Trash Can Sliding Puzzle_PS.unity
+    guid: 5b97f7d13af174a5599326c6a92df55d
   - enabled: 1
-    path: Assets/Scenes/Puzzles/Watering Cans Puzzle.unity
-    guid: 092c7e9a69b7a4e2a82e4ab36c8a5971
+    path: Assets/Scenes/Puzzles_PuzzleSelect/Wire Connecting Puzzle_PS.unity
+    guid: 6ef4aba70fe33469d92297f8e4371ed6
   - enabled: 1
-    path: Assets/Scenes/Temp Menu/Instruction Screen.unity
-    guid: c528ec02b1bccc34c943f5e6effecefe
+    path: Assets/Scenes/Puzzles_PuzzleSelect/Watering Cans Puzzle_PS.unity
+    guid: cc5be9011cdd741dba3c8ee43aba6378
   - enabled: 1
-    path: Assets/Scenes/Puzzles/DDR.unity
-    guid: a7efac3f0da73e7439004acd29203987
-  - enabled: 1
-    path: Assets/Scenes/Temp Menu/End Demo Scene.unity
-    guid: 111dd5a49552a41c79e27c6ea42f1b3c
-  - enabled: 1
-    path: Assets/Scenes/Puzzles/Wire Connecting Puzzle.unity
-    guid: d131b89798d364c0480a49c561aee377
-  - enabled: 1
-    path: Assets/Scenes/Puzzles/Vending Machine Puzzle.unity
-    guid: d37da5ad398a6784c806aad9ab5a6295
-  - enabled: 1
-    path: Assets/Scenes/Puzzles/Trash Can Sliding Puzzle.unity
-    guid: 9178c953161014a22848716167751026
-  - enabled: 1
-    path: Assets/Scenes/Puzzles/Nonogram.unity
-    guid: 096061d89fd7f0b438cc4be848ddd521
-  - enabled: 1
-    path: Assets/Scenes/Trader Ro's.unity
-    guid: 0775aa772baba41f39751d9f0988e8f3
+    path: Assets/Scenes/Puzzles_PuzzleSelect/Pond Maze_PS.unity
+    guid: b4013c81c35254e1ba0138b1e6c3c0c2
   m_configObjects: {}
