@@ -1,5 +1,7 @@
 # An Orbital Project 2023
 
+![Atolie Logo](https://github.com/user-attachments/assets/8065329f-b76a-4715-a2b9-f9b795927048)
+
 ## Introduction
 
 **Group Name:** Atolie
@@ -27,3 +29,7 @@ Video: https://drive.google.com/file/d/1DMoQpVTYXYNOi3fzsh8UTPkD-5JtoZZa/view?us
 <ins>Milestone 3 Submission:</ins>\
 Poster: https://drive.google.com/file/d/1GpFfXTLoviJXDC3uPEphhFDRdjIHYpbO/view?usp=sharing \
 Video: https://drive.google.com/file/d/17lbn_8WucvKaHoMfyXkolzWk_p7ZLlgA/view?usp=sharing
+
+<ins>Splashdown Submission:</ins>\
+Poster: https://drive.google.com/file/d/16nUEQm4L4Zp_ibcNH5ilV2ZF8-NQ-xdL/view?usp=sharing \
+Video: https://drive.google.com/file/d/17NDhHcJd6tdmBFs1aAhSVhoVACBe-j6p/view?usp=sharing
