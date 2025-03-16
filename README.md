@@ -13,6 +13,7 @@
 **Link to Game (WebGL):** https://radraven.itch.io/atolie \
 If you are at your wits’ end for any of the puzzles, you may refer to this cheat sheet containing the puzzle solutions: [Atolie Puzzle Cheat Sheet](https://docs.google.com/document/d/1t8qRAAdTOCm3NaKlGxqNh7htV2FufVcuCSUt8P2RIKg/edit?usp=sharing)
 
+**Game Design Document:** https://docs.google.com/document/d/1wYbdhk6dP7sLZoEf8C98MgBp3501AQyyslaCZuNoDHc/edit?usp=sharing
 
 <ins>Liftoff Submission</ins>\
 Poster: https://drive.google.com/file/d/1JchdpNwFz7QvrM5NhNWyrGm04OHPyqIX/view?usp=sharing \
